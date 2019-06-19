@@ -1,0 +1,31 @@
+$pseudo-classes: (
+  "act": active,
+  "hov": hover,
+  "foc": focus,
+  "focw": focus-within
+);
+
+$displays-elts: (
+  "none": none,
+  "block": block,
+  "inline-block": inline-block,
+  "flex": flex,
+  "grid": grid,
+  "table": table,
+  "cell": cell,
+  "table-cell": table-cell
+);
+
+$positions-elts: (
+  "absolute": absolute,
+  "relative": relative,
+  "fixed": fixed,
+  "static": static
+);
+
+$other-positions-elts: (
+  "l": left,
+  "r": right,
+  "b": bottom,
+  "t": top
+);

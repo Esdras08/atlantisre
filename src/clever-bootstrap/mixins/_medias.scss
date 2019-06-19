@@ -1,0 +1,11 @@
+@mixin print {
+	@media print {
+		@content
+	}
+}
+
+@mixin breakpoint-up($media_key) {
+	@media screen and (min-width: map-get($breakpoints-up, $media_key)){
+		@content
+	}
+}

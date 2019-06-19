@@ -1,0 +1,55 @@
+
+.#{$library-prefix}-#{$button-prefix} {
+  $this: &;
+  @include build-preset-button();
+  @include elevation-1();
+  @each $color-key in theme-color-keys() {
+    $color: theme-color($color-key);
+    &.#{$library-prefix}-#{$button-prefix}-#{$color-key} {
+      @include build-backgrounds($color-key);
+      &:hover {
+        @include background(hover-color($color));
+        @include color(contrast-color(hover-color($color)));
+      }
+      &:active {
+        @include background(active-color($color));
+        @include color(contrast-color(active-color($color)));
+      }
+    }
+  }
+  &-outline {
+    @include build-preset-button();
+    @each $color-key in theme-color-keys() {
+      $background-color: theme-color("white");
+      $color: theme-color($color-key);
+      &.#{$library-prefix}-#{$button-prefix}-#{$color-key} {
+        @include border(2px solid $color);
+        @include background($background-color);
+        @include color($color);
+        &:hover {
+          @include background(hover-color($background-color));
+        }
+        &:active {
+          @include background(active-color($background-color));
+        }
+      }
+    }
+  }
+  &-flat {
+    @include build-preset-button();
+    @each $color-key in theme-color-keys() {
+      $background-color: theme-color("white");
+      $color: theme-color($color-key);
+      &.#{$library-prefix}-#{$button-prefix}-#{$color-key} {
+        @include background($background-color);
+        @include color($color);
+        &:hover {
+          @include background(hover-color($background-color));
+        }
+        &:active {
+          @include background(active-color($background-color));
+        }
+      }
+    }
+  }
+}

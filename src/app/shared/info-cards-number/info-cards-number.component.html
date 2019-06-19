@@ -1,0 +1,66 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+    <mat-card class="p-0 gradient-purple" app-hover-add-class="card-hover">
+      <div class="py-2 px-3" fxLayoutAlign="space-between center">
+        <p>Solde Espèces</p>
+        <div fxLayoutAlign="center center">
+          <!--<mat-icon class="icon-sm mx-1">trending_up</mat-icon>-->
+          <!--<span>38%</span>-->
+        </div>
+      </div>
+      <div class="w-100 h-100p">
+        <div class="valeur-numerique" *ngIf="compte?.SoldeDisponible; else no_valeur_numerique">
+          {{compte?.SoldeDisponible | decimalFormat}}</div>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+    <mat-card class="p-0 gradient-teal" app-hover-add-class="card-hover">
+      <div class="py-2 px-3" fxLayoutAlign="space-between center">
+        <p>Valorisation Titre</p>
+        <div fxLayoutAlign="center center">
+          <!--<mat-icon class="icon-sm mx-1">trending_up</mat-icon>-->
+          <!--<span>16%</span>-->
+        </div>
+      </div>
+      <div class="w-100 h-100p">
+        <div class="valeur-numerique" *ngIf="compte?.ValorisationTitre; else no_valeur_numerique">
+          {{compte?.ValorisationTitre | decimalFormat}}</div>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+    <mat-card class="p-0 gradient-indigo" app-hover-add-class="card-hover">
+      <div class="py-2 px-3" fxLayoutAlign="space-between center">
+        <p>Valorisation Globale</p>
+        <div fxLayoutAlign="center center">
+          <!--<mat-icon class="icon-sm mx-1">trending_down</mat-icon>-->
+          <!--<span>-11%</span>-->
+        </div>
+      </div>
+      <div class="w-100 h-100p">
+        <div class="valeur-numerique" *ngIf="compte?.ValorisationGlobale; else no_valeur_numerique">
+          {{compte?.ValorisationGlobale | decimalFormat}}</div>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+    <mat-card class="p-0 gradient-amber" app-hover-add-class="card-hover">
+      <div class="py-2 px-3" fxLayoutAlign="space-between center">
+        <p>Perfomance</p>
+        <div fxLayoutAlign="center center">
+          <!--<mat-icon class="icon-sm mx-1">trending_up</mat-icon>-->
+          <!--<span>17%</span>-->
+        </div>
+      </div>
+      <div class="w-100 h-100p">
+        <div class="valeur-numerique" *ngIf="compte?.Performance; else no_valeur_numerique">
+          {{compte?.Performance | decimalFormat}}</div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #no_valeur_numerique>
+  <div class="valeur-numerique">0</div>
+</ng-template>

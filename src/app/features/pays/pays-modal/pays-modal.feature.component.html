@@ -1,0 +1,38 @@
+<app-modal-template title="Pays" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput id="libelle" [placeholder]="translateService?.instant('PAYS.FORM.LIBELLE.PLACEHOLDER')"
+                           name="libelle" required
+                           formControlName="Libelle" mat>
+                    <mat-hint align="start">{{translateService?.instant('PAYS.FORM.LIBELLE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Libelle" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput id="nationnalité"
+                           [placeholder]="translateService?.instant('PAYS.FORM.NATIONALITE.PLACEHOLDER')"
+                           name="Nationnalité"
+                           formControlName="LibelleNationnalite" required>
+                    <mat-hint align="start">{{translateService?.instant('PAYS.FORM.NATIONALITE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="LibelleNationnalite" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

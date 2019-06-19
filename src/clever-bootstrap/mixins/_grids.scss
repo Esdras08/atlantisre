@@ -1,0 +1,64 @@
+
+
+@mixin build-containers ($gutter) {
+  @include width(100%);
+  @include padding-right(grid-gutter-padding($gutter));
+  @include padding-left(grid-gutter-padding($gutter));
+  @include margin-right(auto);
+  @include margin-left(auto);
+}
+
+@mixin build-max-length-container($max-length, $gutter) {
+  @include max-width($max-length);
+  @include padding-right(grid-gutter-padding($gutter));
+  @include padding-left(grid-gutter-padding($gutter));
+  @include margin-right(auto);
+  @include margin-left(auto);
+}
+
+@mixin build-row ($prefix, $gutter){
+  .#{$prefix}-#{$row-prefix} {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include padding-left(grid-gutter-padding($gutter));
+    @include padding-right(grid-gutter-padding($gutter));
+    &>* {
+      @include width(100%);
+      @include position(relative);
+      @include flex(0 0 grid-column-size($grid-number, $grid-number));
+      @include max-width(grid-column-size($grid-number, $grid-number));
+      @include padding-left(grid-gutter-padding($gutter));
+      @include padding-right(grid-gutter-padding($gutter));
+    }
+  }
+}
+
+@mixin build-cols ($grid-number, $breakpoints, $prefix, $gutter) {
+  @each $key, $value in $breakpoints{
+    @for $i from 1 to ($grid-number + 1) {
+      @media screen and (min-width: $value) {
+        .#{$prefix}-#{$column-prefix}-#{$key}-#{$i} {
+          @include position(relative);
+          @include flex(0 0 grid-column-size($i, $grid-number));
+          @include max-width(grid-column-size($i, $grid-number));
+          @include padding-left(grid-gutter-padding($gutter));
+          @include padding-right(grid-gutter-padding($gutter));
+        }
+      }
+    }
+  }
+}
+
+@mixin build-cols-all-screen ($grid-number, $prefix, $gutter) {
+  @for $i from 1 to ($grid-number + 1) {
+    .#{$prefix}-#{$column-prefix}-#{$i} {
+      @include position(relative);
+      @include flex(0 0 grid-column-size($i, $grid-number));
+      @include max-width(grid-column-size($i, $grid-number));
+      @include padding-left(grid-gutter-padding($gutter));
+      @include padding-right(grid-gutter-padding($gutter));
+    }
+  }
+}
+
+

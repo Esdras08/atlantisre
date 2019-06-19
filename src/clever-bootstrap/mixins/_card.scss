@@ -1,0 +1,9 @@
+@mixin build-card {
+  @include display(inline-block);
+  @include background($card-background-color);
+  @include padding($card-padding);
+  @include border-radius($card-radius);
+  @include width(100%);
+  @include transition(all 0.3s cubic-bezier(.25,.8,.25,1));
+  @include elevation-1();
+}

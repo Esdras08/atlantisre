@@ -1,0 +1,50 @@
+<app-modal-template title="Devises" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('DEVISE.FORM.CODE.PLACEHOLDER')" required
+                           formControlName="CodeDevise">
+                    <mat-hint align="start">{{translateService?.instant('DEVISE.FORM.CODE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="CodeDevise" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('DEVISE.FORM.LIBELLE.PLACEHOLDER')"
+                           formControlName="LibelleDevise" required>
+                    <mat-hint align="start">{{translateService?.instant('DEVISE.FORM.LIBELLE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="LibelleDevise" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('DEVISE.FORM.SYMBOLE.PLACEHOLDER')"
+                           formControlName="SymboleDevise" required>
+                    <mat-hint align="start">{{translateService?.instant('DEVISE.FORM.SYMBOLE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="SymboleDevise" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

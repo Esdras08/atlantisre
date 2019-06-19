@@ -1,0 +1,11 @@
+
+.#{$library-prefix}-m {
+  $this: &;
+  @each $breakpoint-key in map-keys($breakpoints-up) {
+    @include breakpoint-up($breakpoint-key) {
+      @each $other-pos in map-keys($other-positions-elts) {
+        //#{$this}#{$other-pos}-#{$breakpoint-key}-
+      }
+    }
+  }
+}

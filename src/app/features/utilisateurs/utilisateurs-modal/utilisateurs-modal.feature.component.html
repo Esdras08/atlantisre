@@ -1,0 +1,149 @@
+<app-modal-template title="Utilisateur" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('UTILISATEUR.FORM.NOM.PLACEHOLDER')"
+                           required formControlName="Nom">
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.NOM.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Nom" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.PRENOM.PLACEHOLDER')"
+                           formControlName="Prenom" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.PRENOM.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Prenom" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type="email"
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.EMAIL.PLACEHOLDER')"
+                           formControlName="Email" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.EMAIL.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Email" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.TELEPHONE.PLACEHOLDER')"
+                           formControlName="Telephone" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.TELEPHONE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Telephone" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.LOGIN.PLACEHOLDER')"
+                           formControlName="Login" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.LOGIN.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Login" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-checkbox [formControl]="definePassword">{{translateService?.instant('UTILISATEUR.FORM.DEFINE_PASSWORD')}}</mat-checkbox>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30" *ngIf="definePassword?.value">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type="password"
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.PASSWORD.PLACEHOLDER')"
+                           formControlName="Password" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.PASSWORD.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Password" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30" *ngIf="definePassword?.value">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type="password"
+                           [placeholder]="translateService?.instant('UTILISATEUR.FORM.REPASSWORD.PLACEHOLDER')"
+                           [formControl]="repassword" required>
+                    <mat-hint align="start">{{translateService?.instant('UTILISATEUR.FORM.REPASSWORD.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error *ngIf="
+                                repassword?.value !== getFormInstance()?.get('Password')?.value &&
+                                repassword?.value !== '' &&
+                                repassword?.value !== undefined &&
+                                ((repassword?.dirty ||
+                                repassword?.touched) ||
+                                submitted)">
+                    {{PARAMS?.VALIDATION?.MESSAGES?.PASSWORD_NOT_EQUAL}}
+                </app-form-error>
+                <!--<app-form-error-list [submitted]="submitted" name="Password" [formGroup]="getFormInstance()"></app-form-error-list>-->
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="16" fxFlex.lg="16">
+                <app-combo-re-profil #profil name="IdProfil"
+                                     [submitted]="submitted"
+                                     [(inputValue)]="profilIv"
+                                     (onInputChange)="optionInputHasChanged($event)"
+                                     [placeholder]="translateService?.instant('UTILISATEUR.FORM.PROFIL.PLACEHOLDER')"
+                                     [hint]="translateService?.instant('UTILISATEUR.FORM.PROFIL.HINT')"></app-combo-re-profil>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-autocomplete-structure #structure
+                                            [submitted]="submitted"
+                                       [(inputValue)]="structureIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdPays" required="true"
+                                       [placeholder]="translateService?.instant('UTILISATEUR.FORM.STRUCTURE.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('UTILISATEUR.FORM.STRUCTURE.HINT')"></app-autocomplete-structure>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="16" fxFlex.lg="16">
+                <app-combo-actif #actif name="Actif"
+                                 [submitted]="submitted"
+                                     [(inputValue)]="actifIv"
+                                     (onInputChange)="optionInputHasChanged($event)"
+                                     [placeholder]="translateService?.instant('UTILISATEUR.FORM.ACTIF.PLACEHOLDER')"
+                                     [hint]="translateService?.instant('UTILISATEUR.FORM.ACTIF.HINT')"></app-combo-actif>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="16" fxFlex.lg="16">
+                <app-combo-is-connected #isConnected name="IsConnected"
+                                        [submitted]="submitted"
+                                 [(inputValue)]="isConnectedIv"
+                                 (onInputChange)="optionInputHasChanged($event)"
+                                 [placeholder]="translateService?.instant('UTILISATEUR.FORM.IS_CONNECTED.PLACEHOLDER')"
+                                 [hint]="translateService?.instant('UTILISATEUR.FORM.IS_CONNECTED.HINT')"></app-combo-is-connected>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

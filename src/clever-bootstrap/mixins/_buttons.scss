@@ -1,0 +1,13 @@
+@mixin build-preset-button {
+  @include display(inline-block);
+  @include padding-left($button-paddings-x);
+  @include padding-right($button-paddings-x);
+  @include padding-top($button-paddings-y);
+  @include padding-bottom($button-paddings-y);
+  @include border-style(none);
+  @include border-radius($button-radius);
+  @include text-align(center);
+  @include cursor(pointer);
+  @include font-weight(500);
+  @include outline(none);
+}

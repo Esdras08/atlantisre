@@ -1,0 +1,17 @@
+<ngx-loading-bar></ngx-loading-bar>
+<div id="app" class="app" [dir]="(settings.rtl) ? 'rtl' : 'ltr'"
+            [ngClass]="settings.theme" 
+            [class.fixed-header]="settings.fixedHeader"
+            [class.fixed-sidenav]="settings.fixedSidenav"
+            [class.fixed-footer]="settings.fixedFooter"
+            [class.horizontal-menu]="settings.menu == 'horizontal'" 
+            [class.compact]="settings.menuType == 'compact'" 
+            [class.mini]="settings.menuType == 'mini'">
+    <router-outlet></router-outlet>
+    <ng-http-loader [entryComponent]="myLoadingComponent"
+                    [filteredMethods]="['get']"></ng-http-loader>
+    <div id="app-spinner" [class.hide]="!settings.loadingSpinner">
+        <img src="assets/img/logo.png" class="animated-logo"> 
+        <h4>Chargement des données...</h4>
+    </div> 
+</div>

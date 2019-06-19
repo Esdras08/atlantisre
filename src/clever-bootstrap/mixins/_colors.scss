@@ -1,0 +1,64 @@
+
+@mixin build-backgrounds($key) {
+  @include color(contrast-color(theme-color($key)) !important);
+  @include background(theme-color($key) !important);
+}
+
+@mixin build-colors($key) {
+  @include color(theme-color($key) !important);
+}
+
+@mixin build-theme-responsive-color($theme, $prefix){
+  @each $breakpoint in map-keys($breakpoints-up){
+    @each $key in map-keys($theme) {
+      @include breakpoint-up($breakpoint){
+        .#{$prefix}-bg-#{$breakpoint}-#{$key} {
+          @include build-backgrounds($key);
+        }
+        .#{$prefix}-color-#{$breakpoint}-#{$key} {
+          @include build-colors($key);
+        }
+        @each $pseudo in map-keys($pseudo-classes){
+          $pseudo-value: map-get($pseudo-classes, $pseudo);
+          .#{$prefix}-bg-#{$breakpoint}-#{$pseudo}-#{$key}:#{$pseudo-value} {
+            @include build-backgrounds($key);
+          }
+          .#{$prefix}-color-#{$breakpoint}-#{$pseudo}-#{$key}:#{$pseudo-value} {
+            @include build-colors($key);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin build-theme-color($theme, $prefix){
+  @each $key in map-keys($theme) {
+    .#{$prefix}-bg-#{$key} {
+      @include build-backgrounds($key);
+    }
+    .#{$prefix}-bg-#{$key}-light {
+      @include color(contrast-color(lighten(theme-color($key), 20%)) !important);
+      @include background(lighten(theme-color($key), 20%) !important);
+    }
+    .#{$prefix}-bg-#{$key}-dark {
+      @include color(contrast-color(darken(theme-color($key), 20%)) !important);
+      @include background(darken(theme-color($key), 20%) !important);
+    }
+    .#{$prefix}-color-#{$key} {
+      @include build-colors($key);
+    }
+    @each $pseudo in map-keys($pseudo-classes){
+      $pseudo-value: map-get($pseudo-classes, $pseudo);
+      .#{$prefix}-bg-#{$pseudo}-#{$key}:#{$pseudo-value} {
+        @include build-backgrounds($key);
+      }
+      .#{$prefix}-color-#{$pseudo}-#{$key}:#{$pseudo-value} {
+        @include build-colors($key);
+      }
+    }
+  }
+}
+
+
+

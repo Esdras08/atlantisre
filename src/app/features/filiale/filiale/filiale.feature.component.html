@@ -1,0 +1,30 @@
+<div class="p-2" align="end">
+    <button mat-raised-button="" ngClass="bg-primary" (click)="launchmodal()"><mat-icon>control_point</mat-icon>&nbsp;
+        {{translateService?.instant('APPS.ACTIONS.ADD')}}</button>
+</div>
+
+<form class="p-2" [formGroup]="getFormInstance()">
+    <clv-advanced-table
+            [params]="getTableParams()" [formArrayName]="getArrayName()"
+            (page)="setPageParams($event)" (search)="setSearchParams($event)">
+        <ng-container class="clv-tr" *ngFor="let elt of getFormInstance()?.get(getArrayName())?.controls;let i=index">
+            <clv-tr [params]="getTableParams()" [data]="getFormData()?.Items[i]" [formGroupName]="i" [id]="i">
+                <clv-td align="center">{{getFormData()?.Items[i]?.NomFilliale}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.AdresseFiliale}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.CodeFiliale}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Pays?.Libelle }}</clv-td>
+                <clv-td align="center">
+                    <button mat-icon-button color="primary" [matTooltip]="translateService?.instant('APPS.ACTIONS.UPDATE_TOOLTIP')"
+                            (click)="launchmodal(getFormData()?.Items[i])">
+                        <mat-icon>create</mat-icon>
+                    </button>&nbsp;
+                    <button mat-icon-button color="warn" [matTooltip]="translateService?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                            type="button" (click)="askDelete(getFormData()?.Items[i])">
+                        <mat-icon>delete</mat-icon>
+                    </button>&nbsp;
+                </clv-td>
+
+            </clv-tr>
+        </ng-container>
+    </clv-advanced-table>
+</form>

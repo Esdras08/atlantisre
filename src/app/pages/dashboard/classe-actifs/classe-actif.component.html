@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-header fxLayoutAlign="center">
+        <mat-card-subtitle><h2>Classes d'Actifs</h2></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="getFormInstance()">
+            <clv-advanced-table
+                    [params]="getTableParams()" [formArrayName]="getArrayName()" (page)="setPageParams($event)" (search)="setSearchParams($event)">
+                <ng-container class="clv-tr" *ngFor="let elt of getFormInstance()?.get(getArrayName())?.controls;let i=index">
+                    <clv-tr [params]="getTableParams()" [data]="getFormData().Items[i]" [formGroupName]="i" [id]="i">
+                        <clv-td>{{getFormData()?.Items[i]?.Libelle}}</clv-td>
+                        <clv-td>{{getFormData()?.Items[i]?.Valeur | decimalFormat}}</clv-td>
+                        <clv-td>{{getFormData()?.Items[i]?.RepartitionPourcentage}}</clv-td>
+                    </clv-tr>
+                </ng-container>
+                <clv-tfoot [params]="getTableParams()" class="clv-tfoot">
+                    <clv-td>TOTAL</clv-td>
+                    <clv-td *ngIf="getFormData()?.Items; else td_null">{{getFormData()?.Items | objectSumField: 'Valeur' | decimalFormat}}</clv-td>
+                    <clv-td *ngIf="getFormData()?.Items; else td_null">{{getFormData()?.Items | objectSumField: 'RepartitionPourcentage'}}</clv-td>
+                </clv-tfoot>
+            </clv-advanced-table>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #td_null>
+    <clv-td>0</clv-td>
+</ng-template>

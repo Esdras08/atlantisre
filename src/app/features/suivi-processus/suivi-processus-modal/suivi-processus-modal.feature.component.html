@@ -1,0 +1,41 @@
+<app-modal-template title="Suivis Processus" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-re-combo-etape-processus #etapeProcessus name="IdTEtapeProcessus"
+                                              [submitted]="submitted"
+                                              [(inputValue)]="etapeProcessusIv"
+                                              (onInputChange)="optionInputHasChanged($event)"
+                                              [placeholder]="translateService?.instant('SUIVI_PROCESSUS.FORM.ID_ETAPE_PROCESSUS.PLACEHOLDER')"
+                                              [hint]="translateService?.instant('SUIVI_PROCESSUS.FORM.ID_ETAPE_PROCESSUS.HINT')"
+                                              required="true"></app-re-combo-etape-processus>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-re-combo-type-echange #typeEchange name="IdTEtapeProcessus"
+                                              [submitted]="submitted"
+                                              [(inputValue)]="typeEchangeIv"
+                                              (onInputChange)="optionInputHasChanged($event)"
+                                              [placeholder]="translateService?.instant('SUIVI_PROCESSUS.FORM.ID_TYPE_ECHANGE.PLACEHOLDER')"
+                                              [hint]="translateService?.instant('SUIVI_PROCESSUS.FORM.ID_TYPE_ECHANGE.HINT')"
+                                              required="true"></app-re-combo-type-echange>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark"
+                    (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

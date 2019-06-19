@@ -1,0 +1,71 @@
+<app-modal-template title="Traité" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('TRAITE.FORM.LIBELLE.PLACEHOLDER')" required
+                           formControlName="Libelle">
+                    <mat-hint align="start">{{translateService?.instant('TRAITE.FORM.LIBELLE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Libelle" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('TRAITE.FORM.NATURE_ACTIVITE.PLACEHOLDER')" required
+                           formControlName="NatureActivite">
+                    <mat-hint align="start">{{translateService?.instant('TRAITE.FORM.NATURE_ACTIVITE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="NatureActivite" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-branche #branche name="IdBranche"
+                                      [submitted]="submitted"
+                                     [(inputValue)]="brancheIv"
+                                     (onInputChange)="optionInputHasChanged($event)"
+                                     [placeholder]="translateService?.instant('TRAITE.FORM.BRANCHE.PLACEHOLDER')"
+                                     [hint]="translateService?.instant('TRAITE.FORM.BRANCHE.HINT')" required="true"></app-combo-re-branche>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-reassureur #reassureur
+                                             [submitted]="submitted"
+                                       [(inputValue)]="reassureurIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdReassureur" required="true"
+                                       [placeholder]="translateService?.instant('TRAITE.FORM.REASSUREUR.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('TRAITE.FORM.REASSUREUR.HINT')"></app-autocomplete-reassureur>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-structure #structure
+                                            [submitted]="submitted"
+                                       [(inputValue)]="structureIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdStructure" required="true"
+                                       [placeholder]="translateService?.instant('TRAITE.FORM.STRUCTURE.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('TRAITE.FORM.STRUCTURE.HINT')"></app-autocomplete-structure>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

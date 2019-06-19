@@ -1,0 +1,104 @@
+<app-modal-template title="Affaires" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('AFFAIRE.FORM.NUMERO_ORDRE.PLACEHOLDER')" required
+                           formControlName="NumeroOrdre">
+                    <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.NUMERO_ORDRE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="NumeroOrdre" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('AFFAIRE.FORM.NUMERO_POLICE.PLACEHOLDER')"
+                           formControlName="NumeroPolice" required>
+                    <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.NUMERO_POLICE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="NumeroPolice" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('AFFAIRE.FORM.CAPITAUX_ASSURE.PLACEHOLDER')"
+                           formControlName="CapitauxAssure" required>
+                    <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.CAPITAUX_ASSURE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="CapitauxAssure" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('AFFAIRE.FORM.ACTIVITE.PLACEHOLDER')"
+                           formControlName="Activite" required>
+                    <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.ACTIVITE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Activite" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-statut-affaire #statutAffaire name="IdStatutAffaire"
+                                             [submitted]="submitted"
+                                             [(inputValue)]="statuAffaireIv"
+                                             (onInputChange)="optionInputHasChanged($event)"
+                                             [placeholder]="translateService?.instant('AFFAIRE.FORM.STATUT_AFFAIRE.PLACEHOLDER')"
+                                             [hint]="translateService?.instant('AFFAIRE.FORM.STATUT_AFFAIRE.HINT')"
+                                             required="false"></app-combo-re-statut-affaire>
+            </div>
+            <!--end field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-branche #branche name="IdBranche"
+                                      [submitted]="submitted"
+                                      [(inputValue)]="brancheIv"
+                                      (onInputChange)="optionInputHasChanged($event)"
+                                      [placeholder]="translateService?.instant('AFFAIRE.FORM.BRANCHE.PLACEHOLDER')"
+                                      [hint]="translateService?.instant('AFFAIRE.FORM.BRANCHE.HINT')"
+                                      required="true"></app-combo-re-branche>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-filiale #filiale name="IdFiliale"
+                                      [submitted]="submitted"
+                                      [(inputValue)]="filialeIv"
+                                      (onInputChange)="optionInputHasChanged($event)"
+                                      [placeholder]="translateService?.instant('AFFAIRE.FORM.FILIALE.PLACEHOLDER')"
+                                      [hint]="translateService?.instant('AFFAIRE.FORM.FILIALE.HINT')"
+                                      required="false"></app-combo-re-filiale>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-assure #assure name="IdAssure"
+                                      [submitted]="submitted"
+                                      [(inputValue)]="assureIv"
+                                      (onInputChange)="optionInputHasChanged($event)"
+                                      [placeholder]="translateService?.instant('AFFAIRE.FORM.ASSURE.PLACEHOLDER')"
+                                      [hint]="translateService?.instant('AFFAIRE.FORM.ASSURE.HINT')"
+                                      required="false"></app-combo-re-assure>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

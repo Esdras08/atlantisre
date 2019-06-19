@@ -1,0 +1,27 @@
+<app-content-header
+        [title]="translateService?.translate.instant('APPS.CONTENT_HEADERS.PLACEMENT_EN_FAC.TITLE')"
+        [hideBreadcrumb]="false"
+        [hasBgImage]="true"
+        [class]="'py-3'">
+</app-content-header>
+
+<div fxLayout="row wrap" fxLayoutGap="10px" class="p-2">
+    <div fxFlex.md="32.5" fxFlex.lg="32.5">
+        <app-affaire-card width="100%" height="100%"></app-affaire-card>
+    </div>
+    <div fxFlex.md="32.5" fxFlex.lg="32.5">
+        <app-processus-card width="100%" height="100%"></app-processus-card>
+    </div>
+    <div fxFlex.md="32.5" fxFlex.lg="32.5">
+        <app-placement-en-fac-card width="100%" height="100%"></app-placement-en-fac-card>
+    </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="10px" class="p-2">
+    <div fxFlex.md="20" fxFlex.lg="20">
+        <app-re-liste-placement></app-re-liste-placement>
+    </div>
+    <div fxFlex.md="78" fxFlex.lg="78">
+        <app-re-formulaire-placement></app-re-formulaire-placement>
+    </div>
+</div>

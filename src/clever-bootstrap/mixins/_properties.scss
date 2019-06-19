@@ -1,0 +1,974 @@
+@mixin align-content ($property) {
+	-webkit-align-content: $property;
+	align-content: $property;
+}
+
+@mixin align-items ($property) {
+	-webkit-align-items: $property;
+	align-items: $property;
+}
+
+@mixin align-self ($property) {
+	-webkit-align-self: $property;
+  	align-self: $property;
+}
+
+@mixin all ($property) {
+	all: $property;
+}
+
+@mixin animation ($property) {
+	-webkit-animation: $property;
+	-moz-animation: $property;
+	-o-animation: $property;
+	animation: $property;
+}
+
+@mixin animation-delay ($property) {
+	-webkit-animation-delay: $property;
+	-moz-animation-delay: $property;
+	-o-animation-delay: $property;
+	animation-delay: $property;
+}
+
+@mixin animation-direction ($property) {
+	-webkit-animation-direction: $property;
+	-moz-animation-direction: $property;
+	-o-animation-direction: $property;
+	animation-direction: $property;
+}
+
+@mixin animation-duration ($property) {
+	-webkit-animation-duration: $property;
+	-moz-animation-duration: $property;
+	-o-animation-duration: $property;
+	animation-duration: $property;
+}
+
+@mixin animation-fill-mode ($property) {
+	-webkit-animation-fill-mode: $property;
+	-moz-animation-fill-mode: $property;
+	-o-animation-fill-mode: $property;
+	animation-fill-mode: $property;
+}
+
+@mixin animation-iteration-count ($property) {
+	-webkit-animation-iteration-count: $property;
+	-moz-animation-iteration-count: $property;
+	-o-animation-iteration-count: $property;
+	animation-iteration-count: $property;
+}
+
+@mixin animation-name ($property) {
+	-webkit-animation-name: $property;
+	-moz-animation-name: $property;
+	-o-animation-name: $property;
+	animation-name: $property;
+}
+
+@mixin animation-play-state ($property) {
+	-webkit-animation-play-state: $property;
+	-moz-animation-play-state: $property;
+	-o-animation-play-state: $property;
+	animation-play-state: $property;
+}
+
+@mixin animation-timing-function ($property) {
+	-webkit-animation-timing-function: $property;
+	-moz-animation-timing-function: $property;
+	-o-animation-timing-function: $property;
+	animation-timing-function: $property;
+}
+
+@mixin animation-timing-function ($property) {
+	-webkit-animation-timing-function: $property;
+	-moz-animation-timing-function: $property;
+	-o-animation-timing-function: $property;
+	animation-timing-function: $property;
+}
+
+@mixin backface-visibility ($property) {
+	-webkit-backface-visibility: $property;
+	-moz-backface-visibility: $property;
+	backface-visibility: $property;
+}
+
+@mixin background ($property) {
+	background: $property;
+}
+
+@mixin background-attachment ($property) {
+	background-attachment: $property;
+}
+
+@mixin background-blend-mode ($property) {
+	background-blend-mode: $property;
+}
+
+@mixin background-clip ($property) {
+	background-clip: $property;
+}
+
+@mixin background-color ($property) {
+	background-color: $property;
+}
+
+@mixin background-image ($property) {
+	background-image: $property;
+}
+
+@mixin background-origin ($property) {
+	background-origin: $property;
+}
+
+@mixin background-position ($property) {
+	background-position: $property;
+}
+
+@mixin background-repeat ($property) {
+	background-repeat: $property;
+}
+
+@mixin background-size ($property) {
+	-webkit-background-size: $property;
+	-moz-background-size: $property;
+	-o-background-size: $property;
+	background-size: $property;
+}
+
+@mixin border ($property) {
+	border: $property;
+}
+
+@mixin border-bottom ($property) {
+	border-bottom: $property;
+}
+
+@mixin border-bottom-color ($property) {
+	border-bottom-color: $property;
+}
+
+@mixin border-bottom-left-radius ($property) {
+	-webkit-border-bottom-left-radius: $property;
+	-moz-border-bottom-left-radius: $property;
+	border-bottom-left-radius: $property;
+}
+
+@mixin border-bottom-right-radius ($property) {
+	-webkit-border-bottom-right-radius: $property;
+	-moz-border-bottom-right-radius: $property;
+	border-bottom-right-radius: $property;
+}
+
+@mixin border-bottom-style ($property) {
+	border-bottom-style: $property;
+}
+
+@mixin border-bottom-width ($property) {
+	border-bottom-width: $property;
+}
+
+@mixin border-collapse ($property) {
+	border-collapse: $property;
+}
+
+@mixin border-color ($property) {
+	border-color: $property;
+}
+
+@mixin border-image ($property) {
+	-webkit-border-image: $property;
+	-moz-border-image: $property;
+	-o-border-image: $property;
+	border-image: $property;
+}
+
+@mixin border-image-outset ($property) {
+	border-image-outset: $property;
+}
+
+@mixin border-image-repeat ($property) {
+	border-image-repeat: $property;
+}
+
+@mixin border-image-slice ($property) {
+	border-image-slice: $property;
+}
+
+@mixin border-image-source ($property) {
+	border-image-source: $property;
+}
+
+@mixin border-image-width ($property) {
+	border-image-width: $property;
+}
+
+@mixin border-left ($property) {
+	border-left: $property;
+}
+
+@mixin border-left-color ($property) {
+	border-left-color: $property;
+}
+
+@mixin border-left-style ($property) {
+	border-left-style: $property;
+}
+
+@mixin border-left-width ($property) {
+	border-left-width: $property;
+}
+
+@mixin border-radius ($property...) {
+	-webkit-border-radius: $property;
+	-moz-border-radius: $property;
+	border-radius: $property;
+}
+
+@mixin border-right ($property) {
+	border-right: $property;
+}
+
+@mixin border-right-color ($property) {
+	border-right-color: $property;
+}
+
+@mixin border-right-style ($property) {
+	border-right-style: $property;
+}
+
+@mixin border-right-width ($property) {
+	border-right-width: $property;
+}
+
+@mixin border-spacing ($property) {
+	border-spacing: $property;
+}
+
+@mixin border-style ($property) {
+	border-style: $property;
+}
+
+@mixin border-top ($property) {
+	border-top: $property;
+}
+
+@mixin border-top-color ($property) {
+	border-top-color: $property;
+}
+
+@mixin border-top-left-radius ($property) {
+	-webkit-border-top-left-radius: $property;
+	-moz-border-top-left-radius: $property;
+	border-top-left-radius: $property;
+}
+
+@mixin border-top-right-radius ($property) {
+	-webkit-border-top-right-radius: $property;
+	-moz-border-top-right-radius: $property;
+	border-top-right-radius: $property;
+}
+
+@mixin border-top-style ($property) {
+	border-top-style: $property;
+}
+
+@mixin border-top-width ($property) {
+	border-top-width: $property;
+}
+
+@mixin border-width ($property) {
+	border-width: $property;
+}
+
+@mixin bottom ($property) {
+	bottom: $property;
+}
+
+@mixin box-decoration-break ($property) {
+	-webkit-box-decoration-break: $property;
+	box-decoration-break: $property;
+}
+
+@mixin box-shadow ($property...) {
+	-webkit-box-shadow: $property;
+	-moz-box-shadow: $property;
+	box-shadow: $property;
+}
+
+@mixin box-sizing ($property) {
+	-webkit-box-sizing: $property;
+	-moz-box-sizing: $property;
+	box-sizing: $property;
+}
+
+@mixin caption-side ($property) {
+	caption-side: $property;
+}
+
+@mixin caret-color ($property) {
+	caret-color: $property;
+}
+
+@mixin clear ($property) {
+	clear: $property;
+}
+
+@mixin clip ($property) {
+	clip: $property;
+}
+
+@mixin color ($property) {
+	color: $property;
+}
+
+@mixin column-count ($property) {
+	-webkit-column-count: $property;
+	-moz-column-count: $property;
+	column-count: $property;
+}
+
+@mixin column-fill ($property) {
+	-webkit-column-fill: $property;
+	-moz-column-fill: $property;
+	column-fill: $property;
+}
+
+@mixin column-gap ($property) {
+	-webkit-column-gap: $property;
+	-moz-column-gap: $property;
+	column-gap: $property;
+}
+
+@mixin column-rule ($property) {
+	-webkit-column-rule: $property;
+	-moz-column-rule: $property;
+	column-rule: $property;
+}
+
+@mixin column-rule-color ($property) {
+	-webkit-column-rule-color: $property;
+	-moz-column-rule-color: $property;
+	column-rule-color: $property;
+}
+
+@mixin column-rule-style ($property) {
+	-webkit-column-rule-style: $property;
+	-moz-column-rule-style: $property;
+	column-rule-style: $property;
+}
+
+@mixin column-rule-width ($property) {
+	-webkit-column-rule-width: $property;
+	-moz-column-rule-width: $property;
+	column-rule-width: $property;
+}
+
+@mixin column-span ($property) {
+	-webkit-column-span: $property;
+	column-span: $property;
+}
+
+@mixin column-width ($property) {
+	-webkit-column-width: $property;
+	-moz-column-width: $property;
+	column-width: $property;
+}
+
+@mixin columns ($property) {
+	columns: $property;
+}
+
+@mixin content ($property) {
+	content: $property;
+}
+
+@mixin counter-increment ($property) {
+	counter-increment: $property;
+}
+
+@mixin counter-reset ($property) {
+	counter-reset: $property;
+}
+
+@mixin cursor ($property) {
+	cursor: $property;
+}
+
+@mixin direction ($property) {
+	direction: $property;
+}
+
+@mixin display ($property) {
+	display: $property;
+}
+
+@mixin empty-cells ($property) {
+	empty-cells: $property;
+}
+
+@mixin filter ($property) {
+	-webkit-filter: $property;
+	filter: $property;
+}
+
+@mixin flex ($property) {
+	-webkit-flex: $property;
+	-ms-flex: $property;
+	-moz-flex: $property;
+	flex: $property;
+}
+
+@mixin flex-basis ($property) {
+	-webkit-flex-basis: $property;
+	-moz-flex-basis: $property;
+	flex-basis: $property;
+}
+
+@mixin flex-direction ($property) {
+	-webkit-flex-direction: $property;
+	-moz-flex-direction: $property;
+	flex-direction: $property;
+}
+
+@mixin flex-flow ($property) {
+	-webkit-flex-flow: $property;
+	-moz-flex-flow: $property;
+	flex-flow: $property;
+}
+
+@mixin flex-grow ($property) {
+	-webkit-flex-grow: $property;
+	-moz-flex-grow: $property;
+	flex-grow: $property;
+}
+
+@mixin flex-shrink ($property) {
+	-webkit-flex-shrink: $property;
+	-moz-flex-shrink: $property;
+	flex-shrink: $property;
+}
+
+@mixin flex-wrap ($property) {
+	-webkit-flex-wrap: $property;
+	-moz-flex-wrap: $property;
+	flex-wrap: $property;
+}
+
+@mixin float ($property) {
+	float: $property;
+}
+
+@mixin font ($property) {
+	font: $property;
+}
+
+@mixin font-family ($property...) {
+	font-family: $property;
+}
+
+@mixin font-kerning ($property) {
+	-webkit-font-kerning: $property;
+	font-kerning: $property;
+}
+
+@mixin font-size ($property) {
+	font-size: $property;
+}
+
+@mixin font-size-adjust ($property) {
+	font-size-adjust: $property;
+}
+
+@mixin font-stretch ($property) {
+	font-stretch: $property;
+}
+
+@mixin font-style ($property) {
+	font-style: $property;
+}
+
+@mixin font-variant ($property) {
+	font-variant: $property;
+}
+
+@mixin font-weight ($property) {
+	font-weight: $property;
+}
+
+@mixin grid ($property) {
+	grid: $property;
+}
+
+@mixin grid-area ($property) {
+	grid-area: $property;
+}
+
+@mixin grid-auto-columns ($property) {
+	grid-auto-columns: $property;
+}
+
+@mixin grid-auto-flow ($property) {
+	grid-auto-flow: $property;
+}
+
+@mixin grid-auto-rows ($property) {
+	grid-auto-rows: $property;
+}
+
+@mixin grid-column ($property) {
+	grid-column: $property;
+}
+
+@mixin grid-column-end ($property) {
+	grid-column-end: $property;
+}
+
+@mixin grid-column-gap ($property) {
+	grid-column-gap: $property;
+}
+
+@mixin grid-column-start ($property) {
+	grid-column-start: $property;
+}
+
+@mixin grid-gap ($property) {
+	grid-gap: $property;
+}
+
+@mixin grid-row ($property) {
+	grid-row: $property;
+}
+
+@mixin grid-row-end ($property) {
+	grid-row-end: $property;
+}
+
+@mixin grid-row-gap ($property) {
+	grid-row-gap: $property;
+}
+
+@mixin grid-row-start ($property) {
+	grid-row-start: $property;
+}
+
+@mixin grid-template ($property) {
+	grid-template: $property;
+}
+
+@mixin grid-template-areas ($property) {
+	grid-template-areas: $property;
+}
+
+@mixin grid-template-columns ($property) {
+	grid-template-columns: $property;
+}
+
+@mixin grid-template-rows ($property) {
+	grid-template-rows: $property;
+}
+
+@mixin hanging-punctuation ($property) {
+	hanging-punctuation: $property;
+}
+
+@mixin height ($property) {
+	height: $property;
+}
+
+@mixin hyphens ($property) {
+	-webkit-hyphens: $property;
+	-ms-hyphens: $property;
+	hyphens: $property;
+}
+
+@mixin isolation ($property) {
+	isolation: $property;
+}
+
+@mixin justify-content ($property) {
+	-webkit-justify-content: $property;
+	-moz-justify-content: $property;
+	justify-content: $property;
+}
+
+@mixin keyframes ($name) {
+	@-webkit-keyframes #{$name} {
+		@content
+	}
+
+	@-moz-keyframes #{$name} {
+		@content
+	}
+
+	@-o-keyframes #{$name} {
+		@content
+	}
+
+	@keyframes #{$name} {
+		@content
+	}
+}
+
+@mixin left ($property) {
+	left: $property;
+}
+
+@mixin letter-spacing ($property) {
+	letter-spacing: $property;
+}
+
+@mixin line-height ($property) {
+	line-height: $property;
+}
+
+@mixin list-style ($property) {
+	list-style: $property;
+}
+
+@mixin list-style-image ($property) {
+	list-style-image: $property;
+}
+
+@mixin list-style-position ($property) {
+	list-style-position: $property;
+}
+
+@mixin list-style-type ($property) {
+	list-style-type: $property;
+}
+
+@mixin margin ($property) {
+	margin: $property;
+}
+
+@mixin margin-bottom ($property) {
+	margin-bottom: $property;
+}
+
+@mixin margin-left ($property) {
+	margin-left: $property;
+}
+
+@mixin margin-right ($property) {
+	margin-right: $property;
+}
+
+@mixin margin-top ($property) {
+	margin-top: $property;
+}
+
+@mixin margin-top ($property) {
+	margin-top: $property;
+}
+
+@mixin max-height ($property) {
+	max-height: $property;
+}
+
+@mixin max-width ($property) {
+	max-width: $property;
+}
+
+@mixin min-height ($property) {
+	min-height: $property;
+}
+
+@mixin min-width ($property) {
+	min-width: $property;
+}
+
+@mixin mix-blend-mode ($property) {
+	mix-blend-mode: $property;
+}
+
+@mixin object-fit ($property) {
+	object-fit: $property;
+}
+
+@mixin object-position ($property) {
+	object-position: $property;
+}
+
+@mixin opacity ($property) {
+	opacity: $property;
+}
+
+@mixin order ($property) {
+	-webkit-order: $property;
+	-moz-order: $property;
+	order: $property;
+}
+
+@mixin outline ($property) {
+	outline: $property;
+}
+
+@mixin outline-color ($property) {
+	outline-color: $property;
+}
+
+@mixin outline-offset ($property) {
+	outline-offset: $property;
+}
+
+@mixin outline-style ($property) {
+	outline-style: $property;
+}
+
+@mixin outline-width ($property) {
+	outline-width: $property;
+}
+
+@mixin overflow ($property) {
+	overflow: $property;
+}
+
+@mixin overflow-x ($property) {
+	-ms-overflow-x: $property;
+	overflow-x: $property;
+}
+
+@mixin overflow-y ($property) {
+	-ms-overflow-y: $property;
+	overflow-y: $property;
+}
+
+@mixin padding ($property) {
+	padding: $property;
+}
+
+@mixin padding-bottom ($property) {
+	padding-bottom: $property;
+}
+
+@mixin padding-left ($property) {
+	padding-left: $property;
+}
+
+@mixin padding-right ($property) {
+	padding-right: $property;
+}
+
+@mixin padding-top ($property) {
+	padding-top: $property;
+}
+
+@mixin page-break-after ($property) {
+	page-break-after: $property;
+}
+
+@mixin page-break-before ($property) {
+	page-break-before: $property;
+}
+
+@mixin page-break-inside ($property) {
+	page-break-inside: $property;
+}
+
+@mixin perspective ($property) {
+	-webkit-perspective: $property;
+	-moz-perspective: $property;
+	perspective: $property;
+}
+
+@mixin perspective-origin ($property) {
+	-webkit-perspective-origin: $property;
+	-moz-perspective-origin: $property;
+	perspective-origin: $property;
+}
+
+@mixin pointer-events ($property) {
+	pointer-events: $property;
+}
+
+@mixin position ($property) {
+	position: $property;
+}
+
+@mixin quotes ($property) {
+	quotes: $property;
+}
+
+@mixin resize ($property) {
+	-moz-resize: $property;
+	resize: $property;
+}
+
+@mixin right ($property) {
+	right: $property;
+}
+
+@mixin scroll-behavior ($property) {
+	scroll-behavior: $property;
+}
+
+@mixin tab-size ($property) {
+	-moz-tab-size: $property;
+	-o-tab-size: $property;
+	tab-size: $property;
+}
+
+@mixin table-layout ($property) {
+	table-layout: $property;
+}
+
+@mixin text-align ($property) {
+	text-align: $property;
+}
+
+@mixin text-align-last ($property) {
+	-moz-text-align-last: $property;
+	text-align-last: $property;
+}
+
+@mixin text-decoration ($property) {
+	text-decoration: $property;
+}
+
+@mixin text-decoration-color ($property) {
+	-webkit-text-decoration-color: $property;
+	-moz-text-decoration-color: $property;
+	text-decoration-color: $property;
+}
+
+@mixin text-decoration-line ($property) {
+	-webkit-text-decoration-line: $property;
+	-moz-text-decoration-line: $property;
+	text-decoration-line: $property;
+}
+
+@mixin text-decoration-style ($property) {
+	-moz-text-decoration-style: $property;
+	text-decoration-style: $property;
+}
+
+@mixin text-indent ($property) {
+	text-indent: $property;
+}
+
+@mixin text-justify ($property) {
+	text-justify: $property;
+}
+
+@mixin text-overflow ($property) {
+	-o-text-overflow: $property;
+	text-overflow: $property;
+}
+
+@mixin text-shadow ($property...) {
+	text-shadow: $property;
+}
+
+@mixin text-transform ($property) {
+	text-transform: $property;
+}
+
+@mixin top ($property) {
+	top: $property;
+}
+
+@mixin transform ($property) {
+	-webkit-transform: $property;
+	-ms-transform: $property;
+	-moz-transform: $property;
+	-o-transform: $property;
+	transform: $property;
+}
+
+@mixin transform-origin ($property) {
+	-webkit-transform-origin: $property;
+	-ms-transform-origin: $property;
+	-moz-transform-origin: $property;
+	-o-transform-origin: $property;
+	transform-origin: $property;
+}
+
+@mixin transform-style ($property) {
+	-webkit-transform-style: $property;
+	-moz-transform-style: $property;
+	transform-style: $property;
+}
+
+@mixin transition ($property) {
+	-webkit-transition: $property;
+	-moz-transition: $property;
+	-o-transition: $property;
+	transition: $property;
+}
+
+@mixin transition-delay ($property) {
+	-webkit-transition-delay: $property;
+	-moz-transition-delay: $property;
+	-o-transition-delay: $property;
+	transition-delay: $property;
+}
+
+@mixin transition-duration ($property) {
+	-webkit-transition-duration: $property;
+	-moz-transition-duration: $property;
+	-o-transition-duration: $property;
+	transition-duration: $property;
+}
+
+@mixin transition-property ($property) {
+	-webkit-transition-property: $property;
+	-moz-transition-property: $property;
+	-o-transition-property: $property;
+	transition-property: $property;
+}
+
+@mixin transition-timing-function ($property) {
+	-webkit-transition-timing-function: $property;
+	-moz-transition-timing-function: $property;
+	-o-transition-timing-function: $property;
+	transition-timing-function: $property;
+}
+
+@mixin unicode-bidi ($property) {
+	unicode-bidi: $property;
+}
+
+@mixin user-select ($property) {
+	-webkit-user-select: $property;
+	-ms-user-select: $property;
+	-moz-user-select: $property;
+	user-select: $property;
+}
+
+@mixin vertical-align ($property) {
+	vertical-align: $property;
+}
+
+@mixin visibility ($property) {
+	visibility: $property;
+}
+
+@mixin white-space ($property) {
+	white-space: $property;
+}
+
+@mixin width ($property) {
+	width: $property;
+}
+
+@mixin word-break ($property) {
+	word-break: $property;
+}
+
+@mixin word-spacing ($property) {
+	word-spacing: $property;
+}
+
+@mixin word-wrap ($property) {
+	word-wrap: $property;
+}
+
+@mixin writing-mode ($property) {
+	writing-mode: $property;
+}
+
+@mixin z-index ($property) {
+	z-index: $property;
+}
+

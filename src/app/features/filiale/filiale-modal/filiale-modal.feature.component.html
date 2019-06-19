@@ -1,0 +1,55 @@
+<app-modal-template title="Filiale" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput id="libelle" [placeholder]="translateService?.instant('FILIALE.FORM.NOM.PLACEHOLDER')"
+                           required
+                           formControlName="NomFilliale">
+                    <mat-hint align="start">{{translateService?.instant('FILIALE.FORM.NOM.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="NomFilliale" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput id="code"
+                           [placeholder]="translateService?.instant('FILIALE.FORM.ADRESSE.PLACEHOLDER')"
+                           formControlName="AdresseFiliale" required>
+                    <mat-hint align="start">{{translateService?.instant('FILIALE.FORM.ADRESSE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="AdresseFiliale" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput id="description"
+                           [placeholder]="translateService?.instant('FILIALE.FORM.CODE.PLACEHOLDER')"
+                           formControlName="CodeFiliale" required>
+                    <mat-hint align="start">{{translateService?.instant('FILIALE.FORM.CODE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="CodeFiliale" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-pays #pays
+                                       [submitted]="submitted"
+                                       [(inputValue)]="paysIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdPays" required="true"
+                                       [placeholder]="translateService?.instant('FILIALE.FORM.PAYS.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('FILIALE.FORM.PAYS.HINT')"></app-autocomplete-pays>
+            </div>
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

@@ -1,0 +1,24 @@
+<app-modal-template title="Secteur d'Activité " (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput id="libelle" placeholder="Libellé"
+                           name="libelle" required
+                           formControlName="Libelle" mat>
+                    <mat-hint align="start">Entrez un libellé pour le secteur</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Libelle" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">Enregistrer</button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">Annuler</button>
+        </div>
+    </div>
+</app-modal-template>

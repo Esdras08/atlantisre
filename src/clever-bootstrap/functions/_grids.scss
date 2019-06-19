@@ -1,0 +1,9 @@
+@import "commons";
+
+@function grid-column-size ($actual, $all) {
+  @return (($actual/$all) * 100%);
+}
+
+@function grid-gutter-padding ($gutter) {
+  @return $gutter / 2;
+}

@@ -1,0 +1,34 @@
+<app-content-header
+        [title]="translateService?.translate.instant('APPS.CONTENT_HEADERS.PARAMETRAGE.BASE.TITLE')"
+        [hideBreadcrumb]="false"
+        [hasBgImage]="true"
+        [class]="'py-3'">
+</app-content-header>
+
+<mat-tab-group>
+    <mat-tab label="Devise">
+        <ng-template matTabContent>
+            <app-re-devise></app-re-devise>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Pays">
+        <ng-template matTabContent>
+            <app-re-pays></app-re-pays>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Structure">
+        <ng-template matTabContent>
+            <app-re-structure></app-re-structure>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Poste">
+        <ng-template matTabContent>
+           <app-re-profession></app-re-profession>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Secteur d'activité">
+        <ng-template matTabContent>
+            <app-re-secteuractivite></app-re-secteuractivite>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

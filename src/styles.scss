@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdn.quilljs.com/1.2.2/quill.snow.css');
+@import url('https://cdn.quilljs.com/1.2.2/quill.bubble.css');
+
+// indigo-pink, deeppurple-amber, purple-green and pink-bluegrey.
+@import '~ngx-toastr/toastr.css';
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'clever-bootstrap/clever_bootstrap';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "app/theme/styles/base";
+@import "app/theme/styles/spaces";
+@import "app/theme/styles/libs-override";
+@import "app/theme/styles/theme";
+@import "app/theme/styles/gradients";
+@import "app/theme/styles/rtl";
+
+#spinner {
+  top: initial !important;
+  left: initial !important;
+  opacity: 1 !important;
+}
+
+@include keyframes('opacity-comming-going') {
+  0% {
+    @include opacity(1);
+  }
+  50% {
+    @include opacity(.7);
+  }
+  100% {
+    @include opacity(1);
+  }
+}
+
+thead.header-class th, table td {
+  @include padding(10px);
+}
+
+.d-flex {
+  @include display(flex);
+}
+.justify-content-between {
+  @include justify-content(space-between);
+}
+.text-decoration-none {
+  @include text-decoration(none);
+}
+
+.card-hover {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-3px);
+}
+
+.btn-min {
+  @include width(auto);
+  @include min-width(auto !important);
+}
+
+mat-card {
+  @include transition(.3s all ease);
+}
+
+.mat-form-field {
+  @include width(100%);
+}
+
+.mat-select-panel,
+.mat-autocomplete-panel {
+  @include min-width(inherit !important);
+}
+.mat-autocomplete-panel {
+  @include display(table);
+}
+.cdk-overlay-pane {
+  @include display(block);
+}
+
+.crsr-pointer {
+  @include cursor(pointer);
+}
+
+.table-autocomplete {
+  .mat-paginator {
+    display: none;
+  }
+}
+
+//.mat-tab-label.mat-tab-label-active {
+//  @extend .bg-primary;
+//  opacity: 1;
+//}
+
+.table {
+  @include margin-bottom(10px);
+  @include overflow-x(scroll);
+  @include display(block);
+  @include border-collapse(unset);
+  @include border-spacing(1px);
+  clv-td, .clv-td {
+    @include font-size(0.9rem);
+  }
+}
+
+@include breakpoint-up('md') {
+  .table {
+    @include display(table);
+    @include width(100%);
+
+  }
+}
+
+
+.table-header th {
+  height: 40px;
+  line-height: 40px;
+}
+
+clv-td {
+  padding: 0px !important;
+  vertical-align: middle !important;
+}
+
+.row-style clv-tr tr {
+  height: 40px;
+  line-height: 40px;
+  opacity: 0.5% !important;
+}
+

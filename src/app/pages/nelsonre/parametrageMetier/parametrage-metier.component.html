@@ -1,0 +1,63 @@
+<app-content-header
+        [title]="translateService?.translate.instant('APPS.CONTENT_HEADERS.PARAMETRAGE.METIER.TITLE')"
+        [hideBreadcrumb]="false"
+        [hasBgImage]="true"
+        [class]="'py-3'"></app-content-header>
+
+<mat-tab-group>
+    <mat-tab label="Assuré">
+        <ng-template matTabContent>
+            <app-re-assure></app-re-assure>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Branche">
+        <ng-template matTabContent>
+            <app-re-branche></app-re-branche>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Filiale">
+        <ng-template matTabContent>
+            <app-re-filiale></app-re-filiale>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Réassureur">
+        <ng-template matTabContent>
+            <app-re-reassureur></app-re-reassureur>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Traité">
+        <ng-template matTabContent>
+            <app-re-traite></app-re-traite>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Statut Affaire">
+        <ng-template matTabContent>
+            <app-re-statut-affaire></app-re-statut-affaire>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Statut Mouvement">
+        <ng-template matTabContent>
+            <app-re-statut-mouvement></app-re-statut-mouvement>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Type Echange">
+        <ng-template matTabContent>
+            <app-re-type-echange></app-re-type-echange>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Type Processus">
+        <ng-template matTabContent>
+            <app-re-type-processus></app-re-type-processus>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Etape Processus">
+        <ng-template matTabContent>
+            <app-re-etape-processus></app-re-etape-processus>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Suivi Processus">
+        <ng-template matTabContent>
+            <app-re-suivi-processus></app-re-suivi-processus>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

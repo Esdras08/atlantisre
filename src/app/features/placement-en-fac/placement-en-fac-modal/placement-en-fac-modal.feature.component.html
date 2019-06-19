@@ -1,0 +1,130 @@
+<app-modal-template title="Placement en Facultative" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type='number' min='0' [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.GARANTIE_CEDEE.PLACEHOLDER')" required
+                           formControlName="GarantieCedee">
+                    <mat-hint align="start"><!--{{translateService?.instant('DEVISE.FORM.CODE.HINT')}}--></mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="GarantieCedee" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [matDatepicker] = "picker" [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_CONSULTATION.PLACEHOLDER')"
+                           formControlName="DateConsultation">
+                    <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_CONSULTATION.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="DateConsultation" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [matDatepicker] = "picker1" [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_EFFET.PLACEHOLDER')"
+                           formControlName="DateEffet">
+                    <mat-datepicker-toggle matSuffix [for] = "picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_EFFET.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="DateEffet" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [matDatepicker] = "picker2" [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_ECHEANCE.PLACEHOLDER')"
+                           formControlName="DateEcheance">
+                    <mat-datepicker-toggle matSuffix [for] = "picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.DATE_ECHEANCE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="DateEcheance" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+
+
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-checkbox formControlName="EnCours">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.EN_COURS.PLACEHOLDER')}}</mat-checkbox>
+            </div>
+            <!--end field-->
+
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type='number' min='0'
+                           [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.PRIME.PLACEHOLDER')"
+                           formControlName="Prime" required>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.PRIME.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Prime" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type='number' min='0'
+                           [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.SMP.PLACEHOLDER')"
+                           formControlName="SMP" required>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.SMP.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="SMP" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput type='number' min='0'
+                           [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.PART_FILIALE.PLACEHOLDER')"
+                           formControlName="PartFiliale" required>
+                    <mat-hint align="start">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.PART_FILIALE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="PartFiliale" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-processus #processus name="IdProcessus"
+                                           [(inputValue)]="ProcessusIv"
+                                           (onInputChange)="optionInputHasChanged($event)"
+                                           [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.IDPROCESSUS.PLACEHOLDER')"
+                                           [hint]="translateService?.instant('PLACEMENT_EN_FAC.FORM.IDPROCESSUS.HINT')" >
+
+                </app-combo-re-processus>
+            </div>
+            <!--end field-->
+
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-pays #pays name="IdPays"
+                                           [(inputValue)]="PaysIv"
+                                           (onInputChange)="optionInputHasChanged($event)"
+                                           [placeholder]="translateService?.instant('PLACEMENT_EN_FAC.FORM.IDPAYS.PLACEHOLDER')"
+                                           [hint]="translateService?.instant('PLACEMENT_EN_FAC.FORM.IDPAYS.HINT')" >
+
+                </app-combo-re-pays>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="30" fxFlex.lg="30">
+                <mat-checkbox formControlName="VersementAuTraite">{{translateService?.instant('PLACEMENT_EN_FAC.FORM.VERSEMENT_AU_TRAITE.PLACEHOLDER')}}</mat-checkbox>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

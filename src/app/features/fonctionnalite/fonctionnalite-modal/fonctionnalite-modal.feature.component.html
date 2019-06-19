@@ -1,0 +1,52 @@
+<app-modal-template title="Fonctionnalité" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput [placeholder]="translateService?.instant('FONCTIONNALITE.FORM.CODE.PLACEHOLDER')"
+                           required
+                           formControlName="Code">
+                    <mat-hint align="start">{{translateService?.instant('FONCTIONNALITE.FORM.CODE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Code" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('FONCTIONNALITE.FORM.LIBELLE.PLACEHOLDER')"
+                           formControlName="Libelle" required>
+                    <mat-hint align="start">{{translateService?.instant('FONCTIONNALITE.FORM.LIBELLE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Libelle" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('FONCTIONNALITE.FORM.DESCRIPTION.PLACEHOLDER')"
+                           formControlName="Description" required>
+                    <mat-hint align="start">{{translateService?.instant('FONCTIONNALITE.FORM.DESCRIPTION.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Description" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

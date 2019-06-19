@@ -1,0 +1,48 @@
+<app-modal-template title="Attribution de Fonctionnalités" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-utilisateur #utilisateur
+                                       [submitted]="submitted"
+                                       [(inputValue)]="utilisateurIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdUtilisateur" required="true"
+                                       [placeholder]="translateService?.instant('UTILISATEUR_FONCTIONNALITE.FORM.UTILISATEUR.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('UTILISATEUR_FONCTIONNALITE.FORM.UTILISATEUR.HINT')"></app-autocomplete-utilisateur>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-fonctionnalite #fonctionnalite
+                                       [submitted]="submitted"
+                                       [(inputValue)]="fonctionnaliteIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="Code" required="true"
+                                       [placeholder]="translateService?.instant('UTILISATEUR_FONCTIONNALITE.FORM.CODE_FONCTIONNALITE.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('UTILISATEUR_FONCTIONNALITE.FORM.CODE_FONCTIONNALITE.HINT')"></app-combo-re-fonctionnalite>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-checkbox formControlName="Autorise">
+                    {{translateService?.instant('UTILISATEUR_FONCTIONNALITE.FORM.AUTORISE.PLACEHOLDER')}}
+                </mat-checkbox>
+                <app-form-error-list name="Autorise" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

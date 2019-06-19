@@ -1,0 +1,29 @@
+<mat-sidenav-container class="h-100">
+  <div fxLayout="row" fxLayoutAlign="center center" class="h-100">
+       <form [formGroup]="getFormInstance()" (ngSubmit)="sendForm()" fxFlex="90" fxFlex.gt-sm="30" fxFlex.sm="60" class="mat-elevation-z6">
+            <app-content-header 
+                [icon]="'exit_to_app'" 
+                [title]="'Connexion'"
+                [hideBreadcrumb]="true"
+                [hasBgImage]="true" 
+                [class]="'py-4'"></app-content-header>            
+            <div class="p-3">
+                <a mat-button routerLink="/register" color="accent" class="w-100">Pas encore de compte? Créez un compte!</a>
+                <mat-form-field class="w-100">
+                    <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 secondary-text-color">person</mat-icon>
+                    <input matInput placeholder="Login" formControlName="Login">
+                    <mat-error *ngIf="getFormInstance()?.controls?.email?.errors?.required">Email is required</mat-error>
+                    <mat-error *ngIf="getFormInstance()?.controls?.email?.hasError('invalidEmail')">Invalid email address</mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 secondary-text-color">lock</mat-icon>
+                    <input type="password" matInput placeholder="Password" formControlName="Password">
+                    <mat-error *ngIf="getFormInstance()?.controls?.password?.errors?.required">Password is required</mat-error>
+                    <mat-error *ngIf="getFormInstance()?.controls?.password?.hasError('minlength')">Password isn't long enough, minimum of 6 characters</mat-error>
+                </mat-form-field>               
+<!--                <mat-slide-toggle formControlName="rememberMe" class="my-2">Se rappeler de moi</mat-slide-toggle>-->
+                <button mat-raised-button color="primary" class="mat-elevation-z6 w-100 mt-3" type="submit">Se connecter</button>
+            </div>
+        </form>
+  </div>
+</mat-sidenav-container>

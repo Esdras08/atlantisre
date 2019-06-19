@@ -1,0 +1,41 @@
+
+
+@mixin build-responsive-displays($prefix){
+  @each $breakpoint in map-keys($breakpoints-up){
+    @each $key in map-keys($displays-elts) {
+      @include breakpoint-up($breakpoint){
+        .#{$prefix}-d-#{$breakpoint}-#{$key} {
+          @include display(map-get($displays-elts, $key));
+        }
+      }
+    }
+  }
+}
+
+@mixin build-displays($prefix){
+  @each $key in map-keys($displays-elts) {
+    .#{$prefix}-d-#{$key} {
+      @include display(map-get($displays-elts, $key));
+    }
+  }
+}
+
+@mixin build-responsive-positions($prefix){
+  @each $breakpoint in map-keys($breakpoints-up){
+    @each $key in map-keys($positions-elts) {
+      @include breakpoint-up($breakpoint){
+        .#{$prefix}-pos-#{$breakpoint}-#{$key} {
+          @include position(map-get($positions-elts, $key));
+        }
+      }
+    }
+  }
+}
+
+@mixin build-positions($prefix){
+  @each $key in map-keys($positions-elts) {
+    .#{$prefix}-pos-#{$key} {
+      @include position(map-get($positions-elts, $key));
+    }
+  }
+}

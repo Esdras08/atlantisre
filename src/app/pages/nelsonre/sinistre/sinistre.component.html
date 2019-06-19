@@ -1,0 +1,34 @@
+<app-content-header
+        [title]="translateService?.translate.instant('APPS.CONTENT_HEADERS.SINISTRE.TITLE')"
+        [hideBreadcrumb]="false"
+        [hasBgImage]="true"
+        [class]="'py-3'">
+</app-content-header>
+
+<mat-tab-group>
+    <mat-tab label="Utilisateurs">
+        <ng-template matTabContent>
+            <app-re-devise></app-re-devise>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Rôles">
+        <ng-template matTabContent>
+            <app-re-profession></app-re-profession>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Fonctionnalités">
+        <ng-template matTabContent>
+            <app-re-pays></app-re-pays>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Attribution de fonctionnalités">
+        <ng-template matTabContent>
+            <app-re-structure></app-re-structure>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Personnes">
+        <ng-template matTabContent>
+            <app-re-secteuractivite></app-re-secteuractivite>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

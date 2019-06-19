@@ -1,0 +1,51 @@
+<app-modal-template title="Processus" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-affaire #affaire
+                                       [submitted]="submitted"
+                                       [(inputValue)]="affaireIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdAffaire" required="true"
+                                       [placeholder]="translateService?.instant('PROCESSUS.FORM.AFFAIRE.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('PROCESSUS.FORM.AFFAIRE.HINT')"></app-autocomplete-affaire>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-type-processus #typeProcessus
+                                          [submitted]="submitted"
+                                          [(inputValue)]="typeProcessusIv"
+                                          (onInputChange)="optionInputHasChanged($event)"
+                                          name="IdTypeProcessus" required="true"
+                                          [placeholder]="translateService?.instant('PROCESSUS.FORM.TYPE_PROCESSUS.PLACEHOLDER')"
+                                          [hint]="translateService?.instant('PROCESSUS.FORM.TYPE_PROCESSUS.HINT')"></app-autocomplete-type-processus>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('PROCESSUS.FORM.CATEGORIE.PLACEHOLDER')"
+                           formControlName="Categorie" required>
+                    <mat-hint align="start">{{translateService?.instant('PROCESSUS.FORM.CATEGORIE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="Categorie" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

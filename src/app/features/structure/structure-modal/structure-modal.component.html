@@ -1,0 +1,83 @@
+<app-modal-template title="Structure" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('STRUCTURE.FORM.RAISON_SOCIALE.PLACEHOLDER')" required
+                           formControlName="RaisonSocialeStructure">
+                    <mat-hint align="start">{{translateService?.instant('STRUCTURE.FORM.RAISON_SOCIALE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted"  name="RaisonSocialeStructure" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('STRUCTURE.FORM.DECRET.PLACEHOLDER')" required
+                           formControlName="DecretCreation" mat>
+                    <mat-hint align="start">{{translateService?.instant('STRUCTURE.FORM.DECRET.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="DecretCreation" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('STRUCTURE.FORM.NUMERO_AGREMENT.PLACEHOLDER')" required
+                           formControlName="NumeroAgrement" mat>
+                    <mat-hint align="start">{{translateService?.instant('STRUCTURE.FORM.NUMERO_AGREMENT.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="NumeroAgrement" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-combo-re-devise #devise name="IdDevise"
+                                     [submitted]="submitted"
+                                     [(inputValue)]="deviseIv"
+                                     (onInputChange)="optionInputHasChanged($event)"
+                                     [placeholder]="translateService?.instant('STRUCTURE.FORM.DEVISE.PLACEHOLDER')"
+                                     [hint]="translateService?.instant('STRUCTURE.FORM.DEVISE.HINT')" required="true"></app-combo-re-devise>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('STRUCTURE.FORM.CAPITAL_SOCIAL.PLACEHOLDER')" required
+                           formControlName="CapitalSocial" mat>
+                    <mat-hint align="start">{{translateService?.instant('STRUCTURE.FORM.CAPITAL_SOCIAL.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list  [submitted]="submitted" name="CapitalSocial" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <!--end field-->
+            <!--field-->
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-pays #pays
+                                       [submitted]="submitted"
+                                       [(inputValue)]="paysIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdPays" required="true"
+                                       [placeholder]="translateService?.instant('STRUCTURE.FORM.PAYS.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('STRUCTURE.FORM.PAYS.HINT')"></app-autocomplete-pays>
+
+            </div>
+            <!--end field-->
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

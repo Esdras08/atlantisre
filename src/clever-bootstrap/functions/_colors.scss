@@ -1,0 +1,61 @@
+@import "commons";
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+@function theme-color-keys() {
+  @return map-keys($theme-colors);
+}
+
+@function brightness-color ($color) {
+  $rgba:  str-split(str-slice(rgba($color, 0.5) + "", 6, -2), ', ');
+  $r: nth($rgba, 2);
+  $g: nth($rgba, 3);
+  $b: nth($rgba, 4);
+  $a: nth($rgba, 5);
+  @return ((number($r) * 299) + (number($g) * 587) + (number($b) * 114)) / 1000;
+}
+
+@function is-brightness-dark ($color) {
+  $seuil: 127.5;
+  @if brightness-color($color) >= $seuil {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
+
+@function is-brightness-light ($color) {
+  @return not is-brightness-dark($color);
+}
+
+@function contrast-color ($color) {
+  $color-result: #000000;
+  @if is-brightness-light($color) {
+    $color-result: #000000;
+  } @else {
+    $color-result: #ffffff;
+  }
+  @return $color-result;
+}
+
+@function hover-color ($color) {
+  @return darken($color, 5%);
+}
+
+@function active-color ($color) {
+  @return darken($color, 10%);
+}
+
+@function background-lightness-color ($color) {
+  @if is-brightness-light($color) {
+    $value: (((255 - brightness-color($color)) / 255) * 100%);
+    //@error $value;
+    @return darken($color, $value);
+  } @else {
+    $value: (100 - ((255 - brightness-color($color)) / 255) * 100%) + 5;
+    //@error $value;
+    @return lighten($color, $value);
+  }
+}

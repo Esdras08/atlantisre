@@ -1,0 +1,3 @@
+@function margin-padding-level ($level) {
+  @return 1px * $level;
+}

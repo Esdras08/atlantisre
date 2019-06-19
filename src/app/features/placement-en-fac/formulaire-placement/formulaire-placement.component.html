@@ -1,0 +1,227 @@
+<form class="p-2 body" [formGroup]="getFormInstance()">
+    <div class="py-2">
+        <h1 class="title">Schema provisoire de placement</h1>
+        <div class="table-container">
+            <table class="table mat-elevation-z1 clv-bg-white">
+                <tbody>
+                    <tr>
+                        <td>Gestionnaire:</td>
+                        <td colspan="2">SKG</td>
+                        <td>Fiche N°</td>
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Interlocuteur:</td>
+                        <td colspan="2">FAYE RAHQUI</td>
+                        <td>Monnaie:</td>
+                        <td colspan="3">F CFA</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table mat-elevation-z1 clv-bg-white">
+                <tbody>
+                    <tr>
+                        <td>Date Consultation:</td>
+                        <td colspan="6">12/07/2018</td>
+                    </tr>
+                    <tr>
+                        <td>Affaire nouvelle <mat-checkbox></mat-checkbox></td>
+                        <td>Renouvellement</td>
+                        <td><mat-checkbox></mat-checkbox></td>
+                        <td>Modification</td>
+                        <td><mat-checkbox></mat-checkbox></td>
+                        <td>Régularisation</td>
+                        <td><mat-checkbox></mat-checkbox></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table mat-elevation-z1 clv-bg-white">
+                <tbody>
+                    <tr>
+                        <td colspan="7">PRESENTATION DU RISQUE</td>
+                    </tr>
+                    <tr>
+                        <td>Assuré:</td>
+                        <td colspan="2">ENVOL PARTENARIATS SA</td>
+                        <td>Pays du risque:</td>
+                        <td colspan="3">Sénégal</td>
+                    </tr>
+                    <tr>
+                        <td>Police N°:</td>
+                        <td colspan="2">TBA</td>
+                        <td>Filiale:</td>
+                        <td colspan="3">NSIA Assurance Sénégal</td>
+                    </tr>
+                    <tr>
+                        <td>Activité(s):</td>
+                        <td colspan="2">Construction de la maison des Nations à Diamnadio</td>
+                        <td>Branche:</td>
+                        <td colspan="3">TRC</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>Questionnaire:</td>
+                        <td colspan="3">OUI</td>
+                    </tr>
+                    <tr>
+                        <td>Période de garantie:</td>
+                        <td>01/08/2018</td>
+                        <td>31/07/2021</td>
+                        <td>Police:</td>
+                        <td colspan="3">OUI</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2">Proposition</td>
+                        <td>Rapport de visite</td>
+                        <td colspan="3">NON</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table mat-elevation-z1 clv-bg-white">
+                <tbody>
+                    <tr>
+                        <td colspan="7">PLACEMENT DU RISQUE</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Prime émise nette (base à 100%):</td>
+                        <td colspan="5">116 830 205</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Capitaux totaux assurés</td>
+                        <td colspan="5">109 489 062 655</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">SMP / LCI</td>
+                        <td colspan="5">109 489 062 655</td>
+                    </tr>
+                </tbody>
+            </table>
+            <clv-advanced-table
+                    [params]="getTableParams()" [formArrayName]="getArrayName()"
+                    (page)="setPageParams($event)" (search)="setSearchParams($event)">
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">1. Part souscrite par la cédante:</clv-td>
+                    <clv-td align="center">100%</clv-td>
+                    <clv-td align="center">109 489 062 655</clv-td>
+                    <clv-td align="center">116 830 205</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Rétention:</clv-td>
+                    <clv-td align="center">0%</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Cession legale .../ part filiale</clv-td>
+                    <clv-td align="center">6,50%</clv-td>
+                    <clv-td align="center">7 116 789 073</clv-td>
+                    <clv-td align="center">7 593 963</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Cession traité EDP/100%</clv-td>
+                    <clv-td align="center">0%</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Cession Facob/100%</clv-td>
+                    <clv-td align="center">0%</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Total hors cession FAC</clv-td>
+                    <clv-td align="center">6,50%</clv-td>
+                    <clv-td align="center">7 116 789 073</clv-td>
+                    <clv-td align="center">7 593 963</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">2. Cession Facultatives:</clv-td>
+                    <clv-td align="center">93,50%</clv-td>
+                    <clv-td align="center">102 372 273 582</clv-td>
+                    <clv-td align="center">109 236 242</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Cession Légale FAC (SEN RE)</clv-td>
+                    <clv-td align="center">9,35%</clv-td>
+                    <clv-td align="center">10 237 227 358</clv-td>
+                    <clv-td align="center">10 923 624</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">CICA RE</clv-td>
+                    <clv-td align="center">10,00%</clv-td>
+                    <clv-td align="center">10 948 906 266</clv-td>
+                    <clv-td align="center">11 683 021</clv-td>
+                    <clv-td align="center">32,50%</clv-td>
+                    <clv-td align="center">3 796 982</clv-td>
+                    <clv-td align="center">7 886 039</clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">CICA RE</clv-td>
+                    <clv-td align="center">10,00%</clv-td>
+                    <clv-td align="center">10 948 906 266</clv-td>
+                    <clv-td align="center">11 683 021</clv-td>
+                    <clv-td align="center">32,50%</clv-td>
+                    <clv-td align="center">3 796 982</clv-td>
+                    <clv-td align="center">7 886 039</clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">CICA RE</clv-td>
+                    <clv-td align="center">10,00%</clv-td>
+                    <clv-td align="center">10 948 906 266</clv-td>
+                    <clv-td align="center">11 683 021</clv-td>
+                    <clv-td align="center">32,50%</clv-td>
+                    <clv-td align="center">3 796 982</clv-td>
+                    <clv-td align="center">7 886 039</clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Total cession FAC</clv-td>
+                    <clv-td align="center">93,50%</clv-td>
+                    <clv-td align="center">7 116 789 073</clv-td>
+                    <clv-td align="center">7 593 963</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+                <clv-tr [params]="getTableParams()" [id]="2">
+                    <clv-td align="center">Total programme risque</clv-td>
+                    <clv-td align="center">93,50%</clv-td>
+                    <clv-td align="center">7 116 789 073</clv-td>
+                    <clv-td align="center">7 593 963</clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                    <clv-td align="center"></clv-td>
+                </clv-tr>
+            </clv-advanced-table>
+        </div>
+    </div>
+</form>

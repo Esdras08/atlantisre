@@ -1,0 +1,45 @@
+<app-modal-template title="Réassureur" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput [placeholder]="translateService?.instant('REASSUREUR.FORM.NOM.PLACEHOLDER')"
+                           required
+                           formControlName="NomReassureur">
+                    <mat-hint align="start">{{translateService?.instant('REASSUREUR.FORM.NOM.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list name="NomReassureur" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput
+                           [placeholder]="translateService?.instant('REASSUREUR.FORM.CODE.PLACEHOLDER')"
+                           formControlName="CodeReassureur" required>
+                    <mat-hint align="start">{{translateService?.instant('REASSUREUR.FORM.CODE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list name="CodeReassureur" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <app-autocomplete-pays #pays
+                                       [submitted]="submitted"
+                                       [(inputValue)]="paysIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdPays" required="true"
+                                       [placeholder]="translateService?.instant('REASSUREUR.FORM.PAYS.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('REASSUREUR.FORM.PAYS.HINT')"></app-autocomplete-pays>
+            </div>
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="sendForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

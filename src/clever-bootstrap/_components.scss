@@ -1,0 +1,6 @@
+@import "components/buttons";
+@import "components/card";
+
+.custom-dialog-container .mat-dialog-container {
+  @include padding(0 !important);
+}
