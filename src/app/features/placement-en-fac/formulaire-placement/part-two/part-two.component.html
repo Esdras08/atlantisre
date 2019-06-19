@@ -1,0 +1,76 @@
+<form class="p-2" [formGroup]="getFormInstance()">
+<clv-advanced-table class="table-no-pagination"
+        [params]="getTableParams()" [formArrayName]="getArrayName()"
+        (page)="setPageParams($event)" (search)="setSearchParams($event)">
+
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">2. Cession Facultatives:</clv-td>
+        <clv-td align="center">93,50%</clv-td>
+        <clv-td align="center">102 372 273 582</clv-td>
+        <clv-td align="center">109 236 242</clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">Cession Légale FAC (SEN RE)</clv-td>
+        <clv-td align="center">9,35%</clv-td>
+        <clv-td align="center">10 237 227 358</clv-td>
+        <clv-td align="center">10 923 624</clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"><mat-select placeholder="selectionnez une valeur">
+            <mat-option value="CICA RE">CICA RE</mat-option>
+        </mat-select></clv-td>
+        <clv-td align="center">
+            <mat-select placeholder="selectionnez une valeur">
+                <mat-option value="10">10,00%</mat-option>
+            </mat-select>
+        </clv-td>
+        <clv-td align="center">10 948 906 266</clv-td>
+        <clv-td align="center">11 683 021</clv-td>
+        <clv-td align="center">32,50%</clv-td>
+        <clv-td align="center">3 796 982</clv-td>
+        <clv-td align="center">7 886 039</clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">CICA RE</clv-td>
+        <clv-td align="center">10,00%</clv-td>
+        <clv-td align="center">10 948 906 266</clv-td>
+        <clv-td align="center">11 683 021</clv-td>
+        <clv-td align="center">32,50%</clv-td>
+        <clv-td align="center">3 796 982</clv-td>
+        <clv-td align="center">7 886 039</clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">CICA RE</clv-td>
+        <clv-td align="center">10,00%</clv-td>
+        <clv-td align="center">10 948 906 266</clv-td>
+        <clv-td align="center">11 683 021</clv-td>
+        <clv-td align="center">32,50%</clv-td>
+        <clv-td align="center">3 796 982</clv-td>
+        <clv-td align="center">7 886 039</clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">Total cession FAC</clv-td>
+        <clv-td align="center">93,50%</clv-td>
+        <clv-td align="center">7 116 789 073</clv-td>
+        <clv-td align="center">7 593 963</clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+    </clv-tr>
+    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center">Total programme risque</clv-td>
+        <clv-td align="center">93,50%</clv-td>
+        <clv-td align="center">7 116 789 073</clv-td>
+        <clv-td align="center">7 593 963</clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
+    </clv-tr>
+</clv-advanced-table>
+</form>

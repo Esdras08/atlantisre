@@ -18,6 +18,8 @@ import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular
 import {ListePlacementsComponent} from './liste-placements/liste-placements.component';
 import {FormulairePlacementComponent} from './formulaire-placement/formulaire-placement.component';
 import {PaysFormModule} from '../../forms/pays/pays.form.module';
+import {PartOneComponent} from './formulaire-placement/part-one/part-one.component';
+import {PartTwoComponent} from './formulaire-placement/part-two/part-two.component';
 
 @NgModule({
     imports: [
@@ -34,12 +36,14 @@ import {PaysFormModule} from '../../forms/pays/pays.form.module';
         MatDatepickerModule, MatInputModule, MatNativeDateModule, PaysFormModule,
     ],
     declarations: [
-        PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent, PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
-        FormulairePlacementComponent
+        PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent,
+        PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
+        FormulairePlacementComponent, PartOneComponent, PartTwoComponent
     ],
     exports: [
-        PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent, PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
-        FormulairePlacementComponent
+        PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent,
+        PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
+        FormulairePlacementComponent, PartOneComponent, PartTwoComponent
     ],
     entryComponents: [
         PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent

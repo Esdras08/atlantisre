@@ -87,6 +87,15 @@ mat-card {
     display: none;
   }
 }
+.button-class, .button-minus-class {
+  min-width: auto !important;
+  line-height: 28px !important;
+  padding: 0 9px !important;
+}
+
+.table-no-pagination {
+  @extend .table-autocomplete;
+}
 
 //.mat-tab-label.mat-tab-label-active {
 //  @extend .bg-primary;
@@ -97,7 +106,7 @@ mat-card {
   @include margin-bottom(10px);
   @include overflow-x(scroll);
   @include display(block);
-  @include border-collapse(unset);
+  @include border-collapse(collapse);
   @include border-spacing(1px);
   clv-td, .clv-td {
     @include font-size(0.9rem);

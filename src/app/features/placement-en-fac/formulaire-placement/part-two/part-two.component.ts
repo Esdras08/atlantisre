@@ -1,24 +1,22 @@
 import {Component} from '@angular/core';
-import {SgiTableShow} from '../../../core/behaviors/sgi-table-show';
+import {SgiTableShowModal} from '../../../../core/behaviors/sgi-table-show-modal';
 import {HttpClient} from '@angular/common/http';
 import {MessageShowerAlertImpl, MessageShowerSnakeBarImpl, MessageShowerToastImpl, ModelImpl, RequestMethod} from 'clv-angular-boot';
 import {MatDialog} from '@angular/material';
-import {ModalBuilder} from '../../../shared/modal/modal-builder';
-import {TraductionService} from '../../../core/services/traduction.service';
-import {DeviseModalFeatureComponent} from '../../devise/devise-modal/devise-modal.feature.component';
-import {ClvTableColumnField, ClvTableParamsModel} from 'clv-advanced-table';
-import {PARAMETRES} from '../../../core/services/parametres';
-import {WebServicesUtilities} from '../../../core/utilities/web-services.utilities';
-import {ERP} from '../../../core/services/erp.params';
-import {API} from '../../../core/services/api-services.params';
-import {SgiTableShowModal} from '../../../core/behaviors/sgi-table-show-modal';
+import {ModalBuilder} from '../../../../shared/modal/modal-builder';
+import {TraductionService} from '../../../../core/services/traduction.service';
+import {DeviseModalFeatureComponent} from '../../../devise/devise-modal/devise-modal.feature.component';
+import {ClvTableColumnField} from 'clv-advanced-table';
+import {PARAMETRES} from '../../../../core/services/parametres';
+import {WebServicesUtilities} from '../../../../core/utilities/web-services.utilities';
+import {ERP} from '../../../../core/services/erp.params';
+import {API} from '../../../../core/services/api-services.params';
 
 @Component({
-    selector: 'app-re-formulaire-placement',
-    templateUrl: './formulaire-placement.component.html',
-    styleUrls: ['./formulaire-placement.component.scss']
+    selector: 'app-part-two-fac',
+    templateUrl: './part-two.component.html'
 })
-export class FormulairePlacementComponent extends SgiTableShowModal {
+export class PartTwoComponent extends SgiTableShowModal {
     constructor(public httpClient: HttpClient,
                 public toast: MessageShowerToastImpl,
                 public alertMessage: MessageShowerAlertImpl,
@@ -31,7 +29,7 @@ export class FormulairePlacementComponent extends SgiTableShowModal {
         this.setContent(DeviseModalFeatureComponent);
 
         this.getTableParams()
-            .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PARTS_SOUSCRITES')))
+            .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.CESSION_FAC')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PCT')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.CAPITAUX_ASSURES')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PRIMES')))
