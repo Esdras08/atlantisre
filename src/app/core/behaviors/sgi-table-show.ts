@@ -85,10 +85,10 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
     afterError(status: number) {
         this.alert.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
             .setKey(true));
-        if (status === 200) {
+        if (status === 200 && !CommonUtilities.StringIsUndefinedOrNull(this.response.body.Message)) {
             this.alert.setMessage(new MessageImpl().setType(MessageType.ERROR).setMessage(this.response.body.Message)
                 .setTitle('Erreur')).show();
-        } else {
+        } else if (status !== 200) {
             this.alert.setMessage(this.getMessage(status)).show();
         }
     }
@@ -96,7 +96,7 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
     public handleError(error: HttpErrorResponse) {
         SgiTableShow.me.afterError(error.status);
         return throwError(
-            'Something bad happened; please try again later.');
+            'Something bad happened; please try again later. :!(');
     }
 
     // afterError(status: number) {

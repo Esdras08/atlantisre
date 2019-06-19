@@ -9,6 +9,11 @@ export class DecimalFormatPipe implements PipeTransform {
     let result: string;
     switch (format) {
       case null:
+        if (typeof +value === 'number' && +value > 0) {
+          // todo: formater
+        } else {
+          // todo: return value
+        }
         value = `${value}`;
         let i = -3;
         let j = 0;

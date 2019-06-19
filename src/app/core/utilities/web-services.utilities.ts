@@ -23,8 +23,8 @@ export class WebServicesUtilities {
 
     public static getSimpleUrl2(uri: string, method: string): string {
         // return 'http://inexa-srv-dc:4000/api/' + uri + '/' + method;
-         return 'http://localhost:25493/api/' + uri + '/' + method;
-
+        return 'http://192.168.43.146:2000/api/' + uri + '/' + method;
+         // return 'http://localhost:25493/api/' + uri + '/' + method;
     }
 
 
