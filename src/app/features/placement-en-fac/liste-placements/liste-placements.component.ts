@@ -33,17 +33,18 @@ export class ListePlacementsComponent implements OnInit {
             .setMethod(RequestMethod.POST).setData({});
         requestSender.setRequest(request);
         requestSender.sendRequest().subscribe(response => {
-            console.log(response.body.Items);
-            try {
-                AffaireModel.findById(this.httpClient, response.body.Items.Processu.IdAffaire).subscribe(response2 => {
-                    response.body.Items.Processu.Affaire = response2.body.Items[0];
-                    this.placementsEnFac = response.body.Items;
-                    this.enCours = response.body.Items;
-                    this.pasEnCours = response.body.Items;
-                    this.termines = response.body.Items;
-                });
-            } catch (e) {
-            }
+            response.body.Items.map((value) => {
+                try {
+                    AffaireModel.findById(this.httpClient, value.Processu.IdAffaire).subscribe(response2 => {
+                        value.Processu.Affaire = response2.body.Items[0];
+                        this.placementsEnFac = response.body.Items;
+                        this.enCours = response.body.Items;
+                        this.pasEnCours = response.body.Items;
+                        this.termines = response.body.Items;
+                    });
+                } catch (e) {
+                }
+            });
         });
     }
 
@@ -62,6 +63,7 @@ export class ListePlacementsComponent implements OnInit {
 
     set enCours(value: any) {
         this._enCours = value;
+        console.log(value);
     }
 
     get pasEnCours(): any {
