@@ -1,15 +1,15 @@
 <app-sgi-accordion title="Pas En Cours" [hasDescription]="false" [isOpened]="true">
     <mat-list role="list">
-        <mat-list-item *ngFor="let fac of pasEnCours" role="listitem">{{fac?.Processu?.Categorie}} de {{}}</mat-list-item>
+        <mat-list-item *ngFor="let fac of pasEnCours" role="listitem">{{fac?.Processu?.Categorie}} de {{fac?.Processu?.Affaire?.Activite}}</mat-list-item>
     </mat-list>
 </app-sgi-accordion>
 <app-sgi-accordion title="En Cours" [hasDescription]="false">
     <mat-list role="list">
-        <mat-list-item *ngFor="let fac of enCours" role="listitem">{{fac?.Processu?.Categorie}} de {{}}</mat-list-item>
+        <mat-list-item *ngFor="let fac of enCours" role="listitem">{{fac?.Processu?.Categorie}} de {{fac?.Processu?.Affaire?.Activite}}</mat-list-item>
     </mat-list>
 </app-sgi-accordion>
 <app-sgi-accordion title="Terminé" [hasDescription]="false">
     <mat-list role="list">
-        <mat-list-item *ngFor="let fac of termines" role="listitem">{{fac?.Processu?.Categorie}} de {{}}</mat-list-item>
+        <mat-list-item *ngFor="let fac of termines" role="listitem">{{fac?.Processu?.Categorie}} de {{fac?.Processu?.Affaire?.Activite}}</mat-list-item>
     </mat-list>
 </app-sgi-accordion>

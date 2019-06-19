@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {WebServicesUtilities} from '../../../core/utilities/web-services.utilities';
 import {ERP} from '../../../core/services/erp.params';
 import {API} from '../../../core/services/api-services.params';
+import {AffaireModel} from '../../../core/models/affaire.model';
 
 @Component({
     selector: 'app-re-liste-placement',
@@ -33,11 +34,16 @@ export class ListePlacementsComponent implements OnInit {
         requestSender.setRequest(request);
         requestSender.sendRequest().subscribe(response => {
             console.log(response.body.Items);
-            // IdAffaire
-            this.placementsEnFac = response.body.Items;
-            this.enCours = response.body.Items;
-            this.pasEnCours = response.body.Items;
-            this.termines = response.body.Items;
+            try {
+                AffaireModel.findById(this.httpClient, response.body.Items.Processu.IdAffaire).subscribe(response2 => {
+                    response.body.Items.Processu.Affaire = response2.body.Items[0];
+                    this.placementsEnFac = response.body.Items;
+                    this.enCours = response.body.Items;
+                    this.pasEnCours = response.body.Items;
+                    this.termines = response.body.Items;
+                });
+            } catch (e) {
+            }
         });
     }
 
