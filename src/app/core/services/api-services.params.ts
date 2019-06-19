@@ -115,6 +115,10 @@ export const API = {
         GET: 'GetProcessusByCriteria',
         SET: 'SaveProcessus'
     },
+    CATEGORIE_PROCESSUS: {
+        GET: 'GetCategorieProcessusByCriteria',
+        SET: 'SaveCategorieProcessus'
+    },
     PLACEMENT_EN_FAC: {
         GET: 'GetDemandePlacementFacultativesByCriteria',
         SET: 'SaveDemandePlacementFacultatives'

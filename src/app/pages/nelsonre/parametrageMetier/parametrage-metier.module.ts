@@ -24,6 +24,7 @@ import {TypeEchangeFeatureModule} from '../../../features/type-echange/type-echa
 import {TypeProcessusFeatureModule} from '../../../features/type-processus/type-processus.feature.module';
 import {EtapeProcessusFeatureModule} from '../../../features/etape-processus/etape-processus.feature.module';
 import {SuiviProcessusFeatureModule} from '../../../features/suivi-processus/suivi-processus.feature.module';
+import {CategorieProcessusFeatureModule} from '../../../features/categorie-processus/categorie-processus.feature.module';
 /*function Declarations() {
     return [
 
@@ -61,7 +62,8 @@ const routes: Routes = [
         TypeEchangeFeatureModule,
         TypeProcessusFeatureModule,
         EtapeProcessusFeatureModule,
-        SuiviProcessusFeatureModule
+        SuiviProcessusFeatureModule,
+        CategorieProcessusFeatureModule
     ],
     exports: [],
     declarations: [

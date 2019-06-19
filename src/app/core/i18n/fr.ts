@@ -378,6 +378,20 @@ export const locale = {
                 }
             }
         },
+        CATEGORIE_PROCESSUS: {
+            TABLE: {
+                COLUMNS: {
+                    LIBELLE: 'Libellé',
+                    ACTIONS: 'Actions'
+                }
+            },
+            FORM: {
+                LIBELLE: {
+                    PLACEHOLDER: 'Libellé',
+                    HINT: 'Entrez le libellé du Type Processus',
+                }
+            }
+        },
         ETAPE_PROCESSUS: {
             TABLE: {
                 COLUMNS: {
