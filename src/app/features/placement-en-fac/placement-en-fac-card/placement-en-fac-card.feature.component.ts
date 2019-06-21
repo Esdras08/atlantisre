@@ -41,7 +41,7 @@ export class PlacementEnFacCardFeatureComponent extends SgiTableShowModal {
             this.launchmodal(data, '60%');
         } else {
             this.setContent(PlacementEnFacModalFeatureComponent);
-            this.launchmodal(data, '60%');
+            this.launchmodal(data, '90%');
 
         }
     }

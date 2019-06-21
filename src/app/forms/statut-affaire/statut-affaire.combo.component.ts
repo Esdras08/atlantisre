@@ -37,7 +37,7 @@ export class StatutAffaireComboComponent extends SgiCombo {
         const model = new StatutAffaireModel();
         this.setModel(model);
         this.getRequest().setMethod(RequestMethod.POST)
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.FILIALE.GET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.STATUT_AFFAIRE.GET))
             .setData({
                 TakeAll: true,
                 SortOrder: 'Ascending',

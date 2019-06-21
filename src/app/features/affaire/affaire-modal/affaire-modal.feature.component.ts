@@ -38,11 +38,12 @@ export class AffaireModalFeatureComponent extends SgiModalForm implements OnInit
                 public translateService: TranslateService) {
         super(httpRequest, toast, alert, snakeBar, dialogRef);
         this.dialogData = data;
+        this.numberFields = ['CapitauxAssure'];
         try {
-            this.statuAffaireIv = data.item.IdStatutAffaire;
-            this.brancheIv = data.item.IdBranche;
-            this.filialeIv = data.item.IdFiliale;
-            this.assureIv = data.item.IdAssure;
+            this.statuAffaireIv = data.item.StatutAffaire.IdStatutAffaire;
+            this.brancheIv = data.item.Branche.IdBranche;
+            this.filialeIv = data.item.Filiale.IdFiliale;
+            this.assureIv = data.item.Assure.IdAssure;
         } catch (e) {
         }
     }

@@ -1,42 +1,48 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'decimalFormat'
+  name: 'decimalFormat',
+  pure: false
 })
 export class DecimalFormatPipe implements PipeTransform {
 
   transform(value: number|string, format: string = null): any {
-    let result: string;
     switch (format) {
       case null:
-        if (typeof +value === 'number' && +value > 0) {
-          // todo: formater
-        } else {
-          // todo: return value
-        }
-        value = `${value}`;
-        let i = -3;
-        let j = 0;
-        let end = false;
-        let cp = 0;
-        result = '';
-        while (!end) {
-          if (j < value.length) {
-            i += 3;
-            j += 3;
-            result = ' ' + value.substring(value.length - j, value.length - i) + result;
-          } else {
-            i += 3;
-            result = ' ' + value.substring(0, value.length - i) + result;
-            end = true;
-
-          }
-          cp++;
-        }
-        return result;
+        value = this.clean(value);
+        return this.formater(this.cloner(value));
         break;
     }
+    return value;
+  }
+
+  formater (value) {
+    let result: string;
+    let i = -3;
+    let j = 0;
+    let end = false;
+    let cp = 0;
+    result = '';
+    while (!end) {
+      if (j < value.length) {
+        i += 3;
+        j += 3;
+        result = ' ' + value.substring(value.length - j, value.length - i) + result;
+      } else {
+        i += 3;
+        result = ' ' + value.substring(0, value.length - i) + result;
+        end = true;
+
+      }
+      cp++;
+    }
     return result;
+  }
+  cloner (value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+  clean(value) {
+    return `${value}`.replace(/\s/g, '');
   }
 
 }

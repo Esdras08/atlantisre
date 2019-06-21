@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {WebServicesUtilities} from '../utilities/web-services.utilities';
 import {ERP} from '../services/erp.params';
 import {API} from '../services/api-services.params';
+import {Validators} from '@angular/forms';
+import {PARAMETRES} from '../services/parametres';
 
 export class StructureModel extends ModelImpl {
 
@@ -23,7 +25,8 @@ export class StructureModel extends ModelImpl {
             .addField(new ModelMaskFieldImpl<any>().setName('RaisonSocialeStructure'))
             .addField(new ModelMaskFieldImpl<any>().setName('DecretCreation'))
             .addField(new ModelMaskFieldImpl<any>().setName('NumeroAgrement'))
-            .addField(new ModelMaskFieldImpl<any>().setName('CapitalSocial'))
+            .addField(new ModelMaskFieldImpl<any>().setName('CapitalSocial')
+                .addValidator(Validators.pattern(PARAMETRES.VALIDATION.IS_NUMBER)))
             .addField(new ModelMaskFieldImpl<any>().setName('IdPays'))
             .addField(new ModelMaskFieldImpl<any>().setName('IdDevise'));
     }

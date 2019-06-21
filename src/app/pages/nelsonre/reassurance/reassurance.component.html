@@ -1,0 +1,47 @@
+<app-content-header
+        [title]="'Réassurance'"
+        [hideBreadcrumb]="false"
+        [hasBgImage]="true"
+        [class]="'py-3'">
+</app-content-header>
+
+<mat-tab-group>
+    <mat-tab label="Affaires">
+        <ng-template matTabContent>
+            <app-re-affaire-liste width="100%" height="100%"></app-re-affaire-liste>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Placements en Facultative">
+        <ng-template matTabContent>
+            <div style="width: 100%;">
+                <app-re-placement-en-fac-liste width="100%" height="100%"></app-re-placement-en-fac-liste>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Traités">
+        <ng-template matTabContent>
+            <app-en-construction></app-en-construction>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>
+
+<!--<div fxLayout="row wrap" fxLayoutGap="10px" class="p-2">-->
+<!--    <div fxFlex.md="32.5" fxFlex.lg="32.5">-->
+<!--        <app-affaire-card width="100%" height="100%"></app-affaire-card>-->
+<!--    </div>-->
+<!--    <div fxFlex.md="32.5" fxFlex.lg="32.5">-->
+<!--        <app-processus-card width="100%" height="100%"></app-processus-card>-->
+<!--    </div>-->
+<!--    <div fxFlex.md="32.5" fxFlex.lg="32.5">-->
+<!--        <app-placement-en-fac-card width="100%" height="100%"></app-placement-en-fac-card>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div fxLayout="row wrap" fxLayoutGap="10px" class="p-2">-->
+<!--    <div fxFlex.md="20" fxFlex.lg="20" fxFlex.xl="20">-->
+<!--        <app-re-ordonancement-placement></app-re-ordonancement-placement>-->
+<!--    </div>-->
+<!--    <div fxFlex.md="78" fxFlex.lg="78" fxFlex.xl="78">-->
+<!--        <app-re-formulaire-placement></app-re-formulaire-placement>-->
+<!--    </div>-->
+<!--</div>-->

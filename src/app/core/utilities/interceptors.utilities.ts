@@ -42,7 +42,7 @@ export class ServerURLInterceptor implements HttpInterceptor {
         if (Security.userIsLogin()) {
             // IdCurrentTenant = 1;
             // IdCurrentStructure = Security.getCurrentUser().IdStructure;
-            IdCurrentUser = Security.getIdUtilisateur();
+            // IdCurrentUser = Security.getIdUtilisateur();
             // IdCurrentPays = Security.getCurrentUser().IdPays;
             // IdCurrentVille = Security.getCurrentUser().IdVille;
             // IdCurrentClient = Security.getCurrentUser().IdClient;
@@ -52,7 +52,7 @@ export class ServerURLInterceptor implements HttpInterceptor {
         if (!CommonUtilities.IsUndefinedOrNull(request) && !CommonUtilities.IsUndefinedOrNull(request.body)) {
             // request.body.IdCurrentTenant = IdCurrentTenant;
             // request.body.IdCurrentStructure = IdCurrentStructure;
-            request.body.IdCurrentUser = IdCurrentUser;
+            // request.body.IdCurrentUser = IdCurrentUser;
             // request.body.IdCurrentPays = IdCurrentPays;
             // request.body.IdCurrentVille = IdCurrentVille;
             // request.body.IdCurrentClient = IdCurrentClient;

@@ -3,7 +3,12 @@ h1.title {
   text-transform: uppercase;
   text-align: center;
 }
-
+.table-container {
+  display: block;
+  width: 100%;
+  overflow: scroll;
+  height: 400px;
+}
 .table {
   margin-bottom: 10px;
   border-color: darken(#FFFFFF, 10%);

@@ -12,6 +12,7 @@ import {ProcessusFeatureComponent} from './processus/processus.feature.component
 import {ProcessusCardFeatureComponent} from './processus-card/processus-card.feature.component';
 import {AffaireFormModule} from '../../forms/affaire/affaire.form.module';
 import {TypeProcessusFormModule} from '../../forms/type-processus/type-processus.form.module';
+import {CategorieProcessusFormModule} from '../../forms/categorie-processus/categorie-processus.form.module';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import {TypeProcessusFormModule} from '../../forms/type-processus/type-processus
         LoadingBarHttpClientModule,
         AffaireFormModule,
         TypeProcessusFormModule,
+        CategorieProcessusFormModule,
     ],
     declarations: [
         ProcessusFeatureComponent, ProcessusModalFeatureComponent, ProcessusCardFeatureComponent

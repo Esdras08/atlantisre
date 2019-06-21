@@ -6,6 +6,7 @@ import {WebServicesUtilities} from '../../core/utilities/web-services.utilities'
 import {DeviseModel} from '../../core/models/devise.model';
 import {ERP} from '../../core/services/erp.params';
 import {API} from '../../core/services/api-services.params';
+import {TypeEchangeModel} from '../../core/models/type-echange.model';
 
 @Component({
     selector: 'app-re-combo-type-echange',
@@ -32,7 +33,7 @@ export class TypeEchangeComboComponent extends SgiCombo {
 
     beforeAll(): void {
         this.setDisplayedField('Libelle');
-        const model = new DeviseModel();
+        const model = new TypeEchangeModel();
         this.setModel(model);
         this.getRequest().setMethod(RequestMethod.POST)
             .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.TYPE_ECHANGE.GET))

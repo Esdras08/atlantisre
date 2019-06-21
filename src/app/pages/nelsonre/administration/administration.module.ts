@@ -12,12 +12,8 @@ import {UtilisateursFeatureModule} from '../../../features/utilisateurs/utilisat
 import {ProfilFeatureModule} from '../../../features/profil/profil.feature.module';
 import {PersonneFeatureModule} from '../../../features/personne/personne.feature.module';
 import {FonctionnaliteFeatureModule} from '../../../features/fonctionnalite/fonctionnalite.feature.module';
+// tslint:disable-next-line:max-line-length
 import {UtilisateurFonctionnaliteFeatureModule} from '../../../features/utilisateur-fonctionnalite/utilisateur-fonctionnalite.feature.module';
-/*function Declarations() {
-    return [
-
-    ];
-}*/
 
 const routes: Routes = [
     {path: '', component: AdministrationComponent}

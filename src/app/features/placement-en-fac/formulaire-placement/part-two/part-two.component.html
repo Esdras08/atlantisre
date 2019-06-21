@@ -11,6 +11,11 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"><button mat-icon-button color="warn"
+                                       [matTooltip]="translateService?.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                type="button">
+            <mat-icon>delete</mat-icon>
+        </button></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
         <clv-td align="center">Cession Légale FAC (SEN RE)</clv-td>
@@ -20,6 +25,11 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"><button mat-icon-button color="warn"
+                                       [matTooltip]="translateService?.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                type="button">
+            <mat-icon>delete</mat-icon>
+        </button></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
         <clv-td align="center"><mat-select placeholder="selectionnez une valeur">
@@ -35,6 +45,11 @@
         <clv-td align="center">32,50%</clv-td>
         <clv-td align="center">3 796 982</clv-td>
         <clv-td align="center">7 886 039</clv-td>
+        <clv-td align="center"><button mat-icon-button color="warn"
+                                       [matTooltip]="translateService?.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                type="button">
+            <mat-icon>delete</mat-icon>
+        </button></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
         <clv-td align="center">CICA RE</clv-td>
@@ -44,6 +59,11 @@
         <clv-td align="center">32,50%</clv-td>
         <clv-td align="center">3 796 982</clv-td>
         <clv-td align="center">7 886 039</clv-td>
+        <clv-td align="center"><button mat-icon-button color="warn"
+                                       [matTooltip]="translateService?.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                type="button">
+            <mat-icon>delete</mat-icon>
+        </button></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
         <clv-td align="center">CICA RE</clv-td>
@@ -53,8 +73,13 @@
         <clv-td align="center">32,50%</clv-td>
         <clv-td align="center">3 796 982</clv-td>
         <clv-td align="center">7 886 039</clv-td>
+        <clv-td align="center"><button mat-icon-button color="warn"
+                                       [matTooltip]="translateService?.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
+                type="button">
+            <mat-icon>delete</mat-icon>
+        </button></clv-td>
     </clv-tr>
-    <clv-tr [params]="getTableParams()" [id]="2">
+    <clv-tfoot class="clv-tfoot" [params]="getTableParams()" [id]="2">
         <clv-td align="center">Total cession FAC</clv-td>
         <clv-td align="center">93,50%</clv-td>
         <clv-td align="center">7 116 789 073</clv-td>
@@ -62,8 +87,9 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
-    </clv-tr>
-    <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
+    </clv-tfoot>
+    <clv-tfoot class="clv-tfoot" [params]="getTableParams()" [id]="2">
         <clv-td align="center">Total programme risque</clv-td>
         <clv-td align="center">93,50%</clv-td>
         <clv-td align="center">7 116 789 073</clv-td>
@@ -71,6 +97,7 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
-    </clv-tr>
+        <clv-td align="center"></clv-td>
+    </clv-tfoot>
 </clv-advanced-table>
 </form>

@@ -29,6 +29,7 @@ import {
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
+    MatBadgeModule,
     MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
@@ -57,6 +58,17 @@ import {ButtonReportComponent} from './button-report/button-report.component';
 import {ModalTemplateComponent} from './modal/modal-template.component';
 import {PlacementFacCardComponent} from './cards/placement-fac-card.component';
 import {NgHttpLoaderModule} from 'ng-http-loader';
+import {AddButtonComponent} from './buttons/add-button.component';
+import {TableUpdateButtonComponent} from './buttons/table-update-button.component';
+import {TableDeleteButtonComponent} from './buttons/table-delete-button.component';
+import {ModalCloseButtonComponent} from './buttons/modal-close-button.component';
+import {ShowListButtonComponent} from './buttons/show-list-button.component';
+import {SaveButtonComponent} from './buttons/save-button.component';
+import {CancelButtonComponent} from './buttons/cancel-button.component';
+import {OverlayLayoutComponent} from './layouts/overlay-layout.component';
+import {EnConstructionComponent} from './layouts/en-construction.component';
+import {MaterialFileInputModule} from 'ngx-material-file-input';
+import {ReportingButtonComponent} from './buttons/reporting-button.component';
 
 export const MY_FORMATS = {
     parse: {
@@ -84,6 +96,7 @@ export const MY_FORMATS = {
     MatChipsModule,
     MatDatepickerModule,
     MatDialogModule,
+      MatBadgeModule,
     MatExpansionModule,
     MatGridListModule,
     MatIconModule,
@@ -114,7 +127,8 @@ export const MY_FORMATS = {
       ClvAdvancedTableModule,
       HttpClientModule,
       ClvAngularPipesUtilitiesModule,
-      NgHttpLoaderModule
+      NgHttpLoaderModule,
+      MaterialFileInputModule
   ],
   exports: [
     FlexLayoutModule,
@@ -126,6 +140,7 @@ export const MY_FORMATS = {
     MatChipsModule,
     MatDatepickerModule,
     MatDialogModule,
+      MatBadgeModule,
     MatExpansionModule,
     MatGridListModule,
     MatIconModule,
@@ -159,7 +174,18 @@ export const MY_FORMATS = {
       ButtonReportComponent,
       ModalTemplateComponent,
       PlacementFacCardComponent,
-      NgHttpLoaderModule
+      NgHttpLoaderModule,
+      AddButtonComponent,
+      TableUpdateButtonComponent,
+      TableDeleteButtonComponent,
+      ModalCloseButtonComponent,
+      ShowListButtonComponent,
+      SaveButtonComponent,
+      CancelButtonComponent,
+      OverlayLayoutComponent,
+      EnConstructionComponent,
+      MaterialFileInputModule,
+      ReportingButtonComponent
   ],
   declarations: [
     ContentHeaderComponent,
@@ -171,7 +197,17 @@ export const MY_FORMATS = {
       FormErrorListComponent,
       ButtonReportComponent,
       ModalTemplateComponent,
-      PlacementFacCardComponent
+      PlacementFacCardComponent,
+      AddButtonComponent,
+      TableUpdateButtonComponent,
+      TableDeleteButtonComponent,
+      ModalCloseButtonComponent,
+      ShowListButtonComponent,
+      SaveButtonComponent,
+      CancelButtonComponent,
+      OverlayLayoutComponent,
+      EnConstructionComponent,
+      ReportingButtonComponent
   ],
     providers: [
         {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},

@@ -1,4 +1,5 @@
 import {base64_encode} from 'devextreme/data/utils';
+import {WebServicesUtilities} from './web-services.utilities';
 
 export class CommonUtilities {
 
@@ -6,7 +7,8 @@ export class CommonUtilities {
     public static tableNumericOperations: String = '[ \'=\', \'<>\', \'<\', \'>\', \'<=\', \'>=\', \'between\']';
     public static tableDateOperations: String = '[ \'=\', \'<>\', \'<\', \'>\', \'<=\', \'>=\', \'between\']';
 
-    constructor() { }
+    constructor() {
+    }
 
     public static clone(obj: any): any {
         try {
@@ -14,6 +16,10 @@ export class CommonUtilities {
         } catch (e) {
             return undefined;
         }
+    }
+
+    public static stringCleanSpace(value) {
+        return `${value}`.replace(/\s/g, '');
     }
 
     public static gotoHref(url) {
@@ -75,8 +81,7 @@ export class CommonUtilities {
     }
 
 
-
-    public static WriteInConsole = function(text) {
+    public static WriteInConsole = function (text) {
         if (typeof console !== 'undefined') {
             console.log(text);
         } else {
@@ -86,14 +91,10 @@ export class CommonUtilities {
     };
 
 
-
-
     public static IsJsonValid(text: string) {
 
 
-        if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
-        replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
-        replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+        if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 
             return true;
 
@@ -165,7 +166,7 @@ export class CommonUtilities {
         return operator;
     }
 
-    public static RequestSw = function(index?, size?, takeAll?, deepth?, isNotificationToShow?, titleNotificationToShow?, notificationToShow?, showErrorInAlert?, showLoader?, mustFilterByTenant?) {
+    public static RequestSw = function (index?, size?, takeAll?, deepth?, isNotificationToShow?, titleNotificationToShow?, notificationToShow?, showErrorInAlert?, showLoader?, mustFilterByTenant?) {
         const request: any = {
             Index: index || 0,
             Size: size || 10,
@@ -182,7 +183,7 @@ export class CommonUtilities {
         return request;
     };
 
-    public static ResponseSw = function(data, indexDebut, indexFin, count, message, hasError) {
+    public static ResponseSw = function (data, indexDebut, indexFin, count, message, hasError) {
         return {
             Data: data,
             IndexDebut: indexDebut || 0,
@@ -251,6 +252,11 @@ export class CommonUtilities {
             password = base64_encode(password);
         }
         return password;
+    }
+
+    public static displayReport(name: string, params: string) {
+        const url = WebServicesUtilities.getReportRdlUrlBase() + name + '&rs:Command=Render&' + params;
+        window.open(url);
     }
 
 }

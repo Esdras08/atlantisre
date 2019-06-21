@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import {Menu} from './menu.model';
 import {horizontalMenuItems, verticalMenuItems, verticalMenuItemsEnglish} from './menu';
 
+
 @Injectable()
 export class MenuService {
 
@@ -15,13 +16,15 @@ export class MenuService {
     public getVerticalMenuItems(): Array<Menu> {
         const langue = localStorage.getItem('language');
         // console.log(langue);
-        if (langue === 'fr') {
+        /*if (langue === 'fr') {
             return verticalMenuItems;
         } else {
             if (langue === 'en') {
                 return verticalMenuItemsEnglish;
             }
-        }
+        }*/
+
+        return verticalMenuItems;
     }
 
     public getHorizontalMenuItems(): Array<Menu> {
@@ -31,8 +34,7 @@ export class MenuService {
     public expandActiveSubMenu(menu: Array<Menu>) {
         let url = this.location.path();
         let routerLink = url; // url.substring(1, url.length);
-        let activeMenuItem = menu.filter(item => item.routerLink === routerLink);
-        if (activeMenuItem[0]) {
+        let activeMenuItem = menu.filter(item => item.routerLink === routerLink);if (activeMenuItem[0]) {
             let menuItem = activeMenuItem[0];
             while (menuItem.parentId != 0) {
                 let parentMenuItem = menu.filter(item => item.id == menuItem.parentId)[0];
@@ -91,3 +93,5 @@ export class MenuService {
 
 
 }
+
+

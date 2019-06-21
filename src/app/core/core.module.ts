@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HoverAddClassDirective} from './directives/hover-add-class.directive';
 import {BooleanToStringPipe} from './pipes/boolean-to-string.pipe';
 import {DecimalFormatPipe} from './pipes/decimal-format.pipe';
+import {DecimalFormatDirective} from './directives/decimal-format.directive';
 
 
 @NgModule({
@@ -10,10 +11,10 @@ import {DecimalFormatPipe} from './pipes/decimal-format.pipe';
         CommonModule
     ],
     declarations: [
-        HoverAddClassDirective, BooleanToStringPipe, DecimalFormatPipe
+        HoverAddClassDirective, BooleanToStringPipe, DecimalFormatPipe, DecimalFormatDirective
     ],
     exports: [
-        HoverAddClassDirective, BooleanToStringPipe, DecimalFormatPipe
+        HoverAddClassDirective, BooleanToStringPipe, DecimalFormatPipe, DecimalFormatDirective
     ],
 })
 export class CoreModule {

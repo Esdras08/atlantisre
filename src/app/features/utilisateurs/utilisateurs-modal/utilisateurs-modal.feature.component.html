@@ -107,7 +107,7 @@
                                             [submitted]="submitted"
                                        [(inputValue)]="structureIv"
                                        (onInputChange)="optionInputHasChanged($event)"
-                                       name="IdPays" required="true"
+                                       name="IdStructure" required="true"
                                        [placeholder]="translateService?.instant('UTILISATEUR.FORM.STRUCTURE.PLACEHOLDER')"
                                        [hint]="translateService?.instant('UTILISATEUR.FORM.STRUCTURE.HINT')"></app-autocomplete-structure>
             </div>
@@ -137,13 +137,8 @@
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
         <div></div>
         <div>
-            <button mat-raised-button class="bg-primary" type="button"
-                    (click)="sendForm()">
-                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
-            </button>&nbsp;
-            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
-                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
-            </button>
+            <app-save-button (click)="sendForm()"></app-save-button>&nbsp;
+            <app-cancel-button mat-dialog-close cdkFocusInitial (click)="closeModal()"></app-cancel-button>
         </div>
     </div>
 </app-modal-template>

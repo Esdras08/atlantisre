@@ -13,7 +13,7 @@ import {
     PromptActionType,
     Request,
     RequestType,
-    ResponseStatusCode
+    ResponseStatusCode, StatusMessageImpl
 } from 'clv-angular-boot';
 import {ClvTableColumnField, ClvTableParamsModel} from 'clv-advanced-table';
 import {MatDialogRef, PageEvent} from '@angular/material';
@@ -34,7 +34,13 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
                 public alerts: MessageShowerAlertImpl,
                 public snakeBars: MessageShowerSnakeBarImpl) {
         super(httpRequest, toasts, alerts, snakeBars);
+        SgiTableShow.me = this;
         this.sendAll = false;
+        this.addMessage(new StatusMessageImpl()
+            .setStatus(0)
+            .setTitle('Erreur')
+            .setMessage('Echec de la connexion')
+            .setType(MessageType.ERROR));
         this.getMessage(200).setMessage('Requête effectuée avec succès');
         this.beforeAll();
         this.initialData = CommonUtilities.clone(this.getRequestGetter().getData());
@@ -83,13 +89,16 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
     }
 
     afterError(status: number) {
-        this.alert.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
-            .setKey(true));
-        if (status === 200 && !CommonUtilities.StringIsUndefinedOrNull(this.response.body.Message)) {
-            this.alert.setMessage(new MessageImpl().setType(MessageType.ERROR).setMessage(this.response.body.Message)
-                .setTitle('Erreur')).show();
-        } else if (status !== 200) {
-            this.alert.setMessage(this.getMessage(status)).show();
+        try {
+            this.alerts.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
+                .setKey(true));
+            if (status === 200 && !CommonUtilities.StringIsUndefinedOrNull(this.response.body.Message)) {
+                this.alerts.setMessage(new MessageImpl().setType(MessageType.ERROR).setMessage(this.response.body.Message)
+                    .setTitle('Erreur')).show();
+            } else if (status !== 200) {
+                this.alerts.setMessage(this.getMessage(status)).show();
+            }
+        } catch (e) {
         }
     }
 
@@ -98,12 +107,6 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
         return throwError(
             'Something bad happened; please try again later. :!(');
     }
-
-    // afterError(status: number) {
-    //     this.alerts.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
-    //         .setKey(true));
-    //     this.alerts.setMessage(this.getMessage(status)).show();
-    // }
 
     setNameModel(name: string): void {
         this.nameModel = name;
@@ -214,7 +217,8 @@ export abstract class SgiTableShow extends ArrayFormImpl<any, any, ClvTableColum
         } catch (e) {
         }
         try {
-            ObjectPath.set(this.getRequestGetter().getData(), 'Index', this.getPageParams().pageIndex);
+            ObjectPath.set(this.getRequestGetter().getData(), 'Index', this.getPageParams().pageIndex +
+                this.getPageParams().pageSize);
         } catch (e) {
         }
         this.getFormInfo();

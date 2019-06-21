@@ -47,8 +47,9 @@
             <div fxFlex.md="100" fxFlex.lg="100">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput
+                           app-decimal-format
                            [placeholder]="translateService?.instant('STRUCTURE.FORM.CAPITAL_SOCIAL.PLACEHOLDER')" required
-                           formControlName="CapitalSocial" mat>
+                           formControlName="CapitalSocial">
                     <mat-hint align="start">{{translateService?.instant('STRUCTURE.FORM.CAPITAL_SOCIAL.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list  [submitted]="submitted" name="CapitalSocial" [formGroup]="getFormInstance()"></app-form-error-list>
@@ -71,13 +72,8 @@
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
         <div></div>
         <div>
-            <button mat-raised-button class="bg-primary" type="button"
-                    (click)="sendForm()">
-                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
-            </button>&nbsp;
-            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
-                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
-            </button>
+            <app-save-button (click)="sendForm()"></app-save-button>&nbsp;
+            <app-cancel-button mat-dialog-close cdkFocusInitial (click)="closeModal()"></app-cancel-button>
         </div>
     </div>
 </app-modal-template>

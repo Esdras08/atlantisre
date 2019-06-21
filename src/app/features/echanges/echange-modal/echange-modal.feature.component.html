@@ -1,0 +1,37 @@
+<app-modal-template title="Echange" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" class="control">
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <mat-form-field class="mat-form-field-fluid">
+                    <textarea matInput
+                              [placeholder]="'Contenu'"
+                              required></textarea>
+                </mat-form-field>
+            </div>
+            <div fxFlex.md="100" fxFlex.lg="100">
+                <h4>Liste des documents</h4>
+                <mat-list>
+                    <mat-list-item *ngFor="let doc of [0,1,2,3,4]">
+                        Document1.pdf <app-table-delete-button></app-table-delete-button>
+                    </mat-list-item>
+                </mat-list>
+                <div>
+                    <mat-form-field>
+                        <ngx-mat-file-input formControlName="basicfile" placeholder="Choisir Document" ></ngx-mat-file-input>
+                        <mat-icon matSuffix>folder</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div align="end">
+                    <app-add-button [title]="'Ajouter document'"></app-add-button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <app-save-button (click)="sendForm()"></app-save-button>&nbsp;
+            <app-cancel-button mat-dialog-close cdkFocusInitial (click)="closeModal()"></app-cancel-button>
+        </div>
+    </div>
+</app-modal-template>

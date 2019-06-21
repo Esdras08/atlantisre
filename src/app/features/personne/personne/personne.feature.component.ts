@@ -16,6 +16,11 @@ import {CiviliteModel} from '../../../core/models/civilite.model';
 import {PieceIdentiteModel} from '../../../core/models/pieceIdentite.model';
 import {FormeJuridiqueModel} from '../../../core/models/formeJuridique.model';
 import {PaysModel} from '../../../core/models/pays.model';
+import {PlacementEnFacFeatureComponent} from '../../placement-en-fac/placement-en-fac/placement-en-fac.feature.component';
+import {PlacementEnFacModalFeatureComponent} from '../../placement-en-fac/placement-en-fac-modal/placement-en-fac-modal.feature.component';
+import {PersonneMoraleModalFeatureComponent} from '../personne-modal/personne-morale-modal.feature.component';
+import {FilialeModel} from '../../../core/models/filiale.model';
+import {CommonUtilities} from '../../../core/utilities/common.utilities';
 
 @Component({
     selector: 'app-re-personne',
@@ -37,15 +42,11 @@ export class PersonneFeatureComponent extends SgiTableShowModal implements OnCha
 
         this.getTableParams()
         // .addColumn(new ClvTableColumnField().setTitle(''))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.TYPE_PERSONNE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.CIVILITE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.NOM')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.PRENOM')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.DATE_NAISSANCE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.LIEU_NAISSANCE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.FORME_JURIDIQUE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.PAYS')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PERSONNE.TABLE.COLUMNS.ACTIONS'))
+            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.TYPE_PERSONNE')))
+            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.NUMERO_ASSURE')))
+            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.FILIALE')))
+
+            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.ACTIONS'))
                 .setSize(PARAMETRES.TABLES.ACTION_SIZE))
             .setHeaderClass(PARAMETRES.TABLES.CLASS.HEADER)
             .setTableClass(PARAMETRES.TABLES.CLASS.TABLE)
@@ -65,6 +66,29 @@ export class PersonneFeatureComponent extends SgiTableShowModal implements OnCha
         this.getFormInfo();
     }
 
+/*    launchmodal(e?: any, size: string = '30%') {
+        const data: any = {};
+        if (!CommonUtilities.IsUndefinedOrNull(e)) {
+            data.item = {...e};
+        }
+        const dialogRef = this.modalBuilder.launch(this.dialog, this.content, data, size);
+
+        dialogRef.afterClosed().subscribe((response: any) => {
+            this.getFormInfo();
+        });
+    }*/
+    launchmodalAssure(button, data) {
+        // const data: any = {};
+
+        if (button === 1) {
+            this.setContent(PersonneModalFeatureComponent);
+            this.launchmodal(data, '70%');
+        } else {
+            this.setContent(PersonneMoraleModalFeatureComponent);
+            this.launchmodal(data, '70%');
+
+        }
+    }
 
     afterGetFormInfo(formInfo: any): any {
         super.afterGetFormInfo(formInfo);
@@ -99,18 +123,24 @@ export class PersonneFeatureComponent extends SgiTableShowModal implements OnCha
                 });
             } catch (e) {
             }
+            try {
+                FilialeModel.findById(this.httpClient, value.IdFiliale).subscribe(response => {
+                    value.Filiale = response.body.Items[0];
+                });
+            } catch (e) {
+            }
         });
     }
 
     beforeAll() {
         this.setModel(new ModelImpl());
         this.getRequestGetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.PERSONNE.GET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.GET))
             .setMethod(RequestMethod.POST)
             .setData({});
 
         this.getRequestSetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.PERSONNE.SET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.SET))
             .setMethod(RequestMethod.POST).setData({});
     }
 }

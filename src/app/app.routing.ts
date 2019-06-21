@@ -133,7 +133,7 @@ export const routes: Routes = [
             },
             {
                 path: 're-placement-en-fac',
-                loadChildren: './pages/nelsonre/placementEnFac/placement-en-fac.module#PlacementEnFacModule',
+                loadChildren: './pages/nelsonre/reassurance/reassurance.module#ReassuranceModule',
                 data: { breadcrumb: 'Placement En Facultative'}
             },
             {
@@ -173,5 +173,6 @@ export const routes: Routes = [
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
    preloadingStrategy: PreloadAllModules,  // <- comment this line for activate lazy load
-   // useHash: true
+   // useHash: true, //
+    onSameUrlNavigation: 'reload'
 });

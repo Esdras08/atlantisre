@@ -7,10 +7,9 @@ import {ClvAngularPipesUtilitiesModule} from 'clv-angular-pipes-utilities';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {ClvAdvancedTableModule} from 'clv-advanced-table';
 import {NgModule} from '@angular/core';
-import {AssureFeatureComponent} from './assure/assure.feature.component';
-import {AssureModalFeatureComponent} from './assure-modal/assure-modal.feature.component';
-import {FilialeFormModule} from '../../forms/filiale/filiale.form.module';
-import {PersonneFormModule} from '../../forms/personne/personne.form.module';
+import {EncaissementFeatureComponent} from './encaissement/encaissement.feature.component';
+import {EncaissementModalFeatureComponent} from './encaissement-modal/encaissement-modal.feature.component';
+import {StatutAffaireFormModule} from '../../forms/statut-affaire/statut-affaire.form.module';
 
 @NgModule({
     imports: [
@@ -22,19 +21,18 @@ import {PersonneFormModule} from '../../forms/personne/personne.form.module';
         ClvAdvancedTableModule,
         ClvAngularPipesUtilitiesModule,
         LoadingBarHttpClientModule,
-        FilialeFormModule,
-        PersonneFormModule,
+        StatutAffaireFormModule,
     ],
     declarations: [
-        AssureFeatureComponent, AssureModalFeatureComponent
+        EncaissementFeatureComponent, EncaissementModalFeatureComponent
     ],
     exports: [
-        AssureFeatureComponent, AssureModalFeatureComponent
+        EncaissementFeatureComponent, EncaissementModalFeatureComponent
     ],
     entryComponents: [
-        AssureModalFeatureComponent
+        EncaissementModalFeatureComponent
     ],
     providers: [{provide: HTTP_INTERCEPTORS, useClass: ServerURLInterceptor, multi: true}]
 })
-export class AssureFeatureModule {
+export class EncaissementFeatureModule {
 }

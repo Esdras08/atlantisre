@@ -5,8 +5,8 @@ import {RequestMethod} from 'clv-angular-boot';
 import {WebServicesUtilities} from '../../core/utilities/web-services.utilities';
 import {ERP} from '../../core/services/erp.params';
 import {API} from '../../core/services/api-services.params';
-import {FilialeModel} from '../../core/models/filiale.model';
 import {AssureModel} from '../../core/models/assure.model';
+
 
 @Component({
     selector: 'app-combo-re-assure',
@@ -23,11 +23,10 @@ import {AssureModel} from '../../core/models/assure.model';
                 <mat-hint align="start">{{hint}}</mat-hint>
             </mat-form-field>
         </form>
-        <app-form-error-list [submitted]="submitted" [name]="getName()" [formGroup]="getFormInstance()"></app-form-error-list>
+        <app-form-error-list [name]="getName()" [formGroup]="getFormInstance()"></app-form-error-list>
     `
 })
 export class AssureComboComponent extends SgiCombo {
-    // hint = 'Selectionnez un assuré';
     constructor(public httpClient: HttpClient) {
         super(httpClient);
     }
@@ -37,7 +36,7 @@ export class AssureComboComponent extends SgiCombo {
         const model = new AssureModel();
         this.setModel(model);
         this.getRequest().setMethod(RequestMethod.POST)
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.FILIALE.GET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.GET))
             .setData({
                 TakeAll: true,
                 SortOrder: 'Ascending',

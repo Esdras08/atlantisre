@@ -8,9 +8,12 @@ import {MatExpansionPanel} from '@angular/material';
             <mat-expansion-panel #panel (opened)="onOpened?.emit(); isOpened = true"
                                  (closed)="onClosed?.emit(); isOpened = false"
                                  [ngClass]="panelClass">
-                <mat-expansion-panel-header [ngClass]="{'clv-bg-secondary': isOpened, 'clv-bg-primary-light': !isOpened}">
+                <mat-expansion-panel-header [collapsedHeight]="'30px'"
+                                            [expandedHeight]="'30px'"
+                                            [ngClass]="{'clv-bg-secondary': isOpened, 'clv-bg-primary-light': !isOpened}">
                     <mat-panel-title class="text-uppercase mat-panel-title">
-                        <h3 [ngClass]="{'clv-bg-secondary': isOpened, 'clv-bg-primary-light': !isOpened}">{{title}}</h3>
+                        <h5 [ngClass]="{'clv-bg-secondary': isOpened, 'clv-bg-primary-light': !isOpened}"
+                            [style.font-weight]="'300'">{{title}}</h5>
                     </mat-panel-title>
                     <mat-panel-description *ngIf="hasDescription" class="text-uppercase"
                                            [ngClass]="{'clv-bg-secondary': isOpened}">

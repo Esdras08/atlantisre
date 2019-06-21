@@ -1,0 +1,49 @@
+<div class="p-2" align="end">
+    <app-add-button (click)="launchmodal()"></app-add-button>
+</div>
+
+<form class="p-2" [formGroup]="getFormInstance()">
+    <clv-advanced-table
+            [params]="getTableParams()" [formArrayName]="getArrayName()"
+            (page)="setPageParams($event)" (search)="setSearchParams($event)">
+<!--        <ng-container class="clv-tr" *ngFor="let elt of [0,1,2];let i=index">-->
+        <ng-container class="clv-tr" *ngFor="let elt of getFormInstance()?.get(getArrayName())?.controls;let i=index">
+            <clv-tr [params]="getTableParams()" [data]="getFormData()?.Items[i]" [formGroupName]="i" [id]="i">
+                <clv-td align="center">{{getFormData()?.Items[i]?.DateConsultation | date :'dd/MM/yyyy'}}</clv-td>-->
+                <clv-td align="center">{{getFormData()?.Items[i]?.DateEffet | date :'dd/MM/yyyy'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.DateEcheance | date :'dd/MM/yyyy'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.EnCours | date :'dd/MM/yyyy'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.GarantieCedee | number:'':'fr-FR'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Prime | number:'':'fr-FR'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.SMP | number:'':'fr-FR'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.PartFiliale | number:'':'fr-FR'}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.VersementAuTraite | boolToStr}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Processus?.Categorie}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Pays?.Libelle}}</clv-td>
+                <clv-td align="center">
+                    <app-table-update-button (click)="launchmodal(getFormData()?.Items[i], '60%')"></app-table-update-button>&nbsp;
+                    <app-table-delete-button (click)="askDelete(getFormData()?.Items[i])"></app-table-delete-button>
+                </clv-td>
+                <clv-tdetail>
+                    <div align="end">
+<!--                        <app-re-formulaire-placement></app-re-formulaire-placement>-->
+                        <app-show-list-button (click)="overlayout.active = true;" [title]="'Schema de placement'"></app-show-list-button>
+                    </div>
+                    <div>
+                        <app-re-echanges></app-re-echanges>
+                    </div>
+                </clv-tdetail>
+            </clv-tr>
+        </ng-container>
+    </clv-advanced-table>
+</form>
+<app-overlay-layout #overlayout>
+    <div class="p-2">
+        <h1 class="text-center uppercase" style="font-size: 1.2rem;">Schéma provisoire de placement</h1>
+    </div>
+    <app-schema-placement-add></app-schema-placement-add>
+    <app-re-formulaire-placement></app-re-formulaire-placement>
+    <div align="end" class="p-2">
+        <app-save-button></app-save-button>
+    </div>
+</app-overlay-layout>

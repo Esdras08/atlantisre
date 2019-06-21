@@ -3,7 +3,7 @@
         <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
             <!--field-->
             <div fxFlex.md="100" fxFlex.lg="100">
-                <app-re-combo-etape-processus #etapeProcessus name="IdTEtapeProcessus"
+                <app-re-combo-etape-processus #etapeProcessus name="IdEtapeProcessus"
                                               [submitted]="submitted"
                                               [(inputValue)]="etapeProcessusIv"
                                               (onInputChange)="optionInputHasChanged($event)"
@@ -14,7 +14,7 @@
             <!--end field-->
             <!--field-->
             <div fxFlex.md="100" fxFlex.lg="100">
-                <app-re-combo-type-echange #typeEchange name="IdTEtapeProcessus"
+                <app-re-combo-type-echange #typeEchange name="IdTypeEchange"
                                               [submitted]="submitted"
                                               [(inputValue)]="typeEchangeIv"
                                               (onInputChange)="optionInputHasChanged($event)"
@@ -28,14 +28,8 @@
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
         <div></div>
         <div>
-            <button mat-raised-button class="bg-primary" type="button"
-                    (click)="sendForm()">
-                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
-            </button>&nbsp;
-            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark"
-                    (click)="closeModal()">
-                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
-            </button>
+            <app-save-button (click)="sendForm()"></app-save-button>&nbsp;
+            <app-cancel-button mat-dialog-close cdkFocusInitial (click)="closeModal()"></app-cancel-button>
         </div>
     </div>
 </app-modal-template>

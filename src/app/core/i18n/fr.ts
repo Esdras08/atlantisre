@@ -66,14 +66,14 @@ export const locale = {
         PLACEMENT_EN_FAC: {
             TABLE: {
                 COLUMNS: {
-                    DATE_CONSULTATION: 'Date de Consultation',
-                    DATE_EFFET: 'Date de Consultation',
-                    DATE_ECHEANCE: 'Date de Consultation',
-                    EN_COURS: 'Date de Consultation',
+                    DATE_CONSULTATION: 'Date consultation',
+                    DATE_EFFET: 'Date effet',
+                    DATE_ECHEANCE: 'Date échéance',
+                    EN_COURS: 'En cours',
                     GARANTIE_CEDEE: 'Garantie Cedée',
                     PRIME: 'Prime',
                     SMP: 'Smp',
-                    PART_FILIALE: 'Part de la Filiale',
+                    PART_FILIALE: 'Part Filiale',
                     VERSEMENT_AU_TRAITE: 'versement au traité',
                     IDPROCESSUS: 'Processus',
                     IDPAYS: 'Pays',
@@ -235,35 +235,11 @@ export const locale = {
                 },
             }
         },
-        ASSURE: {
-            TABLE: {
-                COLUMNS: {
-                    NUMERO_ASSURE: 'Numéro Assuré',
-                    PERSONNE: 'Personne',
-                    FILIALE: 'Filiale',
-                    ACTIONS: 'Actions'
-                }
-            },
-            FORM: {
-                NUMERO_ASSURE: {
-                    PLACEHOLDER: 'Numéro Assuré',
-                    HINT: 'Entrez le numéro de l\'assuré',
-                },
-                PERSONNE: {
-                    PLACEHOLDER: 'PERSONNE',
-                    HINT: 'Entrez la personne associée à l\'assuré',
-                },
-                FILIALE: {
-                    PLACEHOLDER: 'Filiale',
-                    HINT: 'Entrez la filiale associée à l\'assuré',
-                }
-            }
-        },
         AFFAIRE: {
             TABLE: {
                 COLUMNS: {
                     NUMERO_ORDRE: 'Numéro Ordre',
-                    NUMERO_POLICE: 'Numéro Ploice',
+                    NUMERO_POLICE: 'Numéro de la Police',
                     CAPITAUX_ASSURE: 'Capitaux Assurés',
                     ACTIVITE: 'Activité',
                     STATUT_AFFAIRE: 'Statut Affaire',
@@ -438,7 +414,7 @@ export const locale = {
         FILIALE: {
             TABLE: {
                 COLUMNS: {
-                    NOM: 'Nom filiale',
+                    NOM: 'Raison Sociale',
                     ADRESSE: 'Adresse',
                     CODE: 'Code',
                     PAYS: 'Pays',
@@ -447,8 +423,8 @@ export const locale = {
             },
             FORM: {
                 NOM: {
-                    PLACEHOLDER: 'Nom filiale',
-                    HINT: 'Entrez le nom de la filiale',
+                    PLACEHOLDER: 'Raison Sociale',
+                    HINT: 'Entrez la raison sociale',
                 },
                 ADRESSE: {
                     PLACEHOLDER: 'Adresse filiale',
@@ -467,7 +443,7 @@ export const locale = {
         REASSUREUR: {
             TABLE: {
                 COLUMNS: {
-                    NOM: 'Nom Réassureur',
+                    NOM: 'Raison Sociale',
                     CODE: 'Code',
                     PAYS: 'Pays',
                     ACTIONS: 'Actions'
@@ -475,8 +451,8 @@ export const locale = {
             },
             FORM: {
                 NOM: {
-                    PLACEHOLDER: 'Nom filiale',
-                    HINT: 'Entrez le nom du réassureur',
+                    PLACEHOLDER: 'Raison Sociale',
+                    HINT: 'Entrez la raison sociale',
                 },
                 CODE: {
                     PLACEHOLDER: 'Code',
@@ -488,7 +464,7 @@ export const locale = {
                 },
             }
         },
-        PERSONNE: {
+        ASSURE: {
             TABLE: {
                 COLUMNS: {
                     TYPE_PERSONNE: 'Type Assuré',
@@ -505,6 +481,8 @@ export const locale = {
                     RAISON_SOCIALE: 'Raison sociale',
                     PAYS: 'Pays',
                     FORME_JURIDIQUE: 'Forme Juridique',
+                    NUMERO_ASSURE: 'Numero de l\'assuré',
+                    FILIALE: 'Filiale',
                     ACTIF: 'Est Actif ?',
                     ACTIONS: 'Actions'
                 }
@@ -525,6 +503,15 @@ export const locale = {
                 PRENOM: {
                     PLACEHOLDER: 'Prenom de L\' assuré',
                     HINT: 'Entrez le Prenom de l\'assuré',
+                },
+
+                NUMERO_ASSURE: {
+                    PLACEHOLDER: 'Numero de L\' assuré',
+                    HINT: 'Entrez le Numero de l\'assuré',
+                },
+                FILIALE: {
+                    PLACEHOLDER: 'Filiale',
+                    HINT: 'Selectionner la Filiale associer a l\'assuré',
                 },
                 DATE_NAISSANCE: {
                     PLACEHOLDER: 'Date de Naissance',
@@ -776,7 +763,7 @@ export const locale = {
                     TAUX_COM: 'Taux com',
                     COMISSIONS: 'Comissions',
                     PRIME_NETTE: 'Prime nette',
-                    ACTIONS: '',
+                    ACTIONS: 'Actions',
                 },
                 FOOTERS: {
                     TOTAL_HORS_CESSION_FAC: 'Total Hors Cession FAC',

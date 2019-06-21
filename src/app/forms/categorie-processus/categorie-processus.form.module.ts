@@ -5,7 +5,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../../shared/shared.module';
 import {ServerURLInterceptor} from '../../core/utilities/interceptors.utilities';
-import {PersonneComboComponent} from './personne.combo.component';
+import {ClvAdvancedTableModule} from 'clv-advanced-table';
+import {CategorieProcessusComboComponent} from './categorie-processus.combo.component';
 
 @NgModule({
     imports: [
@@ -13,14 +14,15 @@ import {PersonneComboComponent} from './personne.combo.component';
         SharedModule,
         ClvAngularBootModule,
         HttpClientModule,
+        ClvAdvancedTableModule,
         FormsModule,
         ReactiveFormsModule,
     ],
-    declarations: [PersonneComboComponent],
-    exports: [PersonneComboComponent],
+    declarations: [CategorieProcessusComboComponent],
+    exports: [CategorieProcessusComboComponent],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: ServerURLInterceptor, multi: true}
     ]
 })
-export class PersonneFormModule {
+export class CategorieProcessusFormModule {
 }

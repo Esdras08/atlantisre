@@ -4,22 +4,23 @@ import {ModalBuilder} from '../../../shared/modal/modal-builder';
 import {MessageShowerAlertImpl, MessageShowerSnakeBarImpl, MessageShowerToastImpl, ModelImpl, RequestMethod} from 'clv-angular-boot';
 import {MatDialog} from '@angular/material';
 import {ClvTableColumnField} from 'clv-advanced-table';
-import {Component, OnChanges} from '@angular/core';
+import {Component, OnChanges, ViewChild} from '@angular/core';
 import {ERP} from '../../../core/services/erp.params';
 import {PARAMETRES} from '../../../core/services/parametres';
 import {SgiTableShowModal} from '../../../core/behaviors/sgi-table-show-modal';
+import {EncaissementModalFeatureComponent} from '../encaissement-modal/encaissement-modal.feature.component';
 import {API} from '../../../core/services/api-services.params';
 import {TranslateService} from '@ngx-translate/core';
-import {AssureModalFeatureComponent} from '../assure-modal/assure-modal.feature.component';
-import {PersonneModel} from '../../../core/models/personne.model';
-import {FilialeModel} from '../../../core/models/filiale.model';
+import {StructureAutocompleteComponent} from '../../../forms/structure/structure.autocomplete.component';
+import {StatutAffaireComboComponent} from '../../../forms/statut-affaire/statut-affaire.combo.component';
 
 @Component({
-    selector: 'app-re-assure',
-    templateUrl: './assure.feature.component.html',
+    selector: 'app-re-encaissement',
+    templateUrl: './encaissement.feature.component.html',
 })
-export class AssureFeatureComponent extends SgiTableShowModal implements OnChanges {
-
+export class EncaissementFeatureComponent extends SgiTableShowModal implements OnChanges {
+    @ViewChild(StatutAffaireComboComponent) statuss: StatutAffaireComboComponent;
+    statusIv: any;
     constructor(public httpClient: HttpClient,
                 public toast: MessageShowerToastImpl,
                 public alertMessage: MessageShowerAlertImpl,
@@ -29,14 +30,17 @@ export class AssureFeatureComponent extends SgiTableShowModal implements OnChang
                 public translateService: TranslateService) {
         super(httpClient, toast, alertMessage, snakebar, dialog, modalBuilder);
 
-        this.setContent(AssureModalFeatureComponent);
+        this.setContent(EncaissementModalFeatureComponent);
 
         this.getTableParams()
         // .addColumn(new ClvTableColumnField().setTitle(''))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.NUMERO_ASSURE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.PERSONNE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.FILIALE')))
-            .addColumn(new ClvTableColumnField().setTitle(translateService.instant('ASSURE.TABLE.COLUMNS.ACTIONS'))
+            .addColumn(new ClvTableColumnField().setTitle('Nom'))
+            .addColumn(new ClvTableColumnField().setTitle('Type'))
+            .addColumn(new ClvTableColumnField().setTitle('Montant'))
+            .addColumn(new ClvTableColumnField().setTitle('Date'))
+            .addColumn(new ClvTableColumnField().setTitle('Reste à payer'))
+            .addColumn(new ClvTableColumnField().setTitle('Statut'))
+            .addColumn(new ClvTableColumnField().setTitle('Actions')
                 .setSize(PARAMETRES.TABLES.ACTION_SIZE))
             .setHeaderClass(PARAMETRES.TABLES.CLASS.HEADER)
             .setTableClass(PARAMETRES.TABLES.CLASS.TABLE)
@@ -52,37 +56,18 @@ export class AssureFeatureComponent extends SgiTableShowModal implements OnChang
     }
 
     ngOnChanges(changes) {
-        // ObjectPath.set(this.getRequestGetter().getData(), 'ItemToSearch.DateSeance', this.DateSeance);
         this.getFormInfo();
-    }
-
-    afterGetFormInfo(formInfo: any): any {
-        super.afterGetFormInfo(formInfo);
-        formInfo.Items.map((value) => {
-            try {
-                PersonneModel.findById(this.httpClient, value.IdPersonne).subscribe(response => {
-                    value.Personne = response.body.Items[0];
-                });
-            } catch (e) {
-            }
-            try {
-                FilialeModel.findById(this.httpClient, value.IdFiliale).subscribe(response => {
-                    value.Filiale = response.body.Items[0];
-                });
-            } catch (e) {
-            }
-        });
     }
 
     beforeAll() {
         this.setModel(new ModelImpl());
         this.getRequestGetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.GET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.PAYS.GET))
             .setMethod(RequestMethod.POST)
             .setData({});
 
         this.getRequestSetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.SET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.PAYS.SET))
             .setMethod(RequestMethod.POST).setData({});
     }
 }

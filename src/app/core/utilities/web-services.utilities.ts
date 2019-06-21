@@ -1,5 +1,3 @@
-import {CommonUtilities} from './common.utilities';
-
 export class WebServicesUtilities {
     private static useHostedWcf: Boolean = false;
     private static useNodeApi: Boolean = false;
@@ -7,12 +5,11 @@ export class WebServicesUtilities {
     private static HostedWcfAdressBase = 'http://147.135.253.152';
     private static UrlHostedReportingBase: string;
     private static UrlServiceBase = 'http://147.135.253.152:2052/api';
-    private static UrlReportRdl: string;
-    private static ReportServerName: string;
-    private static ReportFolder: string;
+    private static UrlReportRdl = 'http://192.168.10.108/';
+    private static ReportServerName = 'reportserver';
+    private static ReportFolder = 'Inexa.Atlantis.Re.Reports';
 
     constructor() {
-
 
 
     }
@@ -23,8 +20,9 @@ export class WebServicesUtilities {
 
     public static getSimpleUrl2(uri: string, method: string): string {
         // return 'http://inexa-srv-dc:4000/api/' + uri + '/' + method;
-        return 'http://192.168.43.146:2000/api/' + uri + '/' + method;
-         // return 'http://localhost:25493/api/' + uri + '/' + method;
+        // return 'http://192.168.43.146:2000/api/' + uri + '/' + method;
+        return 'http://192.168.10.108:2000/api/' + uri + '/' + method;
+        // return 'http://localhost:25493/api/' + uri + '/' + method;
     }
 
 
@@ -50,11 +48,11 @@ export class WebServicesUtilities {
 
     }
 
-    public static getUrlWebService = function(link: string, service: string, method: string) {
+    public static getUrlWebService = function (link: string, service: string, method: string) {
         return WebServicesUtilities.getUrl(link, service + '/', method);
     };
 
-    public static getUrlServiceBase = function() {
+    public static getUrlServiceBase = function () {
         return WebServicesUtilities.UrlServiceBase;
     };
 
@@ -64,13 +62,12 @@ export class WebServicesUtilities {
         return url;
     }
 
-    public static getReportRdlUrlBase = function() {
+    public static getReportRdlUrlBase = function () {
 
         const base = !this.useHostedWcf ? this.UrlReportRdl : this.UrlHostedReportingBase;
         const url = base + '/' + this.ReportServerName + '/Pages/ReportViewer.aspx?%2f' + this.ReportFolder + '%2f';
-        CommonUtilities.WriteInConsole(url);
+        // CommonUtilities.WriteInConsole(url);
         return url;
 
     };
-
 }

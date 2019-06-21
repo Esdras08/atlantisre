@@ -66,7 +66,7 @@ export class StructureFeatureComponent extends SgiTableShowModal implements OnCh
         this.getRequestGetter()
             .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.STRUCTURE.GET))
             .setMethod(RequestMethod.POST)
-            .setData({});
+            .setData({'IdCurrentStructure': 1, 'IdCurrentUser': 4, 'ItemToSearch': {}});
 
         this.getRequestSetter()
             .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.STRUCTURE.SET))

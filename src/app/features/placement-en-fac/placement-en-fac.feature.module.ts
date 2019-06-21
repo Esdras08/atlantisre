@@ -15,11 +15,17 @@ import {CoreModule} from '../../core/core.module';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr);
 import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
-import {ListePlacementsComponent} from './liste-placements/liste-placements.component';
+import {OrdonancementPlacementsComponent} from './ordonancement-placements/ordonancement-placements.component';
 import {FormulairePlacementComponent} from './formulaire-placement/formulaire-placement.component';
 import {PaysFormModule} from '../../forms/pays/pays.form.module';
 import {PartOneComponent} from './formulaire-placement/part-one/part-one.component';
 import {PartTwoComponent} from './formulaire-placement/part-two/part-two.component';
+import {PlacementEnFacListeFeatureComponent} from './placement-en-fac-liste/placement-en-fac-liste.feature.component';
+import {EchangeFeatureModule} from '../echanges/echange.feature.module';
+import {SchemaPlacementAddComponent} from './schema-placement-add/schema-placement-add.component';
+import {ReassureurFormModule} from '../../forms/reassureur/reassureur.form.module';
+import {RouterModule} from '@angular/router';
+import {routing} from '../../app.routing';
 
 @NgModule({
     imports: [
@@ -34,16 +40,19 @@ import {PartTwoComponent} from './formulaire-placement/part-two/part-two.compone
         ProcessusFormModule,
         CoreModule,
         MatDatepickerModule, MatInputModule, MatNativeDateModule, PaysFormModule,
+        EchangeFeatureModule, ReassureurFormModule
     ],
     declarations: [
         PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent,
-        PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
-        FormulairePlacementComponent, PartOneComponent, PartTwoComponent
+        PlacementEnFacCardFeatureComponent, OrdonancementPlacementsComponent,
+        FormulairePlacementComponent, PartOneComponent, PartTwoComponent,
+        PlacementEnFacListeFeatureComponent, SchemaPlacementAddComponent
     ],
     exports: [
         PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent,
-        PlacementEnFacCardFeatureComponent, ListePlacementsComponent,
-        FormulairePlacementComponent, PartOneComponent, PartTwoComponent
+        PlacementEnFacCardFeatureComponent, OrdonancementPlacementsComponent,
+        FormulairePlacementComponent, PartOneComponent, PartTwoComponent,
+        PlacementEnFacListeFeatureComponent, SchemaPlacementAddComponent
     ],
     entryComponents: [
         PlacementEnFacFeatureComponent, PlacementEnFacModalFeatureComponent

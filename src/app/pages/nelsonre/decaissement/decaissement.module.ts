@@ -14,6 +14,7 @@ import {SecteuractiviteFeatureModule} from '../../../features/secteuractivite/se
 import {ProfessionFeatureModule} from '../../../features/profession/profession.feature.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {DecaissementComponent} from './decaissement.component';
+import {EncaissementFeatureModule} from '../../../features/encaissement/encaissement.feature.module';
 /*function Declarations() {
     return [
 
@@ -41,7 +42,8 @@ const routes: Routes = [
         SecteuractiviteFeatureModule,
         TranslateModule,
         SecteuractiviteFeatureModule,
-        ProfessionFeatureModule
+        ProfessionFeatureModule,
+        EncaissementFeatureModule
     ],
     exports: [],
     declarations: [

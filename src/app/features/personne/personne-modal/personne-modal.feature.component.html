@@ -1,23 +1,47 @@
-<app-modal-template title="Personne" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+<app-modal-template title="Assuré(Personne Physique)" (onClose)="closeModal()" [modalClass]="'bg-primary'">
     <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
         <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <app-combo-re-typepersonne #typepersonne name="IdTypePersonne"
-                                     [(inputValue)]="typepersonneIv"
-                                     (onInputChange)="optionInputHasChanged($event)"
-                                     [placeholder]="translateService?.instant('PERSONNE.FORM.TYPE_PERSONNE.PLACEHOLDER')"
-                                     [hint]="translateService?.instant('PERSONNE.FORM.TYPE_PERSONNE.HINT')" >
-
+                                           [(inputValue)]="typepersonneIv"
+                                           (onInputChange)="optionInputHasChanged($event)"
+                                           [placeholder]="translateService?.instant('ASSURE.FORM.TYPE_PERSONNE.PLACEHOLDER')"
+                                           [hint]="translateService?.instant('ASSURE.FORM.TYPE_PERSONNE.HINT')"
+                                           required="true">
                 </app-combo-re-typepersonne>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput id="numero_assure"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.NUMERO_ASSURE.PLACEHOLDER')"
+                           name="numero_assure" required
+                           formControlName="NumeroAssure" mat>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.NUMERO_ASSURE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="numero_assure" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-filiale #filiale name="IdFiliale"
+                                      [submitted]="submitted"
+                                      [(inputValue)]="filialeIv"
+                                      (onInputChange)="optionInputHasChanged($event)"
+                                      [placeholder]="translateService?.instant('ASSURE.FORM.FILIALE.PLACEHOLDER')"
+                                      [hint]="translateService?.instant('ASSURE.FORM.FILIALE.HINT')"
+                                      required="true">
+
+                </app-combo-re-filiale>
             </div>
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <app-combo-re-civilite #civilite name="IdCivilite"
                                      [(inputValue)]="civiliteIv"
                                      (onInputChange)="optionInputHasChanged($event)"
-                                     [placeholder]="translateService?.instant('PERSONNE.FORM.CIVILITE.PLACEHOLDER')"
-                                     [hint]="translateService?.instant('PERSONNE.FORM.CIVILITE.HINT')" >
+                                     [placeholder]="translateService?.instant('ASSURE.FORM.CIVILITE.PLACEHOLDER')"
+                                     [hint]="translateService?.instant('ASSURE.FORM.CIVILITE.HINT')" >
 
                 </app-combo-re-civilite>
             </div>
@@ -25,10 +49,10 @@
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput id="nom"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.NOM.PLACEHOLDER')"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.NOM.PLACEHOLDER')"
                            name="nom"
                            formControlName="Nom" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.NOM.HINT')}}</mat-hint>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.NOM.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list name="Nom" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
@@ -36,32 +60,32 @@
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput id="prenom"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.PRENOM.PLACEHOLDER')"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.PRENOM.PLACEHOLDER')"
                            name="nom"
                            formControlName="Prenom">
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.PRENOM.HINT')}}</mat-hint>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.PRENOM.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list name="Prenom" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
-                    <input matInput type="date" id="datenaissance"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.DATE_NAISSANCE.PLACEHOLDER')"
-                           name="nom"
-                           formControlName="DateNaissance" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.DATE_NAISSANCE.HINT')}}</mat-hint>
+                    <input matInput [matDatepicker] = "picker" [placeholder]="translateService?.instant('ASSURE.FORM.DATE_NAISSANCE.PLACEHOLDER')"
+                           formControlName="DateNaissance">
+                    <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.DATE_NAISSANCE.HINT')}}</mat-hint>
                 </mat-form-field>
-                <app-form-error-list name="DateNaissance" [formGroup]="getFormInstance()"></app-form-error-list>
+                <app-form-error-list [submitted]="submitted" name="DateNaissance" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput id="lieudenaissance"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.LIEU_NAISSANCE.PLACEHOLDER')"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.LIEU_NAISSANCE.PLACEHOLDER')"
                            name="nom"
                            formControlName="LieuNaissance" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.LIEU_NAISSANCE.HINT')}}</mat-hint>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.LIEU_NAISSANCE.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list name="LieuNaissance" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
@@ -70,8 +94,8 @@
                   <app-combo-re-identite #piece name="IdTypePieceIdentite"
                                          [(inputValue)]="pieceIdentiteIv"
                                          (onInputChange)="optionInputHasChanged($event)"
-                                         [placeholder]="translateService?.instant('PERSONNE.FORM.TYPE_PIECE_IDENTITE.PLACEHOLDER')"
-                                         [hint]="translateService?.instant('PERSONNE.FORM.TYPE_PIECE_IDENTITE.HINT')" >
+                                         [placeholder]="translateService?.instant('ASSURE.FORM.TYPE_PIECE_IDENTITE.PLACEHOLDER')"
+                                         [hint]="translateService?.instant('ASSURE.FORM.TYPE_PIECE_IDENTITE.HINT')" >
 
                   </app-combo-re-identite>
             </div>
@@ -79,55 +103,36 @@
              <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput id="numeroPieceIdentite"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.NUMERO_PIECE_IDENTITE.PLACEHOLDER')"
-                           name="nom"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.NUMERO_PIECE_IDENTITE.PLACEHOLDER')"
+                           name="numeroPieceIdentite"
                            formControlName="NumeroPieceIdentite" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.NUMERO_PIECE_IDENTITE.HINT')}}</mat-hint>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.NUMERO_PIECE_IDENTITE.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list name="NumeroPieceIdentite" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
-                    <input matInput type="date"  id="datePieceIdentite"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.DATE_PIECE_IDENTITE.PLACEHOLDER')"
-                           name="nom"
-                           formControlName="DatePieceIdentite" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.DATE_PIECE_IDENTITE.HINT')}}</mat-hint>
+                    <input matInput [matDatepicker] = "picker1" [placeholder]="translateService?.instant('ASSURE.FORM.DATE_PIECE_IDENTITE.PLACEHOLDER')"
+                           formControlName="DatePieceIdentite">
+                    <mat-datepicker-toggle matSuffix [for] = "picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.DATE_PIECE_IDENTITE.HINT')}}</mat-hint>
                 </mat-form-field>
-                <app-form-error-list name="DatePieceIdentite" [formGroup]="getFormInstance()"></app-form-error-list>
+                <app-form-error-list [submitted]="submitted" name="DatePieceIdentite" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
 
             <div fxFlex.md="45" fxFlex.lg="45">
                 <mat-form-field class="mat-form-field-fluid">
-                    <input matInput type="date" id="dateValiditePieceIdentite"
-                           [placeholder]="translateService?.instant('PERSONNE.FORM.DATE_VALIDITE_PIECE_IDENTITE.PLACEHOLDER')"
-                           name="nom"
-                           formControlName="DateValiditePieceIdentite" >
-                    <mat-hint align="start">{{translateService?.instant('PERSONNE.FORM.DATE_VALIDITE_PIECE_IDENTITE.HINT')}}</mat-hint>
+                    <input matInput [matDatepicker] = "picker2" [placeholder]="translateService?.instant('ASSURE.FORM.DATE_VALIDITE_PIECE_IDENTITE.PLACEHOLDER')"
+                           formControlName="DateValiditePieceIdentite">
+                    <mat-datepicker-toggle matSuffix [for] = "picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.DATE_VALIDITE_PIECE_IDENTITE.HINT')}}</mat-hint>
                 </mat-form-field>
-                <app-form-error-list name="DateValiditePieceIdentite" [formGroup]="getFormInstance()"></app-form-error-list>
+                <app-form-error-list [submitted]="submitted" name="DateValiditePieceIdentite" [formGroup]="getFormInstance()"></app-form-error-list>
             </div>
 
-            <div fxFlex.md="45" fxFlex.lg="45">
-                <app-combo-re-pays #pays
-                                       [submitted]="submitted"
-                                       [(inputValue)]="paysIv"
-                                       (onInputChange)="optionInputHasChanged($event)"
-                                       name="IdPays"
-                                       [placeholder]="translateService?.instant('STRUCTURE.FORM.PAYS.PLACEHOLDER')"
-                                       [hint]="translateService?.instant('STRUCTURE.FORM.PAYS.HINT')"></app-combo-re-pays>
-            </div>
-
-            <div fxFlex.md="45" fxFlex.lg="45">
-                <app-combo-re-juridique #formeJuridique name="IdFormeJuridique"
-                                       [(inputValue)]="formeJuridiqueIv"
-                                       (onInputChange)="optionInputHasChanged($event)"
-                                       [placeholder]="translateService?.instant('PERSONNE.FORM.FORME_JURIDIQUE.PLACEHOLDER')"
-                                       [hint]="translateService?.instant('PERSONNE.FORM.FORME_JURIDIQUE.HINT')">
-
-                </app-combo-re-juridique>
-            </div>
         </div>
     </form>
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">

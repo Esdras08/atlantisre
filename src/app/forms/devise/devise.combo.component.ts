@@ -22,7 +22,7 @@ import {API} from '../../core/services/api-services.params';
                 <mat-hint align="start">{{hint}}</mat-hint>
             </mat-form-field>
         </form>
-        <app-form-error-list [name]="getName()" [formGroup]="getFormInstance()"></app-form-error-list>
+        <app-form-error-list [submitted]="submitted" [name]="getName()" [formGroup]="getFormInstance()"></app-form-error-list>
     `
 })
 export class DeviseComboComponent extends SgiCombo {

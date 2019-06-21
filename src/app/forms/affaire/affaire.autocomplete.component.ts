@@ -60,9 +60,9 @@ export class AffaireAutocompleteComponent extends SgiAutocomplete {
     constructor(public httpClient: HttpClient) {
         super(httpClient);
         this.getTableParams()
+            .addColumn(new ClvTableColumnField().setTitle('Activité'))
             .addColumn(new ClvTableColumnField().setTitle('Numéro Ordre'))
             .addColumn(new ClvTableColumnField().setTitle('Numéro Police'))
-            .addColumn(new ClvTableColumnField().setTitle('Capitaux Assuré'))
             .setHeaderClass(PARAMETRES.TABLES.CLASS.HEADER)
             .setTableClass(PARAMETRES.TABLES.CLASS.TABLE)
             .setRowClass(PARAMETRES.TABLES.CLASS.ROW)
@@ -75,11 +75,11 @@ export class AffaireAutocompleteComponent extends SgiAutocomplete {
         const model = new AffaireModel();
         this.setModel(model);
         this.setSearchParams([
+            new ModelMaskFieldImpl<any>().setTitle('Activité').setName('Activite'),
             new ModelMaskFieldImpl<any>().setTitle('Numéro Ordre').setName('NumeroOrdre'),
             new ModelMaskFieldImpl<any>().setTitle('Numéro Police').setName('NumeroPolice'),
-            new ModelMaskFieldImpl<any>().setTitle('Capitaux Assuré').setName('CapitauxAssure'),
         ]);
-        this.setDisplayedField('NumeroOrdre');
+        this.setDisplayedField('Activite');
 
         this.getRequest().setMethod(RequestMethod.POST)
             .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.AFFAIRE.GET))

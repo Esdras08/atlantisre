@@ -31,8 +31,10 @@ export class FormulairePlacementComponent extends SgiTableShowModal {
         this.setContent(DeviseModalFeatureComponent);
 
         this.getTableParams()
+        // tslint:disable-next-line:max-line-length
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PARTS_SOUSCRITES')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PCT')))
+            // tslint:disable-next-line:max-line-length
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.CAPITAUX_ASSURES')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.PRIMES')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.translate.instant('SCHEMA_PLACEMENT.TABLE.COLUMNS.TAUX_COM')))

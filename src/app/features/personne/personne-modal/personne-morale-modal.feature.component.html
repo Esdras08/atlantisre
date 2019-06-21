@@ -1,0 +1,95 @@
+<app-modal-template title="Assuré(Personne Morale)" (onClose)="closeModal()" [modalClass]="'bg-primary'">
+    <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
+        <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-typepersonne #typepersonne name="IdTypePersonne"
+                                           [(inputValue)]="typepersonneIv"
+                                           (onInputChange)="optionInputHasChanged($event)"
+                                           [placeholder]="translateService?.instant('ASSURE.FORM.TYPE_PERSONNE.PLACEHOLDER')"
+                                           [hint]="translateService?.instant('ASSURE.FORM.TYPE_PERSONNE.HINT')"
+                                           required="true">
+                </app-combo-re-typepersonne>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput id="raisonSociale"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.RAISON_SOCIALE.PLACEHOLDER')"
+                           name="raisonSociale"
+                           formControlName="RaisonSociale" >
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.RAISON_SOCIALE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list name="RaisonSociale" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput id="registreCommerce"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.REGISTRE_DE_COMMERCE.PLACEHOLDER')"
+                           name="registreCommerce"
+                           formControlName="RegistreCommerce" >
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.REGISTRE_DE_COMMERCE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list name="RegistreCommerce" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <mat-form-field class="mat-form-field-fluid">
+
+                    <input matInput id="numero_assure"
+                           [placeholder]="translateService?.instant('ASSURE.FORM.NUMERO_ASSURE.PLACEHOLDER')"
+                           name="numero_assure"
+                           formControlName="NumeroAssure" mat>
+                    <mat-hint align="start">{{translateService?.instant('ASSURE.FORM.NUMERO_ASSURE.HINT')}}</mat-hint>
+                </mat-form-field>
+                <app-form-error-list [submitted]="submitted" name="numero_assure" [formGroup]="getFormInstance()"></app-form-error-list>
+            </div>
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-filiale #filiale name="IdFiliale"
+                                      [(inputValue)]="filialeIv"
+                                      (onInputChange)="optionInputHasChanged($event)"
+                                      [placeholder]="translateService?.instant('ASSURE.FORM.FILIALE.PLACEHOLDER')"
+                                      [hint]="translateService?.instant('ASSURE.FORM.FILIALE.HINT')"
+                                      required="true">
+
+                </app-combo-re-filiale>
+            </div>
+
+
+            <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-pays #pays
+                                       [(inputValue)]="paysIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       name="IdPays"
+                                       [placeholder]="translateService?.instant('STRUCTURE.FORM.PAYS.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('STRUCTURE.FORM.PAYS.HINT')"></app-combo-re-pays>
+            </div>
+
+           <!-- <div fxFlex.md="45" fxFlex.lg="45">
+                <app-combo-re-juridique #formeJuridique
+                                        name="IdFormeJuridique"
+                                       [(inputValue)]="formeJuridiqueIv"
+                                       (onInputChange)="optionInputHasChanged($event)"
+                                       [placeholder]="translateService?.instant('PERSONNE.FORM.FORME_JURIDIQUE.PLACEHOLDER')"
+                                       [hint]="translateService?.instant('PERSONNE.FORM.FORME_JURIDIQUE.HINT')">
+
+                </app-combo-re-juridique>
+            </div>-->
+
+        </div>
+    </form>
+    <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
+        <div></div>
+        <div>
+            <button mat-raised-button class="bg-primary" type="button"
+                    (click)="getFormInstance()?.valid? sendForm() : afficheValideForm()">
+                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
+            </button>&nbsp;
+            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
+                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
+            </button>
+        </div>
+    </div>
+</app-modal-template>

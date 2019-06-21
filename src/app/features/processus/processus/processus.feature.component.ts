@@ -13,6 +13,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {SgiTableModal} from '../../../core/behaviors/sgi-table-modal';
 import {AffaireModel} from '../../../core/models/affaire.model';
 import {TypeProcessusModel} from '../../../core/models/type-processus.model';
+import {CategorieProcessusModel} from '../../../core/models/categorie-processus.model';
 
 @Component({
     selector: 'app-re-processus',
@@ -34,7 +35,6 @@ export class ProcessusFeatureComponent extends SgiTableModal implements OnChange
         this.setContent(ProcessusModalFeatureComponent);
 
         this.getTableParams()
-        // .addColumn(new ClvTableColumnField().setTitle(''))
             .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PROCESSUS.TABLE.COLUMNS.AFFAIRE')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PROCESSUS.TABLE.COLUMNS.TYPE_PROCESSUS')))
             .addColumn(new ClvTableColumnField().setTitle(translateService.instant('PROCESSUS.TABLE.COLUMNS.CATEGORIE')))
@@ -50,6 +50,7 @@ export class ProcessusFeatureComponent extends SgiTableModal implements OnChange
     }
 
     afterGetFormInfo(formInfo: any): any {
+        console.log(formInfo.Items);
         super.afterGetFormInfo(formInfo);
         formInfo.Items.map((value) => {
             try {
@@ -61,6 +62,12 @@ export class ProcessusFeatureComponent extends SgiTableModal implements OnChange
             try {
                 TypeProcessusModel.findById(this.httpClient, value.IdTypeProcessus).subscribe(response => {
                     value.TypeProcessus = response.body.Items[0];
+                });
+            } catch (e) {
+            }
+            try {
+                CategorieProcessusModel.findById(this.httpClient, value.Categorie).subscribe(response => {
+                    value.Categorie = response.body.Items[0];
                 });
             } catch (e) {
             }

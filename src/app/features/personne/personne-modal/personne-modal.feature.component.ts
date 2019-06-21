@@ -7,18 +7,22 @@ import {WebServicesUtilities} from '../../../core/utilities/web-services.utiliti
 import {ERP} from '../../../core/services/erp.params';
 import {API} from '../../../core/services/api-services.params';
 import {TranslateService} from '@ngx-translate/core';
-import {PersonneModel} from '../../../core/models/personne.model';
 import {TypepersonneComboComponent} from '../../../forms/typepersonne/typepersonne.combo.component';
 import {CiviliteComboComponent} from '../../../forms/civilite/civilite.combo.component';
 import {PieceIdentiteComboComponent} from '../../../forms/typepieceidentite/pieceIdentite.combo.component';
 import {FormeJuridiqueComboComponent} from '../../../forms/formejuridique/formeJuridique.combo.component';
 import {PaysComboComponent} from '../../../forms/pays/pays.combo.component';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {AssureModel} from '../../../core/models/assure.model';
 
 // @dynamic
 @Component({
     selector: 'app-personne-modal',
     templateUrl: './personne-modal.feature.component.html',
-    providers: []
+    providers: [ {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+        {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}]
 })
 export class PersonneModalFeatureComponent extends SgiModalForm implements  OnInit, AfterViewInit {
     @ViewChild(TypepersonneComboComponent) typepersonne: TypepersonneComboComponent;
@@ -31,6 +35,7 @@ export class PersonneModalFeatureComponent extends SgiModalForm implements  OnIn
     formeJuridiqueIv: any;
     pieceIdentiteIv: any;
     paysIv: any;
+    filialeIv: any;
 
 
     constructor(public httpRequest: HttpClient,
@@ -48,6 +53,7 @@ export class PersonneModalFeatureComponent extends SgiModalForm implements  OnIn
             this.formeJuridiqueIv = data.item.FormeJuridique.IdFormeJuridique;
             this.pieceIdentiteIv = data.item.IdTypePieceIdentite;
             this.paysIv = data.item.Pays.IdPays;
+            this.filialeIv = data.item.Filiale.IdFiliale;
 
         } catch (e) {
         }
@@ -58,9 +64,9 @@ export class PersonneModalFeatureComponent extends SgiModalForm implements  OnIn
     }
     beforeAll() {
         this.getRequestSetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.PERSONNE.SET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.SET))
             .setMethod(RequestMethod.POST).setData({});
-        const model = new PersonneModel();
+        const model = new AssureModel();
         this.setModel(model);
     }
 

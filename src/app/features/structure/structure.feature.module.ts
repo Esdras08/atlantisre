@@ -11,6 +11,7 @@ import {StructureFeatureComponent} from './structure/structure.feature.component
 import {StructureModalFeatureComponent} from './structure-modal/structure-modal.feature.component';
 import {DeviseFormModule} from '../../forms/devise/devise.form.module';
 import {PaysFormModule} from '../../forms/pays/pays.form.module';
+import {CoreModule} from '../../core/core.module';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import {PaysFormModule} from '../../forms/pays/pays.form.module';
         ClvAngularPipesUtilitiesModule,
         LoadingBarHttpClientModule,
         DeviseFormModule,
-        PaysFormModule
+        PaysFormModule,
+        CoreModule
     ],
     declarations: [
         StructureFeatureComponent, StructureModalFeatureComponent

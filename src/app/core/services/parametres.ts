@@ -6,7 +6,7 @@ export const PARAMETRES = {
             HEADER: 'bg-primary table-header',
             ROW: 'clv-bg-white',
             TR_PAIR: 'clv-bg-white',
-            TR_IMPAIR: 'clv-bg-primary row-style',
+            TR_IMPAIR: 'clv-bg-primary-light-2 row-style',
             DETAIL: 'clv-bg-200',
             DETAIL_BUTTON: 'clv-bg-success-dark btn-min',
             DETAIL_BUTTON_MINUS: 'clv-bg-danger-dark btn-min',
@@ -31,8 +31,10 @@ export const PARAMETRES = {
     },
     VALIDATION: {
         NOT_SPACE: '^[a-z]|[A-Z]|[0-9]|[&,;.:\/!§\\~#\'@=+-éèêë²"àâäöôòîïìûüùÂÄÀÔÖÒÛÜÙÎÏÌÊËÈÛÜÙ]',
+        IS_NUMBER: '^[0-9 ]*$',
         MESSAGES: {
             REQUIRED: 'Champ obligatoire',
+            MUST_BY_NUMBER: 'Ne doit comporter que des chiffres',
             PASSWORD_NOT_EQUAL: 'Les mots de passe doivent être identiques'
         }
     }

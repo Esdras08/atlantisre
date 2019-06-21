@@ -34,6 +34,38 @@
   }
 }
 
+.separator-left {
+  @extend .pl-2;
+  border-left: 3px solid #aaaa;
+}
+
+.mat-list-item {
+  height: 25px !important;
+}
+
+.label-mini {
+  color: darken(map_get($theme-colors, "green"), 30%);
+  font-size: .8rem;
+}
+
+.table-header th {
+  height: 40px;
+  line-height: 40px;
+}
+
+clv-td {
+  padding: 0px !important;
+  vertical-align: middle !important;
+}
+
+.row-style clv-tr tr {
+  height: 40px;
+  line-height: 40px;
+  opacity: 0.5% !important;
+}
+
+
+
 thead.header-class th, table td {
   @include padding(10px);
 }
@@ -113,6 +145,35 @@ mat-card {
   }
 }
 
+.table-main-leve {
+  thead {
+    @extend .bg-primary;
+  }
+  th, td {
+    padding: 10px;
+  }
+  tr:nth-child(2n) {
+    @extend .clv-bg-primary-light-2;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.uppercase {
+  @include text-transform(uppercase);
+}
+.lowercase {
+  @include text-transform(lowercase);
+}
+.capitalize {
+  @include text-transform(capitalize);
+}
+.text-center {
+  @include text-align(center);
+}
+
 @include breakpoint-up('md') {
   .table {
     @include display(table);
@@ -120,21 +181,3 @@ mat-card {
 
   }
 }
-
-
-.table-header th {
-  height: 40px;
-  line-height: 40px;
-}
-
-clv-td {
-  padding: 0px !important;
-  vertical-align: middle !important;
-}
-
-.row-style clv-tr tr {
-  height: 40px;
-  line-height: 40px;
-  opacity: 0.5% !important;
-}
-

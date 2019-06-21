@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {WebServicesUtilities} from '../utilities/web-services.utilities';
 import {ERP} from '../services/erp.params';
 import {API} from '../services/api-services.params';
+import {Validators} from '@angular/forms';
+import {PARAMETRES} from '../services/parametres';
 
 // @dynamic
 export class AffaireModel extends ModelImpl {
@@ -24,7 +26,8 @@ export class AffaireModel extends ModelImpl {
             .addField(new ModelMaskFieldImpl<any>().setName('IdAffaire'))
             .addField(new ModelMaskFieldImpl<any>().setName('NumeroOrdre'))
             .addField(new ModelMaskFieldImpl<any>().setName('NumeroPolice'))
-            .addField(new ModelMaskFieldImpl<any>().setName('CapitauxAssure'))
+            .addField(new ModelMaskFieldImpl<any>().setName('CapitauxAssure')
+                .addValidator(Validators.pattern(PARAMETRES.VALIDATION.IS_NUMBER)))
             .addField(new ModelMaskFieldImpl<any>().setName('Activite'))
             .addField(new ModelMaskFieldImpl<any>().setName('IdStatutAffaire'))
             .addField(new ModelMaskFieldImpl<any>().setName('IdBranche'))

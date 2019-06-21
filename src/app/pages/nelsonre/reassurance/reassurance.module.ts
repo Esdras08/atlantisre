@@ -13,7 +13,7 @@ import {DeviseFeatureModule} from '../../../features/devise/devise.feature.modul
 import {SecteuractiviteFeatureModule} from '../../../features/secteuractivite/secteuractivite.feature.module';
 import {ProfessionFeatureModule} from '../../../features/profession/profession.feature.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {PlacementEnFacComponent} from './placement-en-fac.component';
+import {ReassuranceComponent} from './reassurance.component';
 import {AffaireFeatureModule} from '../../../features/affaire/affaire.feature.module';
 import {ProcessusFeatureModule} from '../../../features/processus/processus.feature.module';
 import {PlacementEnFacFeatureModule} from '../../../features/placement-en-fac/placement-en-fac.feature.module';
@@ -24,7 +24,7 @@ import {PlacementEnFacFeatureModule} from '../../../features/placement-en-fac/pl
 }*/
 
 const routes: Routes = [
-    {path: '', component: PlacementEnFacComponent}
+    {path: '', component: ReassuranceComponent}
 ];
 
 @NgModule({
@@ -51,9 +51,9 @@ const routes: Routes = [
     ],
     exports: [],
     declarations: [
-        PlacementEnFacComponent,
+        ReassuranceComponent,
     ],
     entryComponents: [],
 })
-export class PlacementEnFacModule {
+export class ReassuranceModule {
 }

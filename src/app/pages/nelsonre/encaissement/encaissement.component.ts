@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material';
 import {TraductionService} from '../../../core/services/traduction.service';
 
 @Component({
-    selector: 'app-re-encaissement',
+    selector: 'app-encaissement',
     templateUrl: 'encaissement.component.html',
     styleUrls: ['encaissement.component.scss']
 })

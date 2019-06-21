@@ -1,0 +1,26 @@
+<div class="p-2" align="end">
+    <app-add-button (click)="launchmodal()"></app-add-button>
+</div>
+
+<form class="p-2" [formGroup]="getFormInstance()">
+    <clv-advanced-table
+            [params]="getTableParams()" [formArrayName]="getArrayName()"
+            (page)="setPageParams($event)" (search)="setSearchParams($event)">
+        <ng-container class="clv-tr" *ngFor="let elt of getFormInstance()?.get(getArrayName())?.controls;let i=index">
+            <clv-tr [params]="getTableParams()" [data]="getFormData()?.Items[i]" [formGroupName]="i" [id]="i">
+                <clv-td align="center">{{getFormData()?.Items[i]?.NumeroOrdre}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.NumeroPolice}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.CapitauxAssure | decimalFormat}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Activite}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.StatutAffaire?.Libelle}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Branche?.Libelle}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Filiale?.NomFilliale}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.Assure?.IdAssure}}</clv-td>
+                <clv-td align="center">
+                    <app-table-update-button (click)="launchmodal(getFormData()?.Items[i], '60%')"></app-table-update-button>&nbsp;
+                    <app-table-delete-button (click)="askDelete(getFormData()?.Items[i])"></app-table-delete-button>
+                </clv-td>
+            </clv-tr>
+        </ng-container>
+    </clv-advanced-table>
+</form>

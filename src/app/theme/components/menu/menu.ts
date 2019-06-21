@@ -4,17 +4,18 @@ import {Menu} from './menu.model';
 export const verticalMenuItems = [
     /*new Menu(1, TraductionService.lang.translate.instant('APPS.CONTENT_HEADERS.TABLEAU_DE_BORD.TITLE'),
         '/re-tableau-de-bord', null, 'dashboard', null, false, 0),*/
-    new Menu(2, 'Placement en Facultative', '/re-placement-en-fac', null, 'folder', null, false, 0),
+    new Menu(2, 'Réassurance', '/re-placement-en-fac', null, 'folder', null, false, 0),
     new Menu(3, 'Sinistre', '/re-sinistre', null, 'error', null, false, 0),
     new Menu(4, 'Mouvement de Trésorerie', '/re-mouvement-de-tresorerie', null, 'attach_money', null, true, 0),
     new Menu(41, 'Encaissement', '/re-encaissement', null, 'attach_money', null, false, 4),
     new Menu(41, 'Décaissement', '/re-decaissement', null, 'attach_money', null, false, 4),
-    new Menu(5, 'Echanges', '/re-echanges', null, 'swap_vert', null, false, 0),
+    // new Menu(5, 'Echanges', '/re-echanges', null, 'swap_vert', null, false, 0),
     new Menu(6, 'Paramètres', '/re-parametrage', null, 'build', null, true, 0),
     new Menu(61, 'Paramètres de base', '/re-parametrage-de-base', null, 'build', null, false, 6),
     new Menu(62, 'Paramètres métier', '/re-parametrage-metier', null, 'build', null, false, 6),
     new Menu(7, 'Administration', '/re-administration', null, 'account_circle', null, false, 0),
 ];
+
 
 export const horizontalMenuItems = [
     new Menu(1, 'Dashboard', '/', null, 'dashboard', null, false, 0),
@@ -101,3 +102,4 @@ export const verticalMenuItemsEnglish = [
     new Menu(62, 'Specific Parameters ', '/re-parametrage-metier', null, 'build', null, false, 6),
     new Menu(7, 'Administration', '/re-administration', null, 'account_circle', null, false, 0),
 ];
+

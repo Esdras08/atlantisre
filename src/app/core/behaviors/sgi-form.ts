@@ -12,7 +12,7 @@ import {
     PromptActionImpl,
     PromptActionType,
     Request,
-    ResponseStatusCode
+    ResponseStatusCode, StatusMessageImpl
 } from 'clv-angular-boot';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {OnInit} from '@angular/core';
@@ -28,6 +28,7 @@ export abstract class SgiForm  extends FormBuilderImpl<any, any> implements OnIn
    private nameModel: string;
    private _submitted: boolean;
    private _isNewItem = true;
+   private _numberFields = [];
     private optionsInputss: InputObjectV2Interface<any, any, ValidatorFn>[] = [];
    private _newItem: any;
   constructor(public httpRequest: HttpClient,
@@ -37,6 +38,11 @@ export abstract class SgiForm  extends FormBuilderImpl<any, any> implements OnIn
     super(httpRequest, toast, alert, snakeBar);
     this.getRequestGetter().setUrl('');
     this.setRequest(this.getRequestGetter());
+      this.addMessage(new StatusMessageImpl()
+          .setStatus(0)
+          .setTitle('Erreur')
+          .setMessage('Echec de la connexion')
+          .setType(MessageType.ERROR));
       this.getMessage(200).setMessage('Requête effectuée avec succès');
     this.beforeAll();
     this.buildForm(this.getModel());
@@ -47,6 +53,14 @@ export abstract class SgiForm  extends FormBuilderImpl<any, any> implements OnIn
       // this.newItem
     }
   }
+
+    get numberFields(): any[] {
+        return this._numberFields;
+    }
+
+    set numberFields(value: any[]) {
+        this._numberFields = value;
+    }
 
     get submitted(): boolean {
         return this._submitted;
@@ -162,6 +176,12 @@ export abstract class SgiForm  extends FormBuilderImpl<any, any> implements OnIn
   }
 
     public sendForm(): void {
+        const f = (this.getFormInstance() as FormGroup);
+        this._numberFields.map((field) => {
+            f.setControl(field, new FormControl(
+                +CommonUtilities.stringCleanSpace(f.value[field])
+            ));
+        });
       this.submitted = true;
         this.setRequest(this.getRequestSetter());
         if (this.canSend(this.getRequest())) {
@@ -201,14 +221,17 @@ export abstract class SgiForm  extends FormBuilderImpl<any, any> implements OnIn
   }
 
     afterError(status: number) {
-        this.alert.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
-            .setKey(true));
-        if (status === 200) {
-            this.alert.setMessage(new MessageImpl().setType(MessageType.ERROR).setMessage(this.response.body.Message)
-                .setTitle('Erreur')).show();
-        } else {
-            this.alert.setMessage(this.getMessage(status)).show();
-        }
+      try {
+          this.alert.clearActions().addAction(new PromptActionImpl().setTitle('Fermer').setType(PromptActionType.PRIORITY_HIGHT)
+              .setKey(true));
+          if (status === 200) {
+              this.alert.setMessage(new MessageImpl().setType(MessageType.ERROR).setMessage(this.response.body.Message)
+                  .setTitle('Erreur')).show();
+          } else {
+              this.alert.setMessage(this.getMessage(status)).show();
+          }
+      } catch (e) {
+      }
     }
 
     public handleError(error: HttpErrorResponse) {

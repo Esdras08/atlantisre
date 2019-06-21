@@ -6,6 +6,7 @@ import {WebServicesUtilities} from '../../core/utilities/web-services.utilities'
 import {DeviseModel} from '../../core/models/devise.model';
 import {ERP} from '../../core/services/erp.params';
 import {API} from '../../core/services/api-services.params';
+import {EtapeProcessusModel} from '../../core/models/etape-processus.model';
 
 @Component({
     selector: 'app-re-combo-etape-processus',
@@ -32,7 +33,7 @@ export class EtapeProcessusComboComponent extends SgiCombo {
 
     beforeAll(): void {
         this.setDisplayedField('Libelle');
-        const model = new DeviseModel();
+        const model = new EtapeProcessusModel();
         this.setModel(model);
         this.getRequest().setMethod(RequestMethod.POST)
             .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ETAPE_PROCESSUS.GET))

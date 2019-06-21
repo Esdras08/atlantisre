@@ -17,14 +17,8 @@
                     <clv-td align="center">{{getFormData()?.Items[i]?.Processus?.Categorie}}</clv-td>
                     <clv-td align="center">{{getFormData()?.Items[i]?.Pays?.Libelle}}</clv-td>
                     <clv-td align="center">
-                        <button mat-icon-button color="primary" [matTooltip]="translateService.translate?.instant('APPS.ACTIONS.UPDATE_TOOLTIP')"
-                                (click)="launchmodal(getFormData()?.Items[i], '60%')">
-                            <mat-icon>create</mat-icon>
-                        </button>&nbsp;
-                        <button mat-icon-button color="warn" [matTooltip]="translateService.translate?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
-                                type="button" (click)="askDelete(getFormData()?.Items[i])">
-                            <mat-icon>delete</mat-icon>
-                        </button>&nbsp;
+                        <app-table-update-button (click)="launchmodal(getFormData()?.Items[i], '60%')"></app-table-update-button>&nbsp;
+                        <app-table-delete-button (click)="askDelete(getFormData()?.Items[i])"></app-table-delete-button>
                     </clv-td>
 
                 </clv-tr>
@@ -34,10 +28,7 @@
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
         <div></div>
         <div>
-            <button mat-raised-button class="bg-primary" type="button"
-                    mat-dialog-close>
-                {{translateService?.translate?.instant('APPS.ACTIONS.CLOSE')}}
-            </button>
+            <app-modal-close-button mat-dialog-close></app-modal-close-button>
         </div>
     </div>
 </app-modal-template>

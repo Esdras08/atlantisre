@@ -14,6 +14,8 @@ import {CiviliteFormModule} from '../../forms/civilite/civilite.form.module';
 import {PieceIdentiteFormModule} from '../../forms/typepieceidentite/pieceIdentite.form.module';
 import {PaysFormModule} from '../../forms/pays/pays.form.module';
 import {FormeJuridiqueFormModule} from '../../forms/formejuridique/formeJuridique.form.module';
+import {FilialeFormModule} from '../../forms/filiale/filiale.form.module';
+import {PersonneMoraleModalFeatureComponent} from './personne-modal/personne-morale-modal.feature.component';
 
 @NgModule({
     imports: [
@@ -29,16 +31,17 @@ import {FormeJuridiqueFormModule} from '../../forms/formejuridique/formeJuridiqu
         CiviliteFormModule,
         PieceIdentiteFormModule,
         PaysFormModule,
-        FormeJuridiqueFormModule
+        FormeJuridiqueFormModule,
+        FilialeFormModule
     ],
     declarations: [
-        PersonneFeatureComponent, PersonneModalFeatureComponent
+        PersonneFeatureComponent, PersonneModalFeatureComponent, PersonneMoraleModalFeatureComponent
     ],
     exports: [
-        PersonneFeatureComponent, PersonneModalFeatureComponent
+        PersonneFeatureComponent, PersonneModalFeatureComponent, PersonneMoraleModalFeatureComponent
     ],
     entryComponents: [
-        PersonneModalFeatureComponent
+        PersonneModalFeatureComponent, PersonneMoraleModalFeatureComponent
     ],
     providers: [{ provide: HTTP_INTERCEPTORS, useClass: ServerURLInterceptor, multi: true}]
 })

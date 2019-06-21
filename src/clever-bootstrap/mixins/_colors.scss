@@ -41,6 +41,14 @@
       @include color(contrast-color(lighten(theme-color($key), 20%)) !important);
       @include background(lighten(theme-color($key), 20%) !important);
     }
+    .#{$prefix}-bg-#{$key}-light-1 {
+      @include color(contrast-color(lighten(theme-color($key), 30%)) !important);
+      @include background(lighten(theme-color($key), 30%) !important);
+    }
+    .#{$prefix}-bg-#{$key}-light-2 {
+      @include color(contrast-color(lighten(theme-color($key), 40%)) !important);
+      @include background(lighten(theme-color($key), 40%) !important);
+    }
     .#{$prefix}-bg-#{$key}-dark {
       @include color(contrast-color(darken(theme-color($key), 20%)) !important);
       @include background(darken(theme-color($key), 20%) !important);

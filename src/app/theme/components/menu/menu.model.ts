@@ -7,4 +7,4 @@ export class Menu {
                 public target: string,
                 public hasSubMenu: boolean,
                 public parentId: number) { }
-} 
+}

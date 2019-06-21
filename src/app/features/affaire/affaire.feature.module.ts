@@ -14,6 +14,8 @@ import {BrancheFormModule} from '../../forms/branche/branche.form.module';
 import {FilialeFormModule} from '../../forms/filiale/filiale.form.module';
 import {StatutAffaireFormModule} from '../../forms/statut-affaire/statut-affaire.form.module';
 import {AssureFormModule} from '../../forms/assure/assure.form.module';
+import {AffaireListeFeatureComponent} from './affaire-liste/affaire-liste.feature.component';
+import {CoreModule} from '../../core/core.module';
 
 @NgModule({
     imports: [
@@ -29,12 +31,13 @@ import {AssureFormModule} from '../../forms/assure/assure.form.module';
         FilialeFormModule,
         StatutAffaireFormModule,
         AssureFormModule,
+        CoreModule,
     ],
     declarations: [
-        AffaireFeatureComponent, AffaireModalFeatureComponent, AffaireCardFeatureComponent
+        AffaireFeatureComponent, AffaireModalFeatureComponent, AffaireCardFeatureComponent, AffaireListeFeatureComponent
     ],
     exports: [
-        AffaireFeatureComponent, AffaireModalFeatureComponent, AffaireCardFeatureComponent
+        AffaireFeatureComponent, AffaireModalFeatureComponent, AffaireCardFeatureComponent, AffaireListeFeatureComponent
     ],
     entryComponents: [
         AffaireFeatureComponent, AffaireModalFeatureComponent

@@ -14,7 +14,6 @@ import {SecteuractiviteFeatureModule} from '../../../features/secteuractivite/se
 import {ProfessionFeatureModule} from '../../../features/profession/profession.feature.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {BrancheFeatureModule} from '../../../features/branche/branche.feature.module';
-import {AssureFeatureModule} from '../../../features/assure/assure.feature.module';
 import {FilialeFeatureModule} from '../../../features/filiale/filiale.feature.module';
 import {ReassureurFeatureModule} from '../../../features/reassureur/reassureur.feature.module';
 import {TraiteFeatureModule} from '../../../features/traite/traite.feature.module';
@@ -25,6 +24,7 @@ import {TypeProcessusFeatureModule} from '../../../features/type-processus/type-
 import {EtapeProcessusFeatureModule} from '../../../features/etape-processus/etape-processus.feature.module';
 import {SuiviProcessusFeatureModule} from '../../../features/suivi-processus/suivi-processus.feature.module';
 import {CategorieProcessusFeatureModule} from '../../../features/categorie-processus/categorie-processus.feature.module';
+import {PersonneFeatureModule} from '../../../features/personne/personne.feature.module';
 /*function Declarations() {
     return [
 
@@ -46,7 +46,6 @@ const routes: Routes = [
         MatDialogModule,
         HttpClientModule,
         LoadingBarHttpClientModule,
-        AssureFeatureModule,
         BrancheFeatureModule,
         FilialeFeatureModule,
         ReassureurFeatureModule,
@@ -63,7 +62,8 @@ const routes: Routes = [
         TypeProcessusFeatureModule,
         EtapeProcessusFeatureModule,
         SuiviProcessusFeatureModule,
-        CategorieProcessusFeatureModule
+        CategorieProcessusFeatureModule,
+        PersonneFeatureModule
     ],
     exports: [],
     declarations: [

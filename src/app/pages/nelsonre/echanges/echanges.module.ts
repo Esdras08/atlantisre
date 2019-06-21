@@ -16,6 +16,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {EchangesComponent} from './echanges.component';
 import {PipesModule} from '../../../theme/pipes/pipes.module';
 import {QuillModule} from 'ngx-quill';
+import {EchangeFeatureModule} from '../../../features/echanges/echange.feature.module';
 /*function Declarations() {
     return [
 
@@ -45,7 +46,8 @@ const routes: Routes = [
         SecteuractiviteFeatureModule,
         ProfessionFeatureModule,
         PipesModule,
-        QuillModule
+        QuillModule,
+        EchangeFeatureModule
     ],
     exports: [],
     declarations: [

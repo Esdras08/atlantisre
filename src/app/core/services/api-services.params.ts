@@ -65,7 +65,8 @@ export const API = {
     },
     AFFAIRE: {
         GET: 'GetAffairesByCriteria',
-        SET: 'SaveAffaires'
+        SET: 'SaveAffaires',
+
     },
     STATUT_AFFAIRE: {
         GET: 'GetStatutAffairesByCriteria',
@@ -122,5 +123,9 @@ export const API = {
     PLACEMENT_EN_FAC: {
         GET: 'GetDemandePlacementFacultativesByCriteria',
         SET: 'SaveDemandePlacementFacultatives'
-    }
+    },
+    SCHEMA_PLACEMENT_EN_FAC: {
+        GET: 'GetDemandePlacementFacultativesByCriteria',
+        SET: 'SaveDemandePlacementFacultatives'
+    },
 };

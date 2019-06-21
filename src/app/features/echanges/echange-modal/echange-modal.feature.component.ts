@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {MessageShowerAlertImpl, MessageShowerSnakeBarImpl, MessageShowerToastImpl, RequestMethod} from 'clv-angular-boot';
 import {HttpClient} from '@angular/common/http';
@@ -7,44 +7,33 @@ import {WebServicesUtilities} from '../../../core/utilities/web-services.utiliti
 import {ERP} from '../../../core/services/erp.params';
 import {API} from '../../../core/services/api-services.params';
 import {TranslateService} from '@ngx-translate/core';
-import {FilialeComboComponent} from '../../../forms/filiale/filiale.combo.component';
-import {AssureModel} from '../../../core/models/assure.model';
-import {PersonneComboComponent} from '../../../forms/personne/personne.combo.component';
+import {BrancheModel} from '../../../core/models/branche.model';
 
 // @dynamic
 @Component({
-    selector: 'app-assure-modal',
-    templateUrl: './assure-modal.feature.component.html',
+    selector: 'app-echange-modal',
+    templateUrl: './echange-modal.feature.component.html',
     providers: []
 })
-export class AssureModalFeatureComponent extends SgiModalForm implements OnInit {
-    @ViewChild(FilialeComboComponent) devise: FilialeComboComponent;
-    @ViewChild(PersonneComboComponent) personne: PersonneComboComponent;
-    filialeIv: any;
-    personneIv: any;
-
+export class EchangeModalFeatureComponent extends SgiModalForm implements  OnInit {
     constructor(public httpRequest: HttpClient,
                 public toast: MessageShowerToastImpl,
                 public alert: MessageShowerAlertImpl,
                 public snakeBar: MessageShowerSnakeBarImpl,
                 @Inject(MAT_DIALOG_DATA) public data: any,
-                public dialogRef: MatDialogRef<AssureModalFeatureComponent>,
+                public dialogRef: MatDialogRef<EchangeModalFeatureComponent>,
                 public translateService: TranslateService) {
         super(httpRequest, toast, alert, snakeBar, dialogRef);
         this.dialogData = data;
-        try {
-            this.filialeIv = data.item.IdFiliale;
-            this.personneIv = data.item.IdPersonne;
-        } catch (e) {
-        }
     }
 
     beforeAll() {
         this.getRequestSetter()
-            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.ASSURE.SET))
+            .setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.BRANCHE.SET))
             .setMethod(RequestMethod.POST).setData({});
-        const model = new AssureModel();
+        const model = new BrancheModel();
         this.setModel(model);
     }
 
 }
+

@@ -1,12 +1,12 @@
 import {ClassBuilder, ModelImpl} from 'clv-angular-boot';
 import {Error} from 'tslint/lib/error';
-import {PersonneModel} from '../models/personne.model';
+import {AssureModel} from '../models/assure.model';
 
 export class ClassBuilderImpl implements ClassBuilder {
   getNewIntance(className: string): any {
     switch (className) {
-      case 'PersonneModel':
-        return new PersonneModel();
+      case 'AssureModel':
+        return new AssureModel();
         break;
       case 'GenericModel':
         return new ModelImpl();

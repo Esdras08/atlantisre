@@ -7,8 +7,8 @@ import {API} from '../../../core/services/api-services.params';
 import {AffaireModel} from '../../../core/models/affaire.model';
 
 @Component({
-    selector: 'app-re-liste-placement',
-    templateUrl: './liste-placements.component.html',
+    selector: 'app-re-ordonancement-placement',
+    templateUrl: './ordonancement-placements.component.html',
     styles: [`
         [role="listitem"]:hover {
             background: #F2F2F2;
@@ -18,7 +18,7 @@ import {AffaireModel} from '../../../core/models/affaire.model';
         }
     `]
 })
-export class ListePlacementsComponent implements OnInit {
+export class OrdonancementPlacementsComponent implements OnInit {
     private _placementsEnFac: any;
     private _enCours: any;
     private _pasEnCours: any;

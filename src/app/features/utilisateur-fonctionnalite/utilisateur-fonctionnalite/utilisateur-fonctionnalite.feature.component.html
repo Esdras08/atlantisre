@@ -1,6 +1,5 @@
 <div class="p-2" align="end">
-    <button mat-raised-button="" ngClass="bg-primary" (click)="launchmodal()"><mat-icon>control_point</mat-icon>&nbsp;
-        {{translateService?.instant('APPS.ACTIONS.ADD')}}</button>
+    <app-add-button (click)="launchmodal()"></app-add-button>
 </div>
 
 <form class="p-2" [formGroup]="getFormInstance()">
@@ -14,14 +13,8 @@
                 <clv-td align="center">{{getFormData()?.Items[i]?.CodeFonctionnalite}}</clv-td>
                 <clv-td align="center">{{getFormData()?.Items[i]?.Autorise}}</clv-td>
                 <clv-td align="center">
-                    <button mat-icon-button color="primary" [matTooltip]="translateService?.instant('APPS.ACTIONS.UPDATE_TOOLTIP')"
-                            (click)="launchmodal(getFormData()?.Items[i])">
-                        <mat-icon>create</mat-icon>
-                    </button>&nbsp;
-                    <button mat-icon-button color="warn" [matTooltip]="translateService?.instant('APPS.ACTIONS.DELETE_TOOLTIP')"
-                            type="button" (click)="askDelete(getFormData()?.Items[i])">
-                        <mat-icon>delete</mat-icon>
-                    </button>&nbsp;
+                    <app-table-update-button (click)="launchmodal(getFormData()?.Items[i])"></app-table-update-button>&nbsp;
+                    <app-table-delete-button (click)="askDelete(getFormData()?.Items[i])"></app-table-delete-button>&nbsp;
                 </clv-td>
 
             </clv-tr>

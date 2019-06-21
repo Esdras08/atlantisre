@@ -5,7 +5,7 @@ import {ERP} from '../services/erp.params';
 import {API} from '../services/api-services.params';
 
 // @dynamic
-export class TypeProcessusModel extends ModelImpl {
+export class CategorieProcessusModel extends ModelImpl {
 
     IdCategeorieProcessus: any;
     Libelle: string;
@@ -17,13 +17,13 @@ export class TypeProcessusModel extends ModelImpl {
             .addField(new ModelMaskFieldImpl<any>().setName('Libelle'));
     }
 
-    public static findById(httpClient: HttpClient, id: number) {
+    public static findById(httpClient: HttpClient, libelle: string) {
         const sender = new HttpRequestSender(httpClient);
         const request = new ClvHttpRequest();
         request.setMethod(RequestMethod.POST);
         request.setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.CATEGORIE_PROCESSUS.GET));
         request.setData({
-            ItemToSearch: {IdCategeorieProcessus: id}
+            ItemToSearch: {Libelle: libelle}
         });
         sender.setRequest(request);
         return sender.sendRequest();

@@ -3,6 +3,7 @@
         [params]="getTableParams()" [formArrayName]="getArrayName()"
         (page)="setPageParams($event)" (search)="setSearchParams($event)">
     <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">1. Part souscrite par la cédante:</clv-td>
         <clv-td align="center">100%</clv-td>
         <clv-td align="center">109 489 062 655</clv-td>
@@ -10,8 +11,10 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">Rétention:</clv-td>
         <clv-td align="center">0%</clv-td>
         <clv-td align="center"></clv-td>
@@ -19,8 +22,10 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">Cession legale .../ part filiale</clv-td>
         <clv-td align="center">6,50%</clv-td>
         <clv-td align="center">7 116 789 073</clv-td>
@@ -28,8 +33,10 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">Cession traité EDP/100%</clv-td>
         <clv-td align="center">0%</clv-td>
         <clv-td align="center"></clv-td>
@@ -37,8 +44,10 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
     </clv-tr>
     <clv-tr [params]="getTableParams()" [id]="2">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">Cession Facob/100%</clv-td>
         <clv-td align="center">0%</clv-td>
         <clv-td align="center"></clv-td>
@@ -46,8 +55,10 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
+        <clv-td align="center"></clv-td>
     </clv-tr>
-    <clv-tr [params]="getTableParams()" [id]="2">
+    <clv-tfoot class="clv-tfoot" [params]="getTableParams()">
+        <clv-td align="center"></clv-td>
         <clv-td align="center">Total hors cession FAC</clv-td>
         <clv-td align="center">6,50%</clv-td>
         <clv-td align="center">7 116 789 073</clv-td>
@@ -55,6 +66,7 @@
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
         <clv-td align="center"></clv-td>
-    </clv-tr>
+        <clv-td align="center"></clv-td>
+    </clv-tfoot>
 </clv-advanced-table>
 </form>

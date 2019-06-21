@@ -1,0 +1,30 @@
+<!--<div class="p-2" align="end">-->
+<!--    <app-add-button (click)="launchmodal()"></app-add-button>-->
+<!--</div>-->
+
+<form class="py-4 px-2" [formGroup]="getFormInstance()">
+    <clv-advanced-table
+            [params]="getTableParams()" [formArrayName]="getArrayName()"
+            (page)="setPageParams($event)" (search)="setSearchParams($event)">
+        <ng-container class="clv-tr" *ngFor="let elt of getFormInstance()?.get(getArrayName())?.controls;let i=index">
+            <clv-tr [params]="getTableParams()" [data]="getFormData()?.Items[i]" [formGroupName]="i" [id]="i">
+                <clv-td align="center">{{getFormData()?.Items[i]?.Libelle}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.LibelleNationnalite}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.LibelleNationnalite}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.LibelleNationnalite}}</clv-td>
+                <clv-td align="center">{{getFormData()?.Items[i]?.LibelleNationnalite}}</clv-td>
+                <clv-td align="center">
+                    <app-combo-re-statut-affaire
+                        #statuss name="Libelle"
+                        [(inputValue)]="statusIv"
+                        (onInputChange)="optionInputHasChanged($event)"></app-combo-re-statut-affaire>
+                </clv-td>
+                <clv-td align="center">
+                    <app-table-update-button (click)="launchmodal(getFormData()?.Items[i])"></app-table-update-button>&nbsp;
+                    <app-table-delete-button (click)="askDelete(getFormData()?.Items[i])"></app-table-delete-button>&nbsp;
+                </clv-td>
+
+            </clv-tr>
+        </ng-container>
+    </clv-advanced-table>
+</form>

@@ -27,7 +27,7 @@ export class FilialeModel extends ModelImpl {
         const sender = new HttpRequestSender(httpClient);
         const request = new ClvHttpRequest();
         request.setMethod(RequestMethod.POST);
-        request.setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.BRANCHE.GET));
+        request.setUrl(WebServicesUtilities.getSimpleUrl2(ERP.UrlControlers.Generated, API.FILIALE.GET));
         request.setData({
             ItemToSearch: {IdFiliale: id}
         });

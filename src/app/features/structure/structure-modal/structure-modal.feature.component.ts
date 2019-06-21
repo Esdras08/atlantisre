@@ -31,6 +31,7 @@ export class StructureModalFeatureComponent extends SgiModalForm implements  OnI
                 public translateService: TranslateService) {
         super(httpRequest, toast, alert, snakeBar, dialogRef);
         this.dialogData = data;
+        this.numberFields = ['CapitalSocial'];
         try {
             this.deviseIv = data.item.IdDevise;
             this.paysIv = data.item.Pay.Libelle;
@@ -50,5 +51,4 @@ export class StructureModalFeatureComponent extends SgiModalForm implements  OnI
         const model = new StructureModel();
         this.setModel(model);
     }
-
 }

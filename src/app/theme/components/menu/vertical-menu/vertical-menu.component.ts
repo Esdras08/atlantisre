@@ -10,6 +10,8 @@ import {MenuService} from '../menu.service';
     encapsulation: ViewEncapsulation.None,
     providers: [MenuService]
 })
+
+
 export class VerticalMenuComponent implements OnInit, AfterViewInit {
     @Input('menuItems') menuItems;
     @Input('menuParentId') menuParentId;
@@ -37,3 +39,4 @@ export class VerticalMenuComponent implements OnInit, AfterViewInit {
     }
 
 }
+

@@ -2,14 +2,14 @@
     <form class="body" [formGroup]="getFormInstance()" ngNativeValidate>
         <div fxLayout="row wrap" fxLayoutGap="10px" class="control">
             <!--field-->
-            <div fxFlex.md="100" fxFlex.lg="100">
+           <!-- <div fxFlex.md="100" fxFlex.lg="100">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput [placeholder]="translateService?.instant('AFFAIRE.FORM.NUMERO_ORDRE.PLACEHOLDER')" required
                            formControlName="NumeroOrdre">
                     <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.NUMERO_ORDRE.HINT')}}</mat-hint>
                 </mat-form-field>
                 <app-form-error-list [submitted]="submitted" name="NumeroOrdre" [formGroup]="getFormInstance()"></app-form-error-list>
-            </div>
+            </div>-->
             <!--end field-->
             <!--field-->
             <div fxFlex.md="100" fxFlex.lg="100">
@@ -26,6 +26,7 @@
             <div fxFlex.md="100" fxFlex.lg="100">
                 <mat-form-field class="mat-form-field-fluid">
                     <input matInput
+                           app-decimal-format
                            [placeholder]="translateService?.instant('AFFAIRE.FORM.CAPITAUX_ASSURE.PLACEHOLDER')"
                            formControlName="CapitauxAssure" required>
                     <mat-hint align="start">{{translateService?.instant('AFFAIRE.FORM.CAPITAUX_ASSURE.HINT')}}</mat-hint>
@@ -92,13 +93,8 @@
     <div class="footer w-100" [style.justify-content]="'space-between'" [style.display]="'flex'">
         <div></div>
         <div>
-            <button mat-raised-button class="bg-primary" type="button"
-                    (click)="sendForm()">
-                {{translateService?.instant('APPS.ACTIONS.SAVE')}}
-            </button>&nbsp;
-            <button mat-raised-button mat-dialog-close type="button" cdkFocusInitial class="bg-dark" (click)="closeModal()">
-                {{translateService?.instant('APPS.ACTIONS.CANCEL')}}
-            </button>
+            <app-save-button (click)="sendForm()"></app-save-button>&nbsp;
+            <app-cancel-button mat-dialog-close cdkFocusInitial (click)="closeModal()"></app-cancel-button>
         </div>
     </div>
 </app-modal-template>

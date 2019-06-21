@@ -24,3 +24,4 @@ export class HorizontalMenuComponent implements OnInit {
   }
 
 }
+
