@@ -8,6 +8,7 @@ import {ERP} from '../../../core/services/erp.params';
 import {API} from '../../../core/services/api-services.params';
 import {TranslateService} from '@ngx-translate/core';
 import {BrancheModel} from '../../../core/models/branche.model';
+import {SgiModalDocForm} from '../../../core/behaviors/sgi-modal-doc-form';
 
 // @dynamic
 @Component({
@@ -15,7 +16,7 @@ import {BrancheModel} from '../../../core/models/branche.model';
     templateUrl: './echange-modal.feature.component.html',
     providers: []
 })
-export class EchangeModalFeatureComponent extends SgiModalForm implements  OnInit {
+export class EchangeModalFeatureComponent extends SgiModalDocForm implements  OnInit {
     constructor(public httpRequest: HttpClient,
                 public toast: MessageShowerToastImpl,
                 public alert: MessageShowerAlertImpl,
@@ -25,6 +26,10 @@ export class EchangeModalFeatureComponent extends SgiModalForm implements  OnIni
                 public translateService: TranslateService) {
         super(httpRequest, toast, alert, snakeBar, dialogRef);
         this.dialogData = data;
+    }
+
+    ngOnInit(): void {
+        super.ngOnInit();
     }
 
     beforeAll() {

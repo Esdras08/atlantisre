@@ -12,7 +12,7 @@
                 <h4>Liste des documents</h4>
                 <mat-list>
                     <mat-list-item *ngFor="let doc of [0,1,2,3,4]">
-                        Document1.pdf <app-table-delete-button></app-table-delete-button>
+                        Document1.pdf <app-table-delete-button (click)="askDelete(doc)"></app-table-delete-button>
                     </mat-list-item>
                 </mat-list>
                 <div>
